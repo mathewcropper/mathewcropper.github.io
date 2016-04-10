@@ -253,6 +253,11 @@ iframe {
   max-width: 100%;
 }
 
+hr {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 @media print, screen and (max-width: 960px) {
 
   div.wrapper {
