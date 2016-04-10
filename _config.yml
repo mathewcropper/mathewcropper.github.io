@@ -1,2 +1,4 @@
 name: Mathew Cropper
 markdown: kramdown
+gems: jekyll-paginate
+paginate: 5
