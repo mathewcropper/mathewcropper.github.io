@@ -20,7 +20,7 @@ h1 {
 	color: #FFFFFF;
 	font-size: 26px;
 }
-h2, h3, h4, h5, h6, p, blockquote p, ul {
+h2, h3, h4, h5, h6, p, blockquote p, ul, ol {
 	font-family: 'Lato', sans-serif;
 	color: #FFFFFF;
 }
@@ -37,7 +37,7 @@ p, blockquote p, ul {
 	line-height: 1.428;
 	font-weight: 300;
 }
-p a, p a:hover, ul a, ul a:hover {
+p a, p a:hover, ul a, ul a:hover, ol a, ol a:hover {
 	color: #EDC951;
 	text-decoration: none;
 }
