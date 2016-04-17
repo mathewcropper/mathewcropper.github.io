@@ -4,11 +4,10 @@ layout: default
 
 <div class="container-fluid">
   <div class="container">
-	<!-- This loops through the paginated posts -->
 		<div class="row">
 		  <div class="col-md-8 col-md-offset-2 mc-margin-bottom-50">
 			  <h3>{{ page.title }}</h3>
-			  <p><small>{{ post.date | date_to_string }}</small></p> 
+			  <p><small>{{ page.date | date_to_string }}</small></p>
 			  <p>
 				  {{ content }}
 			  </p>
