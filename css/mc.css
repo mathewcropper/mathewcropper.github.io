@@ -1,11 +1,22 @@
 /*
+	List colours from scheme
+	
+	Blue: #00A0B0
+	Brown: #6A4A3C
+	Red: #CC333F
+	Orange: #EB6841
+	Yellow: #EDC951
+*/
+
+
+/*
 	Typography overrides
 */
 h1 {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 900;
 }
-h2, h3, h4, h5, h6, p, blockquote p {
+h2, h3, h4, h5, h6, p, blockquote p, ul {
 	font-family: 'Lato', sans-serif;
 }
 h1 a, h1 a:hover {
@@ -19,6 +30,11 @@ h4 a, h4 a:hover {
 blockquote p {
 	font-size: 14px;
 	line-height: 1.428;
+}
+p a, p a:hover, ul a, ul a:hover {
+	color: #00A0B0;
+	text-decoration: none;
+	font-weight: 700;
 }
 .mc-100 {
 	font-weight: 100;
@@ -35,10 +51,28 @@ blockquote p {
 .mc-900 {
 	font-weight: 900;
 }
+.mc-text-white, .mc-text-white a, .mc-text-white a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.well {
+	color: #FFFFFF;
+}
+span.previous, span.next {
+	display: none;
+}
+a.previous, a.previous:hover, a.next, a.next:hover {
+	color: #EDC951;
+	text-decoration: none;
+	font-weight: 700;
+}
 
 /*
 	Layout overrides
 */
+.mc-padding-top-20 {
+	padding-top: 20px;
+}
 .mc-margin-top-20 {
 	margin-top: 20px;
 }
@@ -51,20 +85,34 @@ blockquote p {
 .mc-margin-bottom-50 {
 	margin-bottom: 50px;
 }
-
 iframe, img {
 	max-width: 100%;
 }
-
+.spacer {
+	min-height: 30px;
+}
 
 /*
 	Styling overrides
 */
-.mc-border-top {
-	border-top: 1px solid #E9E9E9;
+.mc-bg-blue {
+	background-color: #00A0B0;
 }
-.mc-bg- {
-	background-color: #;
+.mc-bg-brown {
+	background-color: #6A4A3C;
+}
+.mc-bg-red {
+	background-color: #CC333F;
+}
+.mc-bg-orange {
+	background-color: #EB6841;
+}
+.mc-bg-yellow {
+	background-color: #EDC951;
+}
+.well {
+	border: none;
+	background-color: #00A0B0;
 }
 
 /*
