@@ -4,8 +4,24 @@ title: Mathew Cropper's blog
 ---
 
 	<ul class="posts">
-
+	{% cycle 'one', 'two', 'three' %}
 	  {% for post in site.posts %}
+	    <li>Cycle One</li>
+	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	  {% endfor %}
+	{% cycle 'one', 'two', 'three' %}
+	  {% for post in site.posts %}
+	  <li>Cycle Two</li>
+	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	  {% endfor %}
+	{% cycle 'one', 'two', 'three' %}
+	  {% for post in site.posts %}
+	  <li>Cycle Three</li>
+	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	  {% endfor %}
+	{% cycle 'one', 'two', 'three' %}
+	  {% for post in site.posts %}
+	  <li>Back To Cycle One</li>
 	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 	  {% endfor %}
 	</ul>
