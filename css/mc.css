@@ -32,7 +32,7 @@ blockquote p {
 	line-height: 1.428;
 }
 p a, p a:hover, ul a, ul a:hover {
-	color: #00A0B0;
+	color: #000000;
 	text-decoration: none;
 	font-weight: 700;
 }
@@ -62,7 +62,7 @@ span.previous, span.next {
 	display: none;
 }
 a.previous, a.previous:hover, a.next, a.next:hover {
-	color: #EDC951;
+	color: #00A0B0;
 	text-decoration: none;
 	font-weight: 700;
 }
@@ -85,7 +85,11 @@ a.previous, a.previous:hover, a.next, a.next:hover {
 .mc-margin-bottom-50 {
 	margin-bottom: 50px;
 }
-iframe, img {
+iframe {
+	max-width: 100%;
+	max-height: 200px;
+}
+img {
 	max-width: 100%;
 }
 .spacer {
@@ -110,9 +114,15 @@ iframe, img {
 .mc-bg-yellow {
 	background-color: #EDC951;
 }
+.mc-border-bottom-red {
+	border-bottom: 5px solid #CC333F;
+}
 .well {
 	border: none;
 	background-color: #E9E9E9;
+}
+.mc-rounded {
+	border-radius: 15px;
 }
 
 /*
