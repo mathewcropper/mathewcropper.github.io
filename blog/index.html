@@ -1,10 +1,21 @@
 ---
 layout: default
-title: Mathew Cropper's blog
+title: Mathew Cropper - Blog archive
 ---
 
-	<ul class="posts">
-	  {% for post in site.posts %}
-	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-	  {% endfor %}
-	</ul>
+<div class="container-fluid">
+  <div class="container">
+	<!-- This loops through the paginated posts -->
+		<div class="row">
+		  <div class="col-md-12 mc-margin-bottom-50">
+			  <p>
+				  <ul class="posts">
+					  {% for post in site.posts %}
+					    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+					  {% endfor %}
+					</ul>
+			  </p>
+		  </div>
+		</div>
+  </div>
+</div>
