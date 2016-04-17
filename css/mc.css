@@ -12,19 +12,24 @@
 /*
 	Typography overrides
 */
+body {
+	background-color: #F8F8F8;
+}
 h1 {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 900;
+	color: #333333;
 }
 h2, h3, h4, h5, h6, p, blockquote p, ul {
 	font-family: 'Lato', sans-serif;
+	color: #333333;
 }
 h1 a, h1 a:hover {
-	color: #000000;
+	color: #333333;
 	text-decoration: none;
 }
 h4 a, h4 a:hover {
-	color: #000000;
+	color: #CC333F;
 	text-decoration: none;
 }
 blockquote p {
@@ -32,7 +37,7 @@ blockquote p {
 	line-height: 1.428;
 }
 p a, p a:hover, ul a, ul a:hover {
-	color: #000000;
+	color: #00A0B0;
 	text-decoration: none;
 	font-weight: 700;
 }
@@ -62,7 +67,7 @@ span.previous, span.next {
 	display: none;
 }
 a.previous, a.previous:hover, a.next, a.next:hover {
-	color: #00A0B0;
+	color: #CC333F;
 	text-decoration: none;
 	font-weight: 700;
 }
