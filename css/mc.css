@@ -32,8 +32,8 @@ h4 a, h4 a:hover {
 	color: #333333;
 	text-decoration: none;
 }
-blockquote p {
-	font-size: 14px;
+p, blockquote p, ul {
+	font-size: 18px;
 	line-height: 1.428;
 }
 p a, p a:hover, ul a, ul a:hover {
