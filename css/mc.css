@@ -56,7 +56,7 @@ p a, p a:hover, ul a, ul a:hover {
 	text-decoration: none;
 }
 .well {
-	color: #FFFFFF;
+	color: #000000;
 }
 span.previous, span.next {
 	display: none;
@@ -112,7 +112,7 @@ iframe, img {
 }
 .well {
 	border: none;
-	background-color: #00A0B0;
+	background-color: #E9E9E9;
 }
 
 /*
