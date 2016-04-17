@@ -10,7 +10,7 @@ title: Mathew Cropper's blog
 	    {% elseif forloop.index == 2 %}
 	    <li>Two</li>
 	    {% else %}
-	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	    <li><span>{{ forloop.index }} {{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 	    {% endif %}
 	  {% endfor %}
 	</ul>
