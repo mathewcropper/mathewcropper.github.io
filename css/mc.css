@@ -1,0 +1,68 @@
+/*
+	Typography overrides
+*/
+.mc-light {
+	font-weight: 300;
+}
+.mc-normal {
+	font-weight: 400;
+}
+.mc-semi-bold {
+	font-weight: 600;
+}
+.mc-bold {
+	font-weight: 700;
+}
+.mc-extra-bold {
+	font-weight: 800;
+}
+.mc-text-white {
+	color: #FFFFFF;
+}
+.mc-bg-yellow h3 a {
+	color: #333333;
+}
+.mc-bg-yellow p a {
+	color: #333333;
+	font-weight: 700;
+}
+
+/*
+	Layout overrides
+*/
+.mc-margin-top-20 {
+	margin-top: 20px;
+}
+.mc-margin-bottom-20 {
+	margin-bottom: 20px;
+}
+.mc-margin-bottom-30 {
+	margin-bottom: 30px;
+}
+.mc-margin-bottom-50 {
+	margin-bottom: 50px;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+/*
+	Styling overrides
+*/
+.mc-bg-grey {
+	background-color: #333333;
+}
+.mc-bg-yellow {
+	background-color: #EFFAB4;
+}
+
+/*
+	Additional components
+*/
+.chip {
+	display:inline-block;height:32px;font-size:13px;font-weight:500;color:rgba(0,0,0,0.6);line-height:32px;padding:0 12px;border-radius:16px;background-color:#e4e4e4;
+}
+.chip img {
+	float:left;margin:0 8px 0 -12px;height:32px;width:32px;border-radius:50%;
+}
