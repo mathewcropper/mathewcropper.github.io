@@ -6,11 +6,6 @@ title: Mathew Cropper's blog
 	<ul class="posts">
 
 	  {% for post in site.posts %}
-	  {% if forloop.index == 1 %}
-	    <li>Loop 1</li>
-	  {% elseif forloop.index == 2 %}
-	    <li>Loop 2</li>
-	  {% else %}
 	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 	  {% endfor %}
 	</ul>
