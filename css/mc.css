@@ -43,9 +43,10 @@
 	margin-bottom: 50px;
 }
 
-iframe {
+iframe, img {
 	max-width: 100%;
 }
+
 
 /*
 	Styling overrides
