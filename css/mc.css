@@ -13,33 +13,34 @@
 	Typography overrides
 */
 body {
-	background-color: #F8F8F8;
+	background-color: #333333;
 }
 h1 {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 900;
-	color: #333333;
+	font-family: 'Permanent Marker', cursive;
+	color: #FFFFFF;
+	font-size: 40px;
 }
 h2, h3, h4, h5, h6, p, blockquote p, ul {
 	font-family: 'Lato', sans-serif;
-	color: #333333;
+	color: #FFFFFF;
 }
 h1 a, h1 a:hover {
-	color: #333333;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 h4 a, h4 a:hover {
-	color: #333333;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 p, blockquote p, ul {
 	font-size: 18px;
 	line-height: 1.428;
+	font-weight: 100;
 }
 p a, p a:hover, ul a, ul a:hover {
 	color: #00A0B0;
 	text-decoration: none;
-	font-weight: 700;
+	font-weight: 300;
 }
 .mc-100 {
 	font-weight: 100;
