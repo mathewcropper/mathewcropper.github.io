@@ -5,29 +5,22 @@ title: Mathew Cropper
 
 <div class="container-fluid">
   <div class="container">
+	
 	<!-- This loops through the paginated posts -->
-		<div class="row">
-		{% for post in paginator.posts limit: 3 %}
-		  <div class="col-md-4 mc-margin-bottom-30 mc-padding-top-20">
-			  <h4 class="text-uppercase mc-300"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-			  <p class="mc-100"><small>{{ post.date | date_to_string }}</small></p> 
+	{% for post in paginator.posts %}
+		<div class="row mc-margin-top-50">
+		  <div class="col-md-6 col-md-offset-3">
+			  <h3 class="text-uppercase mc-text-900 mc-text-black"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+			  <p class="mc-text-100"><small>{{ post.date | date_to_string }}</small></p> 
+			  <p>
+				  {{ post.excerpt }}
+			  </p>
 			  <a class="btn btn-default btn-xs" href="{{ post.url }}" role="button">more &raquo;</a>
 		  </div>
-		{% endfor %}
 		</div>
+	{% endfor %}
 		
 		<div class="spacer hidden-xs hidden-sm"></div>
-
-		<div class="row">
-		{% for post in paginator.posts limit: 3 offset: 3 %}
-		  <div class="col-md-4 mc-margin-bottom-30 mc-padding-top-20">
-			  <h4 class="text-uppercase mc-300"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-			  <p class="mc-100"><small>{{ post.date | date_to_string }}</small></p>
-			  <a class="btn btn-default btn-xs" href="{{ post.url }}" role="button">more &raquo;</a>
-		  </div>
-		{% endfor %}
-		</div>
-
 
 	</div>
 </div>
