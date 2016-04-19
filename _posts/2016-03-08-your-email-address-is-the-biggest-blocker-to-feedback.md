@@ -4,6 +4,8 @@ title: "Your email address is the biggest blocker to getting awesome feedback fr
 date: 2016-03-08
 ---
 
+<img src="../images/email_support.png" />
+
 We have all seen it. You are using an app, things are suddenly [FUBAR](https://en.wiktionary.org/wiki/FUBAR), and when you try to report it your email app opens up. Immediately, you know that this is going to suck, and you make a decision. Do I persevere, or do I just leave it?
 
 ### It's all about paper cuts
