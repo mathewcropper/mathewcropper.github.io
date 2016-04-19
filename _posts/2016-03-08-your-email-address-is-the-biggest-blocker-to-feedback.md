@@ -6,7 +6,7 @@ date: 2016-03-08
 
 We have all seen it. You are using an app, things are suddenly [FUBAR](https://en.wiktionary.org/wiki/FUBAR), and when you try to report it your email app opens up. Immediately, you know that this is going to suck, and you make a decision. Do I persevere, or do I just leave it?
 
-**It's all about paper cuts**
+### It's all about paper cuts
 
 Let me introduce you to the Paper Cut Ninja. When the app crashed the Ninja gave your user a paper cut. They got another paper cut when the email app opened. The Ninja issued another paper cut when the user saw a bunch of information pre-filled in the email, and didn't understand it.
 
@@ -14,7 +14,7 @@ There comes a point where there are just too many paper cuts, and your users giv
 
 As someone who is genuinely passionate about UX when people need help, this is devastating. Today, I want to focus on something else, though. What does this mean to your Product Manager?
 
-**Great product teams**
+### Great product teams
 
 The best product teams rely on all kinds of things, not least having a really great picture of how their customers use the product. That means understanding, amongst other things, the bits of the product that are difficult. They need to know when the Paper Cut Ninja is on the scene.
 
@@ -22,7 +22,7 @@ If your users are put off from sharing their problems, how do you expect to enco
 
 And that's the thing.. opening an email client is one of those things that causes multiple paper cuts every time, and is so easily avoided! Your user should be able to get help, and offer their feedback, with ease. It should be so easy to do that it takes no thought at all. No paper cuts.
 
-**Fighting ninjas with in-app support**
+### Fighting ninjas with in-app support
 
 Giving your users access to your support teams from within the app removes a whole bunch of unwanted paper cuts, and puts them at ease. 
 
@@ -36,7 +36,7 @@ There are a whole bunch of advantages when you do this:
 * Once the information is in your system, you can filter it to get it to the right people; support, or product teams.
 * Offering embedded support also gives you the opportunity to provide self-service options. Le Tote [reduced their chat traffic by a whopping 60%](http://gocrop.it/letote) by offering an embedded knowledgebase search.
 
-**It's easy**
+### It's easy
 
 If you're using a third party for your support, the chances are that they offer some way to do that. Take a look at what's on offer by your provider.
 
