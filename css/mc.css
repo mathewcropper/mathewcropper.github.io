@@ -47,6 +47,9 @@ hr {
 .mc-bg-index {
 	background-color: #02779E;
 }
+.mc-bg-archive {
+	background-color: #FFE500;
+}
 .mc-pad-index {
 	padding-top: 20px;
 	padding-bottom: 20px;
