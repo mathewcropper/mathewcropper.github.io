@@ -2,27 +2,28 @@
 layout: default
 title: Mathew Cropper
 ---
+{% if paginator.page <2 %}
+{% include header.html %}
+{% else %}
+<div class="spacer40"></div>
+{% endif %}
 
 <div class="container-fluid">
   <div class="container">
 	
 	<!-- This loops through the paginated posts -->
 	{% for post in paginator.posts %}
-		<div class="row mc-margin-top-50">
-		  <div class="col-md-6 col-md-offset-3">
-			  <h3 class="text-uppercase mc-text-900 mc-text-black"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-			  <p class="mc-text-100"><small>{{ post.date | date_to_string }}</small></p> 
-			  <p>
-				  {{ post.excerpt }}
-			  </p>
-			  <a class="btn btn-default btn-xs" href="{{ post.url }}" role="button">more &raquo;</a>
+		<div class="row">
+		  <div class="col-md-8 col-md-offset-2">
+			  <p class="mc-index-list-text"><a href="{{ post.url }}">{{ post.title }} &raquo;</a></p>
 		  </div>
 		</div>
 	{% endfor %}
-		
-		<div class="spacer hidden-xs hidden-sm"></div>
-
 	</div>
 </div>
 
+<div class="spacer40"></div>
+
 {% include pagination.html %}
+
+<div class="spacer40"></div>
