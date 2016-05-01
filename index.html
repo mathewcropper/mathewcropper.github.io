@@ -4,26 +4,20 @@ title: Mathew Cropper
 ---
 {% if paginator.page <2 %}
 {% include header.html %}
-{% else %}
-<div class="spacer40"></div>
 {% endif %}
 
-<div class="container-fluid">
+<div class="container-fluid mc-bg-index mc-pad-index">
   <div class="container">
 	
 	<!-- This loops through the paginated posts -->
 	{% for post in paginator.posts %}
 		<div class="row">
 		  <div class="col-md-8 col-md-offset-2">
-			  <p class="mc-index-list-text"><a href="{{ post.url }}">{{ post.title }} &raquo;</a></p>
+			  <p class="mc-index-list-text mc-text-white"><a href="{{ post.url }}">{{ post.title }} &raquo;</a></p>
 		  </div>
 		</div>
 	{% endfor %}
 	</div>
 </div>
 
-<div class="spacer40"></div>
-
 {% include pagination.html %}
-
-<div class="spacer40"></div>
