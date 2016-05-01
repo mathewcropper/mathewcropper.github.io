@@ -124,6 +124,10 @@ hr {
 	padding-bottom: inherit;
 }
 
+.mc-archive-list li {
+	padding-bottom: 20px;
+}
+
 blockquote {
 	border-left: 5px #D70060 solid;
 	font-size: inherit;

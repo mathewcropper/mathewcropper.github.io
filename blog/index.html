@@ -19,7 +19,7 @@ title: Blog archive
 		<div class="row">
 		  <div class="col-md-8 col-md-offset-2 mc-post-text">
 			  <p>
-				  <ul class="posts list-unstyled">
+				  <ul class="posts list-unstyled mc-archive-list">
 					  {% for post in site.posts %}
 					    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 					  {% endfor %}
