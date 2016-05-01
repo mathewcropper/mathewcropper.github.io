@@ -1,7 +1,7 @@
 /*
 	COLOUR PALETTE
 	
-	dkblue #113F8C
+	dkblue #02779E
 	turquoise #01A4A4
 	ltblue #00A1CB
 	ltgreen #61AE24
@@ -41,7 +41,15 @@ hr {
 }
 
 .mc-bg-nav {
-  background-color: #E54028;
+  background-color: #333333;
+}
+
+.mc-bg-index {
+	background-color: #02779E;
+}
+.mc-pad-index {
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .mc-text-white, .mc-text-white a {
@@ -93,7 +101,7 @@ hr {
 	font-weight: inherit;
 	font-size: inherit;
 	padding-bottom: inherit;
-	color: #616161;
+	color: #FFFFFF;
 }
 
 .mc-post-text {
@@ -129,8 +137,8 @@ span.previous, span.next {
 
 .well {
 	border: none;
-	background-color: #01A4A4;
+	background-color: #FFFFFF;
 }
 .well a {
-	color: #FFFFFF;
+	color: #00A1CB;
 }
