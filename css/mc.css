@@ -4,13 +4,12 @@
 	dkblue #113F8C
 	turquoise #01A4A4
 	ltblue #00A1CB
-	dkgreen #32742C
 	ltgreen #61AE24
 	lime #D0D102
 	red #E54028
 	pink #D70060
-	orange #F18D05
 	grey #616161
+	white #FFFFFF
 */
 
 /*
@@ -90,6 +89,7 @@ hr {
 	font-weight: inherit;
 	font-size: inherit;
 	padding-bottom: inherit;
+	color: #616161;
 }
 
 .mc-post-text {
