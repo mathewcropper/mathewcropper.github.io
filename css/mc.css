@@ -92,7 +92,7 @@ hr {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-.popular p, .popular a {
+.popular p, .popular a, .popular a:hover {
 	color: #FFFFFF;
 }
 .popular p mark {
@@ -122,4 +122,14 @@ span.previous, span.next {
 
 .avatar img {
 	width: 200px;
+}
+
+/*
+	dropdown menu styling
+*/
+
+.social {
+	width: 20px;
+	margin-bottom: 0px;
+	margin-top: 0px;
 }
