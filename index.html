@@ -13,7 +13,6 @@ title: Mathew Cropper
 	  <!-- Space for sticky posts -->
 	  <div class="row">
 		  <div class="col-md-8 col-md-offset-2">
-			  <div class="well well-lg well-override-popular">
 				  <p class="">
 					  <mark>Popular</mark>
 					  <br />
@@ -22,10 +21,8 @@ title: Mathew Cropper
 				  <p class="">
 					  Understand why using domain modelling techniques, tracing user journeys, and building useful process maps, will help you build kick-ass To Be models.
 				  </p>
-			  </div>
 		  </div>
 		</div>
-
 	</div>
 </div>
 
@@ -35,17 +32,18 @@ title: Mathew Cropper
   <div class="container">
 	
 	<!-- This loops through the paginated posts -->
-	{% for post in paginator.posts %}
 		<div class="row">
 		  <div class="col-md-8 col-md-offset-2">
-			  <div class="well well-sm well-override">
-				  <p class="">
-					  <a href="{{ post.url }}">{{ post.title }} &raquo;</a>
-				  </p>
-			  </div>
+
+				  
+				<ul class="posts list-unstyled">
+				  {% for post in paginator.posts %}
+				    <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br /><span><small>{{ post.date | date_to_string }}</small></span><br /><br /></li>
+				  {% endfor %}
+				</ul>
+
 		  </div>
 		</div>
-	{% endfor %}
 	</div>
 </div>
 

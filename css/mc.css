@@ -87,23 +87,15 @@ hr {
 	index.html styling
 */
 
-.well-override {
-	border: none;
-	box-shadow: none;
-	background-color: #FFFFFF;
-}
 .popular {
 	background-color: #e74c3c;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
-.well-override-popular {
-	border: none;
-	box-shadow: none;
-	background-color: #e74c3c;
-}
-.well-override-popular p, .well-override-popular a {
+.popular p, .popular a {
 	color: #FFFFFF;
 }
-.well-override-popular p mark {
+.popular p mark {
 	font-size: smaller;
 	font-weight: 400;
 	background-color: inherit;
