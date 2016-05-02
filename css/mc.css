@@ -123,3 +123,13 @@ span.previous, span.next {
 .avatar img {
 	width: 200px;
 }
+
+/*
+	dropdown menu styling
+*/
+
+.social {
+	width: 20px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
