@@ -2,26 +2,19 @@
 layout: default
 title: Blog archive
 ---
-<div class="container-fluid mc-bg-archive">
-  <div class="container">
-	<!-- This loops through the paginated posts -->
-		<div class="row">
-		  <div class="col-md-8 col-md-offset-2 mc-post-text">
-			  <h3 class="text-center">ヽ(・∀・)ﾉ<br /><br />A list of everything</h3>
-		  </div>
-		</div>
-  </div>
-</div>
+
+{% include header_archive.html %}
+
+<div class="spacer40"></div>
 
 <div class="container-fluid">
   <div class="container">
-	<!-- This loops through the paginated posts -->
 		<div class="row">
-		  <div class="col-md-8 col-md-offset-2 mc-post-text">
+		  <div class="col-md-8 col-md-offset-2">
 			  <p>
-				  <ul class="posts list-unstyled mc-archive-list">
+				  <ul class="posts list-unstyled">
 					  {% for post in site.posts %}
-					    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+					    <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br /><span><small>{{ post.date | date_to_string }}</small></span><br /><br /></li>
 					  {% endfor %}
 					</ul>
 			  </p>
