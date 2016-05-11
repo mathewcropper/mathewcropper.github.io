@@ -35,4 +35,4 @@ end alfred_script
 
 ### Thanks
 
-Thanks go to user [fartheraway](http://apple.stackexchange.com/users/90351/fartheraway) for their Stack Exchange answer [here](http://apple.stackexchange.com/questions/178762/using-applescript-to-create-spaces-and-launch-apps)
+Thanks go to user [fartheraway](http://apple.stackexchange.com/users/90351/fartheraway) for their Stack Exchange answer [here](http://apple.stackexchange.com/questions/178762/using-applescript-to-create-spaces-and-launch-apps).
