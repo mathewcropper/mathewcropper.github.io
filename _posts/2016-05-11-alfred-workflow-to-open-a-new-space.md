@@ -10,7 +10,7 @@ I created an [Alfred](https://www.alfredapp.com) workflow to trigger Exposé and
 
 ### Download
 
-You're welcome to download the workflow [here](https://github.com/mathewcropper/mathewcropper.github.io/blob/master/assets/NewSpace.alfredworkflow?raw=true).
+<a class="btn btn-primary btn-lg" href="https://github.com/mathewcropper/mathewcropper.github.io/blob/master/assets/NewSpace.alfredworkflow?raw=true" role="button">Download the workflow here</a>
 
 ### How it works
 
