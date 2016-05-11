@@ -8,8 +8,6 @@ If you find yourself using Spaces a lot on Mac OS X, you may want a quicker way 
 
 I created an [Alfred](https://www.alfredapp.com) workflow to trigger Exposé and create a new Space, using the keyword `space`.
 
-### Download
-
 <a class="btn btn-primary btn-lg" href="https://github.com/mathewcropper/mathewcropper.github.io/blob/master/assets/NewSpace.alfredworkflow?raw=true" role="button">Download the workflow here</a>
 
 ### How it works
