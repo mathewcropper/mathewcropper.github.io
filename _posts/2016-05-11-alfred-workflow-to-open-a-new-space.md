@@ -16,10 +16,10 @@ You're welcome to download the workflow [here](https://github.com/mathewcropper/
 
 The workflow consists of two parts:
 
-1. Hotkey input
+1. Keyword input
 2. Applescript
 
-The input is a hotkey, set to `space` with no arguments.
+The input is a keyword, set to `space` with no arguments.
 
 The Applescript is as follows, and consists of the normal Alfred `on` and `end` statements, a call to a script to open Mission Control, and another to then add a new Space.
 
