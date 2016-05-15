@@ -12,6 +12,8 @@ Times have changed, my friend. Here's how to become the technical person your te
 
 ### You gotta code
 
+!(the matrix)[http://i.giphy.com/MgkBTmxt18lGg.gif]
+
 That's right! You are going to have to put the blood, sweat, and tears into learning how to code. 
 
 I've recently taken courses in Java, Objective-C, and Swift to improve my technical skills. It took about a month to get comfortable with each, dedicating a day every weekend, and a couple of hours three evenings a week. 
