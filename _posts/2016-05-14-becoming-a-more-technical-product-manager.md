@@ -34,9 +34,13 @@ Don't know how to use GitHub? Don't be embarrassed, and just ask. If you'd rathe
 
 This is important because it keeps your hands dirty, but also enormously improves your relationship with the team. They can see that you share an experience, rather than being the person who treats them as a black box. It allows you, again, to speak the lingo with confidence.
 
-Your commits don't have to be technical. Of the seven commits I made this week, only one was to code. The rest were documentation updates. 
+Your commits don't have to be technical. Of the various commits I made this week, only one was to code. The rest were documentation updates. 
 
-You can see my GitHub profile [here](https://github.com/mathewcropper). Disclaimer: you can only see my public activity.. You have to take my word for it on those commits ;)
+You can see my GitHub profile [here](https://github.com/mathewcropper). 
+
+![](/images/image.jpeg)
+
+Disclaimer: you can only see my public activity.. You have to take my word for it on those commits ;)
 
 ### Go to meet ups
 
