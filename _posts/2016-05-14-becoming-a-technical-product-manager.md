@@ -10,7 +10,7 @@ It's not enough to have a great vision, or to be a sound UX designer. You also h
 
 Times have changed, my friend. Here's how to become the technical person your team and customers will value and depend on.
 
-## You gotta code
+### You gotta code
 
 That's right! You are going to have to put the blood, sweat, and tears into learning how to code. 
 
@@ -24,7 +24,7 @@ On top of that, it gives you a whole new toolkit when discussing the direction o
 
 I am a massive fan of Udemy for online courses, although there are many other options out there. Udemy is cheap, and the courses are generally of excellent quality. I haven't been disappointed with one yet.
 
-## Commit at least twice a week
+### Commit at least twice a week
 
 Your team is using GitHub, or something similar, to version control their work and collaborate. You're on that team as well, so you should submit changes at least twice a week.
 
@@ -36,7 +36,7 @@ Your commits don't have to be technical. Of the seven commits I made this week, 
 
 You can see my GitHub profile [here](https://github.com/mathewcropper). Disclaimer: you can only see my public activity.. You have to take my word for it on those commits ;)
 
-## Go to meet ups
+### Go to meet ups
 
 Attend a meet up or two about tech. Hopefully, this is something you do already, but if not it's well worth your time. Keep your finger on the pulse. Let your team recommend to you the meet ups they enjoy.
 
@@ -44,7 +44,7 @@ When you first go, you'll get a lot of "oh, you're a PM?" That's alright, becaus
 
 Join a meet up website, like [meetup.com](http://www.meetup.com). It is almost impossible not to find something there that you'll find interesting.
 
-## Get a tattoo
+### Get a tattoo
 
 The only way to truly call yourself technical is to have the logo or mascot of your favourite technology tattooed onto your body.
 
