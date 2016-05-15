@@ -40,8 +40,6 @@ You can see my GitHub profile [here](https://github.com/mathewcropper).
 
 ![](/images/image.jpeg)
 
-Disclaimer: you can only see my public activity.. You have to take my word for it on those commits ;)
-
 ### Go to meet ups
 
 Attend a meet up or two about tech. Hopefully, this is something you do already, but if not it's well worth your time. Keep your finger on the pulse. Let your team recommend to you the meet ups they enjoy.
