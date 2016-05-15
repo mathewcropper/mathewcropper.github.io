@@ -24,11 +24,11 @@ Why? The confidence and credibility bump alone were worth it. When talking with 
 
 On top of that, it gives you a whole new toolkit when discussing the direction or your product in technical terms. You are now much less likely to pass technical responsibility on to others, or, at the very least, you will understand the direction of the discussion.
 
-I am a massive fan of Udemy for online courses, although there are many other options out there. Udemy is cheap, and the courses are generally of excellent quality. I haven't been disappointed with one yet.
+I am a massive fan of [Udemy](https://www.udemy.com) for online courses, although there are many other options out there. Udemy is cheap, and the courses are generally of excellent quality. I haven't been disappointed with one yet.
 
 ### Commit at least twice a week
 
-Your team is using GitHub, or something similar, to version control their work and collaborate. You're on that team as well, so you should submit changes at least twice a week.
+Your team is using [GitHub](https://github.com), or something similar, to version control their work and collaborate. You're on that team as well, so you should submit changes at least twice a week.
 
 Don't know how to use GitHub? Don't be embarrassed, and just ask. If you'd rather bone up on it yourself, there's a really great tutorial on the subject [here](https://guides.github.com/introduction/flow/).
 
