@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Becoming a technical Product Manager"
+title: "Becoming a more technical Product Manager"
 date: 2016-05-14
 ---
 
