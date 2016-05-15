@@ -12,7 +12,7 @@ Times have changed, my friend. Here's how to become the technical person your te
 
 ### You gotta code
 
-!()[http://i.giphy.com/MgkBTmxt18lGg.gif]
+![](http://i.giphy.com/MgkBTmxt18lGg.gif)
 
 That's right! You are going to have to put the blood, sweat, and tears into learning how to code. 
 
