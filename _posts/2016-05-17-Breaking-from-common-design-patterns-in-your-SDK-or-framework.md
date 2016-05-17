@@ -12,7 +12,9 @@ When you see this, you know that you are on the settings page of an app. You kno
 
 This is a familiar iOS design pattern, and people understand how navigation controllers work. When you change it, **you fuck with people's minds**.
 
-If you're building your own app, fucking with people's expectations like that may make sense. For example, the pattern you use may be the same across all your apps and sites. Your users may get it, and that's cool.
+If you're building your own app, messing with people's expectations like that may make sense. For example, the pattern you use may be the same across all your apps and sites. Your users may get it, and that's cool.
+
+### Building for the reasonable user
 
 What if you're building something that goes into someone else's app? Say, you're building an SDK or framework with a UI.. What then?
 
@@ -24,9 +26,13 @@ Unfortunately, I am a meanie and say no. Not without a great deal of soul search
 
 When I build a UI for common consumption, for many use cases, I build it for the average person. I choose to build it such that any average iOS user can pick it up and use it instinctively. For that reason, I don't mess with [Apple's human interface guidelines](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/). For this same reason (among others), our SDK requires a navigation controller.
 
+### Bring on the technical debt
+
 That in itself doesn't prevent us from allowing hacks, of course. Adding support for one UI hack sounds ok, but it's a downward spiral. It sets an unreasonable expectation of extensibility and support, in my opinion, and is a sure path to bloating the product. 
 
 Folks don't like that argument, but anyone who has built software in the past will know it to be true. That ten minute hack is the technical debt you will kick yourself for in six months. This isn't good for the people using the product, it isn't good for the app consuming the SDK, and it's a veritable nightmare for the supplier or open source community. 
+
+### Designing to give options (even if I don't like them)
 
 To get around this, we decided to build our SDK in a particular way:
 
