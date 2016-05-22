@@ -50,6 +50,7 @@ hr {
 
 .mc-valign-bubble { 
   display: table; 
+  width: 100%;
 }
 .mc-valign-bubble p {
   display: table-cell; 
