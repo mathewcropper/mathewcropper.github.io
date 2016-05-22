@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote p, ul, ol {
 
 p, a, span, ul, ol {
 	font-size: 20px;
-	color: ; /* Text colour here */
+	color: #333333; /* Text colour here */
 	font-weight: 200;
 }
 
@@ -90,8 +90,12 @@ hr {
 	background-color: #f1c40f;
 }
 .header-hero p {
-	font-size: 7vh;
-	line-height: 1;
+	font-size: 6vh;
+	line-height: 1.765;
+}
+.bg-white mark {
+	font-size: inherit;
+	background-color: rgba(255,255,255,0.8);
 }
 
 /*
