@@ -10,6 +10,8 @@ Check out the blog post for the 2015 cup [here](https://www.zendesk.com/blog/zen
 
 We formed a team in London (The Mighty Buddhas), and in between all the hard work I managed to snap a few photos. This post isn't too detailed, but I thought it'd be nice to share everything in one place.
 
+------------------------
+
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Today is <a href="https://twitter.com/Zendesk">@Zendesk</a>‘s annual 24 hour hackathon, the Zendevian Cup. I’m beyond excited.</p>&mdash; Mathew Cropper (@mrtcropper) <a href="https://twitter.com/mrtcropper/status/732797965069385728">May 18, 2016</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Awaiting the arrival of the team. Cakes and phallic balloons are set! <a href="https://t.co/NsqodBYJGl">pic.twitter.com/NsqodBYJGl</a></p>&mdash; Mathew Cropper (@mrtcropper) <a href="https://twitter.com/mrtcropper/status/732835992172908546">May 18, 2016</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
