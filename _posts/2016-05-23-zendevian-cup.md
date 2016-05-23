@@ -8,7 +8,11 @@ The Zendevian Cup is an annual hackathon, where Zendeskians gather together in t
 
 Check out the blog post for the 2015 cup [here](https://www.zendesk.com/blog/zendeviancup2015/).
 
-We formed a team in London (The Mighty Buddhas), and in between all the hard work I managed to snap a few photos. This post isn't too detailed, but I thought it'd be nice to share everything in one place.
+We formed a team in London (The Mighty Buddhas), and in between all the hard work I managed to snap a few photos. 
+
+Unfortunately, our idea wasn't a winner this year. The quality of the competition was amazing, and some really cool apps were made.
+
+This post isn't too detailed, but I thought it'd be nice to share everything in one place.
 
 ------------------------
 
