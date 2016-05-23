@@ -6,6 +6,8 @@ date: 2016-05-23
 
 The Zendevian Cup is an annual hackathon, where Zendeskians gather together in teams to build cool products to enhance the platform. You get everything, from the sensible, to the wild and wacky.
 
+Check out the blog post for the 2015 cup [here](https://www.zendesk.com/blog/zendeviancup2015/).
+
 We formed a team in London (The Mighty Buddhas), and in between all the hard work I managed to snap a few photos. This post isn't too detailed, but I thought it'd be nice to share everything in one place.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Today is <a href="https://twitter.com/Zendesk">@Zendesk</a>‘s annual 24 hour hackathon, the Zendevian Cup. I’m beyond excited.</p>&mdash; Mathew Cropper (@mrtcropper) <a href="https://twitter.com/mrtcropper/status/732797965069385728">May 18, 2016</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
