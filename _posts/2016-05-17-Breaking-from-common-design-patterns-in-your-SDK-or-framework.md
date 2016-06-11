@@ -2,7 +2,6 @@
 layout: post
 title: "Breaking from common design patterns in your SDK or framework"
 date: 2016-05-17
-crosspost_to_medium: true
 ---
 
 > Trigger warning: I'm going to call deviating from established iOS user interface patterns a hack. If that makes your blood boil, don't read on.
