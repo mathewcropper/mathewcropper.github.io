@@ -27,7 +27,7 @@ p, a, span, ul, ol {
 }
 
 p a, p a:hover, a, a:hover {
-	color: #2980b9; /* Hyperlink colour here */
+	color: #16a085; /* Hyperlink colour here */
 	font-weight: 400;
 }
 
