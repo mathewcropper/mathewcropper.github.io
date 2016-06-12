@@ -92,3 +92,7 @@ In spite of the lessons we learned, I believe this was a success. We have no pla
 Our customers seem to love that we did this, even if it isn't (yet) the wildly active and flourishing place I dreamed of. From a relationship point of view, the channel was an overwhelming success.
 
 I also learned a lot about our particular community, and about live channels like this. Hopefully, these learnings will encourage others to give it a try, but perhaps with more realistic early expectations than I had ;)
+
+----------
+
+*Cross posted on [Medium](https://medium.com/@mrtcropper/an-experiment-with-slack-as-a-community-channel-8bf5c86a3146#.ilwl0vbc9)*
