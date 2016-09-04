@@ -107,9 +107,8 @@ hr {
 */
 
 .popular {
-	background-color: #e74c3c;
+	background-color: #003738;
 	padding-top: 20px;
-	//padding-bottom: 20px;
 }
 .popular p, .popular a, .popular a:hover {
 	color: #FFFFFF;
