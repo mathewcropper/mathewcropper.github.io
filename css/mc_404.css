@@ -89,13 +89,13 @@ hr {
 */
 
 .header-hero {
-	height: 60vh;
+	height: 40vh;
 }
 .header-hero-bg {
 	background-color: #f1c40f;
 }
 .header-hero p {
-	font-size: 6vh;
+	font-size: 4vh;
 	line-height: 1.9;
 }
 .bg-white mark {
