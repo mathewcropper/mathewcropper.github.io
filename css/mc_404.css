@@ -1,0 +1,155 @@
+/*
+	FONT WEIGHTS
+	
+	font-family: 'Source Sans Pro', sans-serif;
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet' type='text/css'>
+*/
+
+/*
+	Style basic elements
+*/
+
+body {
+	background-color: #e74c3c;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote p, ul, ol {
+	font-family: 'Open Sans', sans-serif;
+}
+
+p, ul, ol, blockquote {
+	margin-bottom: 30px;
+}
+
+p, a, span, ul, ol {
+	font-size: 20px;
+	color: #333333; /* Text colour here */
+	font-weight: 200;
+}
+
+p a, p a:hover, a, a:hover {
+	color: #16a085; /* Hyperlink colour here */
+	font-weight: 400;
+}
+
+img, iframe {
+	width: 100%;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+hr {
+}
+
+.btn {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.spacer40 {
+	min-height: 40px;
+}
+/*
+	Vertical align using table
+*/
+
+.mc-valign-bubble { 
+  display: table; 
+  width: 100%;
+}
+.mc-valign-bubble p {
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
+
+/*
+	Navigation styling
+*/
+
+#nav {
+	background-color: rgba(255,255,255,0.4);
+}
+#nav-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	width: 100%;	
+}
+#nav span {
+	color: #000000;
+}
+.dropdown-menu li a {
+	font-size: 16px;
+}
+
+/*
+	header.html styling
+*/
+
+.header-hero {
+	height: 60vh;
+}
+.header-hero-bg {
+	background-color: #f1c40f;
+}
+.header-hero p {
+	font-size: 6vh;
+	line-height: 1.9;
+}
+.bg-white mark {
+	font-size: inherit;
+	background-color: rgba(255,255,255,0.8);
+}
+
+/*
+	index.html styling
+*/
+
+.popular {
+	background-color: #e74c3c;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.popular h1, .popular p, .popular a, .popular a:hover {
+	color: #FFFFFF;
+}
+.popular p mark, .popular h1 mark {
+	font-size: smaller;
+	font-weight: 400;
+	background-color: inherit;
+	color: #c0392b;
+	text-transform: uppercase;
+}
+
+/*
+	pagination.html styling
+*/
+
+span.previous, span.next {
+	display: none;
+}
+.pag-well-override {
+	border: none;
+	box-shadow: none;
+	background-color: #ecf0f1;
+}
+
+/*
+	about.html styling
+*/
+
+.avatar img {
+	width: 200px;
+}
+
+/*
+	dropdown menu styling
+*/
+
+.social {
+	width: 20px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
