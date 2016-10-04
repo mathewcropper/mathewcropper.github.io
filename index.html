@@ -40,7 +40,7 @@ title: Mathew Cropper
 				  {% for post in paginator.posts %}
 				    <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br />
 				    <span><small>
-				    	{{ post.date | date_to_string }} {% if post.categories contains 'n00b' %}<mark>curated</mark>{% endif %}
+				    	{{ post.date | date_to_string }} {% if post.categories contains 'curated' %}<mark>curated</mark>{% endif %}
 				    </small></span><br /><br /></li>
 				  {% endfor %}
 				</ul>
