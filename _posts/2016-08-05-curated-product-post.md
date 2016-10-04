@@ -2,7 +2,7 @@
 layout: n00b
 title: "Feedback, mental models, Xcode mockups, regex"
 date: 2016-08-05
-categories: n00b
+categories: curated
 ---
 
 * [Mental models and behavioural insights](#mental-models)
