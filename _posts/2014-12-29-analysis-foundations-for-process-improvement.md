@@ -16,7 +16,7 @@ The three key things, from my point of view, are the following:
 - [User journeys](http://en.wikipedia.org/wiki/User_journey): the end to end experience of your users of your product or service
 - [Process maps](http://en.wikipedia.org/wiki/Business_process_mapping): the processes you follow in house to deliver the product or service, preferably linked back to the user journeys
 
-[![ExampleMap](https://dl.dropboxusercontent.com/u/20150821/WordpressArchive/uploads/2014/12/ExampleMap1.png)](https://dl.dropboxusercontent.com/u/20150821/WordpressArchive/uploads/2014/12/ExampleMap1.png)
+[![ExampleMap](/images/posts/20141229_ExampleMap1.png)](https://dl.dropboxusercontent.com/u/20150821/WordpressArchive/uploads/2014/12/ExampleMap1.png)
 
 How do these things help?
 
