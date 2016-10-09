@@ -66,21 +66,27 @@ hr {
 	Navigation styling
 */
 
-#nav {
-	background-color: rgba(255,255,255,0.4);
+.nav-container {
+	background-color: #262626;
+	border-bottom: 1px solid #FFFFFF;
 }
-#nav-bg {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 999;
-	width: 100%;	
+.nav {
+	margin-top: 10px;
+	margin-bottom: -20px;
+	text-align: center;
 }
-#nav span {
-	color: #000000;
+.nav ul {
+	padding: 0;
+	list-style-type: none;
 }
-.dropdown-menu li a {
-	font-size: 16px;
+.nav ul li {
+	display: inline;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.nav ul li a {
+	color: #FFFFFF;
+	font-weight: 200;
 }
 
 /*

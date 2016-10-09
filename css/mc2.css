@@ -1,0 +1,146 @@
+/*
+	FONT WEIGHTS
+	
+	font-family: 'Pacifico', cursive;
+	font-family: 'Noto Sans', sans-serif;
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Pacifico" rel="stylesheet">
+*/
+
+/*
+	LINEAR GRADIENTS
+
+	background: #2C3E50;
+	background: -webkit-linear-gradient(to left, #2C3E50 , #FD746C); 
+	background: linear-gradient(to left, #2C3E50 , #FD746C); 
+*/
+
+body {
+	font-size: 100%;
+	background-color: #2c3e50;
+}
+
+h1 {
+	font-family: 'Pacifico', cursive;
+	font-size: 4em;
+}
+
+h2 {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 2.374em;
+}
+
+h3 {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 2.055em;
+}
+
+h4 {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 1.78em;
+}
+
+h5, h6, p, ul li {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 1.541em;
+}
+
+img {
+	max-width: 100%;
+}
+
+.hero-img img {
+	max-width: 100%;
+	width: 100%;
+	border: none;
+}
+
+header h1 {
+	color: #e74c3c;
+}
+
+nav a, nav a:hover {
+	color: #FFFFFF;
+}
+
+nav ul {
+	padding-left: 0;
+}
+nav ul li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 15px;
+}
+
+.home-links a, .home-links a:hover {
+	color: #FFFFFF;
+}
+
+.home-links ul {
+	padding-left: 0;
+}
+
+.home-links ul li {
+	font-family: 'Noto Sans', sans-serif;
+	list-style-type: none;
+	margin-bottom: 20px;
+}
+
+.bg-red {
+	background-color: #e74c3c;
+}
+.bg-white {
+	background-color: #FFFFFF;
+}
+
+hr {
+	border-color: #e74c3c;
+}
+
+.spacer {
+	min-height: 30px;
+}
+
+.latest p, .latest p a {
+	color: #FFFFFF;
+}
+
+.post h2, .post p, .post ul, .post ul li {
+	color: #000000;
+}
+
+.post a {
+	color: #e74c3c;
+}
+
+.post-comments h2 {
+	color: #FFFFFF;
+}
+
+.about-dk h1, .about-dk h2, .about-dk h3, .about-dk h4, .about-dk h5, .about-dk h6, .about-dk p, .about-dk ul, .about-dk ul li {
+	color: #FFFFFF;
+}
+
+.about-dk img, .about-lt img {
+	max-width: 100%;
+	border: none;
+}
+
+.about-dk a, .about-lt a {
+	color: #e74c3c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
