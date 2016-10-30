@@ -2,7 +2,7 @@
 layout: n00b
 title: "Retention, MTP London, personal development, design principles, chat interfaces, pixels and voxels"
 date: 2016-10-04
-categories: curated
+category: curated
 ---
 
 * [Retention and engagement](#retention)

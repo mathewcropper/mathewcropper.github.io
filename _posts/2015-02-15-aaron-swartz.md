@@ -2,6 +2,7 @@
 layout: post
 title: "Aaron Swartz: The Internet's Own Boy"
 date: 2015-02-15
+category: community
 ---
 
 <iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/vXr-2hwTk58" width="560"></iframe>

@@ -2,6 +2,7 @@
 layout: post
 title: "Women as background decoration"
 date: 2014-08-29
+category: community
 ---
 
 The fantastic [Feminist Frequency](https://www.youtube.com/user/feministfrequency/featured) channel on YouTube recently shared the two videos embedded below. They talk about how games use women as background decoration- sexualised and abused non-playable characters.

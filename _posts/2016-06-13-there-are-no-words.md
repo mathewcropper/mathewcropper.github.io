@@ -2,6 +2,7 @@
 layout: post
 title: "There are no words"
 date: 2016-06-13
+category: community
 ---
 
 *I'm not sure where this post is going to go, but I feel the need to express myself somehow. Please forgive my rambling and repetition.*

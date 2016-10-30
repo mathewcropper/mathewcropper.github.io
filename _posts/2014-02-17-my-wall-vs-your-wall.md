@@ -2,6 +2,7 @@
 layout: post
 title: "My wall vs your wall"
 date: 2014-02-17
+category: product
 ---
 
 **All hail the story wall!**

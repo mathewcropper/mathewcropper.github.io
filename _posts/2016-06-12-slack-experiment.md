@@ -2,6 +2,7 @@
 layout: post
 title: "An experiment with Slack as a community channel"
 date: 2016-06-12
+category: product
 ---
 
 We build SDKs that allow our customers to embed support features (like ticketing, live chat, knowledgebases) in their native apps. We're on a journey with those SDKs to make as much open source as we can, and we started by [making our Unity 3D plugin open source](https://developer.zendesk.com/blog/if-you-build-it-they-will-come).

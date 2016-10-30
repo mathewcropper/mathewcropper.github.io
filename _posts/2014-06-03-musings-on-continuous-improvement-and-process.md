@@ -2,6 +2,7 @@
 layout: post
 title: "Musings on 'Continuous Improvement' and process"
 date: 2014-06-03
+category: product
 ---
 
 I hate the phrase ‘Continuous Improvement’. It conjures in my mind the image of innovation days, innovation champions, written feedback, suggestion boxes. It makes me think of all of the organisations I’ve worked with who see that they are stagnating but fail to grasp the basic concept behind their stagnation: the desire to adapt and change is a state of mind, not a question of process rigour.

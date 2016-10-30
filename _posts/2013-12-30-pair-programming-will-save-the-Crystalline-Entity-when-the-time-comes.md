@@ -2,6 +2,7 @@
 layout: post
 title: "Pair programming will save the Crystalline Entity when the time comes"
 date: 2013-12-30
+category: product
 ---
 
 > This post contains spoilers about an event that will take place in 2368. It was shown in the episode *Silicon Avatar* of ST:TNG, which aired in 1991, so hopefully you won’t mind.

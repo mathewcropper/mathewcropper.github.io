@@ -2,6 +2,7 @@
 layout: post
 title: "Netflix culture"
 date: 2014-08-27
+category: product
 ---
 
 One of the things on my mind a lot right now is ‘culture’. What kind of work environments do I thrive in? What’s important to me? What kind of values do people think are important to me, and do I live them? What values are important to those around me and the company I work for? Do I respect those values? Do I agree?

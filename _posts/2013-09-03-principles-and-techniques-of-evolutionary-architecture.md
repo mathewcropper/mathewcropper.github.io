@@ -2,6 +2,7 @@
 layout: post
 title: "Principles and Techniques of Evolutionary Architecture"
 date: 2013-09-03
+category: product
 ---
 
 A couple of weeks ago Manchester Geek Nights ran a talk with Dr Rebecca Parsons on ‘Evolutionary Architecture’. It’s a great talk, which I’ve embedded below. It’s an hour long, but well worth your time if you can set it aside.
