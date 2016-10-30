@@ -1,5 +1,5 @@
 ---
-layout: n00b
+layout: post
 title: "Feedback, mental models, Xcode mockups, regex"
 date: 2016-08-05
 category: curated

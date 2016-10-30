@@ -1,5 +1,5 @@
 ---
-layout: n00b
+layout: post
 title: "Retention, MTP London, personal development, design principles, chat interfaces, pixels and voxels"
 date: 2016-10-04
 category: curated
