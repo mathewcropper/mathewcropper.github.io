@@ -118,7 +118,7 @@ nav h2 a, nav h2 a:hover  {
 	font-weight: 700;
 }
 
-#singlePost p, #singlePost li {
+#singlePost p, #singlePost li, #singlePost blockquote {
 	font-weight: 300;
 	font-size: 1.1em;
 	color: #002D31;
@@ -135,6 +135,7 @@ nav h2 a, nav h2 a:hover  {
 
 #singlePost img, #singlePost iframe {
 	width: 100%;
+	margin-bottom: 20px;
 }
 
 #zendesk, #king, #thoughtworks, #accenture {
