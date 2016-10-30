@@ -1,5 +1,5 @@
 ---
-layout: n00b
+layout: post
 title: "Influence, Airbnb, Patty McCord, role of the PM, gif workflow, workspaces"
 date: 2016-09-03
 category: curated
