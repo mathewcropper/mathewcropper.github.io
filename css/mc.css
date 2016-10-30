@@ -133,6 +133,10 @@ nav h2 a, nav h2 a:hover  {
 	color: #C0C0C0;
 }
 
+#singlePost img, #singlePost iframe {
+	width: 100%;
+}
+
 #zendesk, #king, #thoughtworks, #accenture {
 	margin-top: 30px;
 	margin-bottom: 10px;
