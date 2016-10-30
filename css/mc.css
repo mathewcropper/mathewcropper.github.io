@@ -1,159 +1,186 @@
 /*
 	FONT WEIGHTS
 	
-	font-family: 'Source Sans Pro', sans-serif;
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900' rel='stylesheet' type='text/css'>
+	font-family: 'Open Sans', sans-serif;
+	Open+Sans:300,400,600,700,800
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=latin-ext" rel="stylesheet">
 */
-
 /*
-	Style basic elements
+	COLOUR PALETTE
+
+	Grey: 556270
+	Yellow: FFCC00
+	
 */
 
 body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #FFFCFC;
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote p, ul, ol {
-	font-family: 'Open Sans', sans-serif;
+img {
+	max-width: 100%;
 }
 
-p, ul, ol, blockquote {
-	margin-bottom: 30px;
+header {
+	padding-top: 20px;
 }
 
-p, a, span, ul, ol {
-	font-size: 20px;
-	color: #333333; /* Text colour here */
-	font-weight: 200;
+header h1 {
+	font-weight: 800;
+	color: #002D31;
 }
 
-p a, p a:hover, a, a:hover {
-	color: #16a085; /* Hyperlink colour here */
-	font-weight: 400;
+nav h2 {
+	font-size: 1.3em;
+	font-weight: 300;
+	color: #002D31;
 }
 
-img, iframe {
-	width: 100%;
-	margin-bottom: 15px;
-	margin-top: 15px;
+nav h2 a, nav h2 a:hover  {
+	font-size: inherit;
+	color: inherit;
+	font-weight: 600;
 }
 
-hr {
-}
-
-.btn {
+#popularPost, #recentPost {
 	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.popularBackground, .recentBackground {
+	background-color: #556270;
+}
+
+#popularPost h2, #recentPost h2 {
+	font-size: 1.3em;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+
+#popularPost h2 a, #recentPost h2 a {
+	font-size: inherit;
+	font-weight: 700;
+	color: #FFFFFF;
+}
+
+#popularPost p, #recentPost p {
+	font-size: 1.1em;
+	font-weight: 300;
+	padding-bottom: 10px;
+	color: #FFFFFF;
+}
+
+#popularPost p a, #recentPost p a {
+	font-size: inherit;
+	font-weight: 300;
+	color: #FFFFFF;
+}
+
+#popularPost p.marker, #recentPost p.marker {
+	font-size: 1em;
+	font-weight: 800;
+	padding-top: 10px;
+	margin-bottom: -30px;
+	color: #FFCC00;
+}
+
+#listPosts h2 {
+	font-size: 1.4em;
+	font-weight: 700;
+	color: #FFCC00;
+}
+
+#listPosts p, #listPosts li {
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+#listPosts li a {
+	font-size: 1.1em;
+	font-weight: 300;
+	color: #002D31;
+}
+
+#listPosts li small {
+	color: #E3E3E3;
+}
+
+#listPosts ul {
+	padding-left: 0;
+}
+#listPosts ul li {
+	list-style-type: none;
+	padding-bottom: 10px;
+}
+
+#singlePost h1 {
+	font-weight: 700;
+}
+
+#singlePost p, #singlePost li {
+	font-weight: 300;
+	font-size: 1.1em;
+	color: #002D31;
+}
+
+#singlePost a {
+	font-weight: 600;
+	color: #002D31;
+}
+
+#singlePost small {
+	color: #E3E3E3;
+}
+
+#zendesk, #king, #thoughtworks, #accenture {
+	margin-top: 30px;
 	margin-bottom: 10px;
 }
 
-.spacer40 {
-	min-height: 40px;
-}
-/*
-	Vertical align using table
-*/
-
-.mc-valign-bubble { 
-  display: table; 
-  width: 100%;
-}
-.mc-valign-bubble p {
-  display: table-cell; 
-  vertical-align: middle; 
-  text-align: center; 
+#zendesk img, #king img, #thoughtworks img, #accenture img {
+	height: 30px;
+	width: auto;
 }
 
-/*
-	Navigation styling
-*/
-
-.nav-container {
-	background-color: #262626;
-	border-bottom: 1px solid #FFFFFF;
-}
-.nav {
-	margin-top: 10px;
-	margin-bottom: -20px;
-	text-align: center;
-}
-.nav ul {
-	padding: 0;
-	list-style-type: none;
-}
-.nav ul li {
-	display: inline;
-	padding-left: 10px;
-	padding-right: 10px;
-}
-.nav ul li a {
-	color: #FFFFFF;
-	font-weight: 200;
+.fullSizeImage {
+	width: 100% !important;
+	height: auto !important;
 }
 
-/*
-	header.html styling
-*/
-
-.header-hero {
-	height: 40vh;
-}
-.header-hero-bg {
-	background-color: #f1c40f;
-}
-.header-hero p {
-	font-size: 4vh;
-	line-height: 1.9;
-}
-.bg-white mark {
-	font-size: inherit;
-	background-color: rgba(255,255,255,0.8);
+#zendesk p, #king p, #thoughtworks p, #accenture p {
+	font-weight: 300;
+	font-size: 1.1em;
+	color: #002D31;
 }
 
-/*
-	index.html styling
-*/
-
-.popular {
-	background-color: #003738;
-	padding-top: 20px;
-}
-.popular p, .popular a, .popular a:hover {
-	color: #FFFFFF;
-}
-.popular p mark {
-	font-size: smaller;
-	font-weight: 400;
-	background-color: inherit;
-	color: #c0392b;
-	text-transform: uppercase;
+#zendesk a, #king a, #thoughtworks a, #accenture a {
+	font-weight: 600;
+	color: #002D31;
 }
 
-/*
-	pagination.html styling
-*/
-
-span.previous, span.next {
-	display: none;
+.zendesk {
+	border-left: 10px solid #03363D;
 }
-.pag-well-override {
-	border: none;
-	box-shadow: none;
-	background-color: #ecf0f1;
+.king {
+	border-left: 10px solid #f39000;
 }
-
-/*
-	about.html styling
-*/
-
-.avatar img {
-	width: 200px;
+.thoughtworks {
+	border-left: 10px solid #000000;
+}
+.accenture {
+	border-left: 10px solid #a13;
 }
 
-/*
-	dropdown menu styling
-*/
-
-.social {
-	width: 20px;
-	margin-bottom: 0px;
-	margin-top: 0px;
+.zendesk hr {
+	border: 1px dotted #03363D;
+}
+.king hr {
+	border: 1px dotted #f39000;
+}
+.thoughtworks hr {
+	border: 1px dotted #000000;
+}
+.accenture hr {
+	border: 1px dotted #a13;
 }
