@@ -2,6 +2,7 @@
 layout: post
 title: "Vernā Myers: How to overcome our biases? Walk boldly toward them"
 date: 2015-01-02
+category: learning
 ---
 
 <iframe allowfullscreen="" frameborder="0" height="360" mozallowfullscreen="" scrolling="no" src="https://embed-ssl.ted.com/talks/verna_myers_how_to_overcome_our_biases_walk_boldly_toward_them.html" webkitallowfullscreen="" width="640"></iframe>

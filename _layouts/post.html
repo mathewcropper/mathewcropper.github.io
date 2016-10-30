@@ -1,18 +1,20 @@
 ---
 layout: default
 ---
+<!-- Single post -->
+    <article id="singlePost">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6 text-left">
+                        <h1>{{ page.title }}</h1>
+                        <p><small>{{ page.date | date: '%B %Y' }}</small></p>
+                        {{ content }}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </article>
+  <!-- End single post -->
 
-{% include header_post.html %}
-	
-<div class="container-fluid">
-  <div class="container">
-		<div class="row">
-		  <div class="col-md-8 col-md-offset-2">
-			  {{ content }}
-		  </div>
-		</div>
-	</div>
-</div>
-
-
-<div class="spacer40"></div>
+  {% include comments.html %}

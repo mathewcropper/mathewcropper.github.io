@@ -2,6 +2,7 @@
 layout: post
 title: "My favourite free Omnigraffle stencils"
 date: 2014-09-01
+category: "design & UX"
 ---
 
 I use [Omnigraffle](https://www.omnigroup.com/omnigraffle) a lot.

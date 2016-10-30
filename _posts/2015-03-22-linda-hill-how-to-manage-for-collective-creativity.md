@@ -2,6 +2,7 @@
 layout: post
 title: "Linda Hill: How to manage for collective creativity"
 date: 2015-03-22
+category: learning
 ---
 
 <iframe allowfullscreen="" frameborder="0" height="360" mozallowfullscreen="" scrolling="no" src="https://embed-ssl.ted.com/talks/linda_hill_how_to_manage_for_collective_creativity.html" webkitallowfullscreen="" width="640"></iframe>

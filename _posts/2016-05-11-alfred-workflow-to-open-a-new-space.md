@@ -2,6 +2,7 @@
 layout: post
 title: "Alfred workflow to open a new Space"
 date: 2016-05-11
+category: tools
 ---
 
 If you find yourself using Spaces a lot on Mac OS X, you may want a quicker way to create new ones using your keyboard.

@@ -2,6 +2,7 @@
 layout: post
 title: "The Zendevian Cup: Hacking away at Zendesk"
 date: 2016-05-23
+category: product
 ---
 
 The Zendevian Cup is an annual hackathon, where Zendeskians gather together in teams to build cool products to enhance the platform. You get everything, from the sensible, to the wild and wacky.

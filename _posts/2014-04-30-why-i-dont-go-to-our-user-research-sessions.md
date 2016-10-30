@@ -2,6 +2,7 @@
 layout: post
 title: "Why I don't go to our user research sessions"
 date: 2014-04-30
+category: "design & UX"
 ---
 
 Our project is lucky enough to have the holy trinity of analysis, namely dedicated business analysis, user research, and graphic design specialists. It’s amazing! Every two weeks we run user research sessions to gather feedback and try out new ideas, either with the working version of the application we’re building or with decent mockups.

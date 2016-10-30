@@ -2,52 +2,48 @@
 layout: default
 title: Mathew Cropper
 ---
-{% if paginator.page <2 %}
-{% include header.html %}
-{% endif %}
 
-
-
-<div class="container-fluid mc-bg-index mc-pad-index popular">
-  <div class="container">
-	  <!-- Space for sticky posts -->
-	  <div class="row">
-		  <div class="col-md-8 col-md-offset-2">
-				  <p class="">
-					  <mark>Popular</mark>
-					  <br />
-					  <a href="/2014/12/29/analysis-foundations-for-process-improvement.html">Analysis foundations for process improvement »</a>
-				  </p>
-				  <p class="">
-					  Understand why using domain modelling techniques, tracing user journeys, and building useful process maps, will help you build kick-ass To Be models.
-				  </p>
-		  </div>
+<!-- Pinned popular post -->
+<section id="popularPost">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6 text-left popularBackground">
+					<p class="marker">Popular</p>
+					<h2><a href="http://www.mathewcropper.co.uk/2014/12/29/analysis-foundations-for-process-improvement.html">Analysis foundations for process improvement</a></h2>
+					<p>Understand why using domain modelling techniques, tracing user journeys, and building useful process maps, will help you build kick-ass To Be models.</p>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+</section>
+<!-- End pinned popular post -->
 
-<div class="spacer40"></div>
+<!-- List posts, grouped by category -->
+<section id="listPosts">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
+					{% for category in site.categories %}
+				<h2>{{ category | first }}</h2>
+				<ul>
+					{% for posts in category %}
+					{% for post in posts limit:5 %}
+					{% assign title_length=post.title | size %}
+					{% if title_length > 0 %}
 
-<div class="container-fluid mc-bg-index mc-pad-index">
-  <div class="container">
-	
-	<!-- This loops through the paginated posts -->
-		<div class="row">
-		  <div class="col-md-8 col-md-offset-2">
+					<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+					<br><small>{{ post.date | date: '%B %Y' }}</small></li>
 
-				  
-				<ul class="posts list-unstyled">
-				  {% for post in paginator.posts %}
-				    <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a><br />
-				    <span><small>
-				    	{{ post.date | date_to_string }} {% if post.categories contains 'curated' %}<mark>curated</mark>{% endif %}
-				    </small></span><br /><br /></li>
-				  {% endfor %}
+					{% endif %}
+					{% endfor %}
+					{% endfor %}
 				</ul>
-
-		  </div>
+				{% endfor %}
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
-
-{% include pagination.html %}
+</section>
+<!-- End list posts, grouped by category -->

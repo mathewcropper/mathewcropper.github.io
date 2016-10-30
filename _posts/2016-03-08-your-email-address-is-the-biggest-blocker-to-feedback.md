@@ -2,6 +2,7 @@
 layout: post
 title: "Your email address is the biggest blocker to getting awesome feedback from your customers"
 date: 2016-03-08
+category: product
 ---
 
 <img src="/images/email_support.png" />

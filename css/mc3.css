@@ -1,0 +1,180 @@
+/*
+	FONT WEIGHTS
+	
+	font-family: 'Open Sans', sans-serif;
+	Open+Sans:300,400,600,700,800
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+*/
+/*
+	COLOUR PALETTE
+
+	Grey: 556270
+	Yellow: FFCC00
+	
+*/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #FFFCFC;
+}
+
+img {
+	max-width: 100%;
+}
+
+header {
+	padding-top: 20px;
+}
+
+header h1 {
+	font-weight: 800;
+	color: #002D31;
+}
+
+nav h2 {
+	font-size: 1.3em;
+	font-weight: 300;
+	color: #002D31;
+}
+
+nav h2 a, nav h2 a:hover  {
+	font-size: inherit;
+	color: inherit;
+	font-weight: 600;
+}
+
+#popularPost {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.popularBackground {
+	background-color: #556270;
+}
+
+#popularPost h2 {
+	font-size: 1.3em;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+
+#popularPost h2 a {
+	font-size: inherit;
+	font-weight: 800;
+	color: #FFFFFF;
+}
+
+#popularPost p {
+	font-size: 1.1em;
+	font-weight: 300;
+	padding-bottom: 10px;
+	color: #FFFFFF;
+}
+
+#popularPost p.marker {
+	font-size: 1em;
+	font-weight: 800;
+	padding-top: 10px;
+	margin-bottom: -30px;
+	color: #FFCC00;
+}
+
+#listPosts h2 {
+	font-size: 1.4em;
+	font-weight: 700;
+	color: #FFCC00;
+}
+
+#listPosts p, #listPosts li {
+	font-size: 1.1em;
+	font-weight: 300;
+}
+
+#listPosts li a {
+	font-size: 1.1em;
+	font-weight: 300;
+	color: #002D31;
+}
+
+#listPosts li small {
+	color: #E3E3E3;
+}
+
+#listPosts ul {
+	padding-left: 0;
+}
+#listPosts ul li {
+	list-style-type: none;
+	padding-bottom: 10px;
+}
+
+#singlePost h1 {
+	font-weight: 700;
+}
+
+#singlePost p, #singlePost li {
+	font-weight: 300;
+	font-size: 1.1em;
+	color: #002D31;
+}
+
+#singlePost a {
+	font-weight: 600;
+	color: #002D31;
+}
+
+#singlePost small {
+	color: #E3E3E3;
+}
+
+#zendesk, #king, #thoughtworks, #accenture {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+#zendesk img, #king img, #thoughtworks img, #accenture img {
+	height: 30px;
+	width: auto;
+}
+
+.fullSizeImage {
+	width: 100% !important;
+	height: auto !important;
+}
+
+#zendesk p, #king p, #thoughtworks p, #accenture p {
+	font-weight: 300;
+	font-size: 1.1em;
+	color: #002D31;
+}
+
+#zendesk a, #king a, #thoughtworks a, #accenture a {
+	font-weight: 600;
+	color: #002D31;
+}
+
+.zendesk {
+	border-left: 10px solid #03363D;
+}
+.king {
+	border-left: 10px solid #f39000;
+}
+.thoughtworks {
+	border-left: 10px solid #000000;
+}
+.accenture {
+	border-left: 10px solid #a13;
+}
+
+.zendesk hr {
+	border: 1px dotted #03363D;
+}
+.king hr {
+	border: 1px dotted #f39000;
+}
+.thoughtworks hr {
+	border: 1px dotted #000000;
+}
+.accenture hr {
+	border: 1px dotted #a13;
+}

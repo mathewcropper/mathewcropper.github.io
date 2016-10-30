@@ -2,6 +2,7 @@
 layout: post
 title: "Kanban style WIP limits on Trello boards"
 date: 2014-01-09
+category: product
 ---
 
 We’re using [Trello](http://trello.com) for a project at the moment, and also plan to employ kanban style work in progress (WIP) limits to our various stages. There isn’t a way to do that natively in the application, though.

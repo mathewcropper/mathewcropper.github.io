@@ -2,6 +2,7 @@
 layout: post
 title: "Becoming a more technical Product Manager"
 date: 2016-05-14
+category: product
 ---
 
 If it's true that every business today is a software business, then it's also true that every Product Manager is a technical one, whether they like it or not. 

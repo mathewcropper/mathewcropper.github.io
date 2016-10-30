@@ -2,6 +2,7 @@
 layout: post
 title: "New Alfred workflows: gifs, Google docs, Jekyll"
 date: 2016-09-25
+category: tools
 ---
 
 [Alfred](https://www.alfredapp.com) is an award-winning app for Mac OS X which boosts your efficiency with hotkeys, keywords, text expansion and more. I use it extensively, and this week I shared a handful of new workflows that you may find interesting..
