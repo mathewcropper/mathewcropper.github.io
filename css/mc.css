@@ -114,8 +114,13 @@ nav h2 a, nav h2 a:hover  {
 	padding-bottom: 10px;
 }
 
-#singlePost h1, #listPosts h1 {
+#listPosts h1, #singlePost h1, #singlePost h2, #singlePost h3 {
 	font-weight: 700;
+}
+
+#singlePost h2 {
+	font-weight: 700;
+	font-size: 1.4em;
 }
 
 #singlePost p, #singlePost li, #singlePost blockquote {
