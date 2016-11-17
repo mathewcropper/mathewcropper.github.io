@@ -37,10 +37,18 @@ nav h2 {
 	color: #002D31;
 }
 
-nav h2 a, nav h2 a:hover  {
+nav h2 a  {
 	font-size: inherit;
 	color: inherit;
 	font-weight: 600;
+	text-decoration: none;
+}
+nav h2 a:hover  {
+	font-size: inherit;
+	color: inherit;
+	font-weight: 600;
+	border-bottom: 2px solid #FFCC00;
+	text-decoration: none;
 }
 
 #popularPost, #recentPost {
@@ -102,6 +110,12 @@ nav h2 a, nav h2 a:hover  {
 	color: #002D31;
 }
 
+#listPosts li a:hover {
+	color: inherit;
+	border-bottom: 2px solid #FFCC00;
+	text-decoration: none;
+}
+
 #listPosts li small {
 	color: #C0C0C0;
 }
@@ -121,6 +135,8 @@ nav h2 a, nav h2 a:hover  {
 #singlePost h2 {
 	font-weight: 700;
 	font-size: 1.4em;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #singlePost p, #singlePost li, #singlePost blockquote {
@@ -130,8 +146,10 @@ nav h2 a, nav h2 a:hover  {
 }
 
 #singlePost a {
-	font-weight: 600;
+	font-weight: 300;
 	color: #002D31;
+	border-bottom: 2px solid #FFCC00;
+	text-decoration: none;
 }
 
 #singlePost small {
@@ -165,8 +183,10 @@ nav h2 a, nav h2 a:hover  {
 }
 
 #zendesk a, #king a, #thoughtworks a, #accenture a {
-	font-weight: 600;
+	font-weight: 300;
 	color: #002D31;
+	border-bottom: 2px solid #FFCC00;
+	text-decoration: none;
 }
 
 .zendesk {
