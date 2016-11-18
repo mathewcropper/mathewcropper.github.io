@@ -46,7 +46,7 @@ You'll find my public key [here](http://pgp.mit.edu/pks/lookup?op=vindex&search=
 
 If you're using macOS Sierra, as I am, the current version of GPG Mail doesn't work for encrypting or decrypting messages. Not to worry, though, as simply selecting text and navigating to **Mail > Services > OpenPGP** will allow you to encrypt or decrypt. If you're using Apple's Mail app, you can right click on selected text and go straight to **Services** from there.
 
-![](/images/posts/20161118_gpg_services_1.PNG)
+![](/images/posts/20161118_gpg_services_1.png)
 
 ### iOS
 
