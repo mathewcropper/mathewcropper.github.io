@@ -128,16 +128,28 @@ nav h2 a:hover  {
 	padding-bottom: 10px;
 }
 
-#listPosts h1, #singlePost h1, #singlePost h2, #singlePost h3 {
+#listPosts h1, #singlePost h1, #singlePost h2, #singlePost h3, #singlePost h4 {
 	font-weight: 700;
 }
 
 #singlePost h2 {
-	font-weight: 700;
 	font-size: 1.4em;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+
+#singlePost h3 {
+	font-size: 1.35em;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#singlePost h4 {
+	font-size: 1.25em;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 
 #singlePost p, #singlePost li, #singlePost blockquote {
 	font-weight: 300;
