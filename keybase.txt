@@ -1,0 +1,72 @@
+==================================================================
+https://keybase.io/mathewcropper
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://mathewcropper.co.uk
+  * I am mathewcropper (https://keybase.io/mathewcropper) on keybase.
+  * I have a public key with fingerprint 1C02 C758 FAAD E71A C1A2  1C97 1111 2BC5 C824 E910
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01018fdfc9ca43919679d906b45356e41c2ac7f8fa955ad5ac7c318f7f913ae4a35b0a",
+            "fingerprint": "1c02c758faade71ac1a21c9711112bc5c824e910",
+            "host": "keybase.io",
+            "key_id": "11112bc5c824e910",
+            "kid": "01018fdfc9ca43919679d906b45356e41c2ac7f8fa955ad5ac7c318f7f913ae4a35b0a",
+            "uid": "bb2a48e391d46d84e16f13692111a219",
+            "username": "mathewcropper"
+        },
+        "service": {
+            "hostname": "mathewcropper.co.uk",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1479626366,
+    "expire_in": 157680000,
+    "prev": "0343def4609e32d08b4248062e3a1c56582d48b063be98d9c0991b5c478b2626",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUn1MVWUYv1yE4ksQWICYyZltSETn+55zB0UUwS3EGsUAyds573nv5fBxz+Xc
+w+cdNsMmCYhsMS8fsSRNA4eiY8pqTXZnOjI+1GCjbGEiUE42PsyYZu9h9Z9/9vzz
+7nne3+/3/J5nz+EQX0Ogz6ZNL1y6sn0hzOf7BdGQR2Tvd2OiItVgZjdWAtcfWCpB
+l2YtkSXMjOEETnA2yQZ4INAUT/CsiZd4nBVphmJYSBOAFIDJxtkEnmEEiUEJoBDD
+ZOMJSoC0QDEiLmCJmE122KHqVGWHhmQJgJPAxCCaIEETIQBCIAnAmwgUpAgYwJE0
+5AkcEYsUl85A5kTBBZNkBdVQYl239wT8/+y7Yl1OFEmB5iASkmhW4mhIsDaCYnkS
+9UfOeR3ogqpDKIMIXSZoRbAKqIrTCVWsLhFDX5UygPp29XGeBEsCSlJFCdJxqoqm
+AKUUAYo0zWnW+VqNUydUQdH6r5RVlB0SWikiVELVJSsOzEwgJNBkXZugTTxLshTL
+JmKw2imr0CrrCMbEcjgKvQ0ElfqiKJqSoI1mcR5SpIRzIk3SHM6SkBIIwLAMR0o0
+J+IsJUKek3iA8zwhMoA2cSKJWmD6dOUOBTPTyKdgR5Iu2e4QtAoVYnWBnxi3bDD4
+BBr8/Yz6sRkCA8L+u0A1IMzQaz+xMchxq8ETerxPCrrTNArMkx2LGYOGbSHZV3O7
+w0tiY89fJOebI7bcjrNNjbwHn8kbsVYepC3TyeeWN7f7FefRYZ5QeWxPMtWeOH87
+p/tWzXhVa8TmLwO/zsr3HvljttfSvPTdL7HzmQs7gldeS6LfPVA3ZzypZlwZ7riT
+Ovsb2/9cekpjHktpO1+/33P0r62NOfu6ngr66GxNv/bmvZ43di20drbOx59NfZBe
+H9ZSsfeDmQcRl7Zef3vi17mZzNqfXnr884vXMp+OTwt3e8ZPD/jl84cm7pY/zAV/
+T3W6BhsHcpbWJhbp8ImuhBLXkcnIxZMJqfbzK9PeDg/9/mjhxZt+BTNRY2uz53q7
+P951+UZhxPUvxpqIyNRno1OaqX3+Oy5wq5Pu8fpXWuqh0p8eHR5zII5vPu1cvhYQ
+vDvrYfsy2zAUNbK2YbCgZ3I8gUmb9Gz8IbTUGJnfwtdVua+eGjrW0Ld9m+VxwaGZ
+3p0v38T8fw/OZsrDbU0raSn3/LWUz57PYIu7fFN906jqM5YbaQdDvj1TfTm47FHp
+p/WWV+c+76odrjy8vxvGvVXwZ1uWUpDbeH+aPN5Zm2+Pabtr7E0GH3au9glfscei
+uW+8RzPaYnJGLzwaCsh0JqUMF/5IW4dOxO/OWjnls+RddXsHSO/4VNbe1nc8xj3F
+ftVjUekd5Z6ifwA=
+=w0/g
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mathewcropper
+
+==================================================================
