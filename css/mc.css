@@ -33,7 +33,10 @@ header h1 {
 }
 
 nav {
-	background: url(http://www.mathewcropper.co.uk/images/bg/bg.jpg) no-repeat center center fixed;
+	background-image: url(http://www.mathewcropper.co.uk/images/bg/bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center center fixed;
+	background-color: #FE4365;
 }
 
 .nav-margin {
