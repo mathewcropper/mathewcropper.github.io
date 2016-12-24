@@ -2,7 +2,7 @@
 layout: post
 title: "Get your message across every time with relationship mapping"
 date: 2016-12-23
-category: learning
+category: techniques
 ---
 
 Relationship mapping is one of the most powerful techniques I learned in my career. It's the most effective method I've ever come across for making sure that the right people hear my message, and react to it favourably. In this post, learn exactly what it is, why it's a useful technique for managing your career goals or winning complex deals, and how to do it.
