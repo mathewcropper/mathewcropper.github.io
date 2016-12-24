@@ -207,14 +207,14 @@ nav h2 a:hover  {
 	height: auto !important;
 }
 
-#zendesk p, #king p, #thoughtworks p, #accenture p {
+#zendesk p, #king p, #thoughtworks p, #accenture p, #zendesk li, #king li, #thoughtworks li, #accenture li {
 	font-weight: 300;
 	font-size: 1.25em;
 	color: #002D31;
 	padding-bottom: 10px;
 }
 
-#zendesk a, #king a, #thoughtworks a, #accenture a {
+#zendesk a, #king a, #thoughtworks a, #accenture a, #zendesk li a, #king li a, #thoughtworks li a, #accenture li a {
 	font-weight: 300;
 	font-size: inherit;
 	color: #002D31;
