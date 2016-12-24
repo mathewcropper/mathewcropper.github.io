@@ -16,7 +16,6 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	//background-color: #FFFCFC;
 	background-color: #FFFFFF;
 }
 
@@ -34,7 +33,7 @@ header h1 {
 }
 
 nav {
-	background: url(/images/bg/bg.jpg) no-repeat center center fixed;
+	background: url(./images/bg/bg.jpg) no-repeat center center fixed;
 }
 
 .nav-margin {
