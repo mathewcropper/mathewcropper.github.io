@@ -9,7 +9,7 @@
 	COLOUR PALETTE
 
 	Grey: 556270
-	Yellow: FFCC00
+	Yellow: fa5e2e
 	
 */
 
@@ -47,7 +47,7 @@ nav h2 a:hover  {
 	font-size: inherit;
 	color: inherit;
 	font-weight: 600;
-	border-bottom: 2px solid #FFCC00;
+	border-bottom: 1px solid #fa5e2e;
 	text-decoration: none;
 }
 
@@ -57,11 +57,11 @@ nav h2 a:hover  {
 }
 
 .popularBackground, .recentBackground {
-	background-color: #556270;
+	background-color: #1b3448;
 }
 
 #popularPost h2, #recentPost h2 {
-	font-size: 1.3em;
+	font-size: 1.5em;
 	font-weight: 400;
 	color: #FFFFFF;
 }
@@ -73,7 +73,7 @@ nav h2 a:hover  {
 }
 
 #popularPost p, #recentPost p {
-	font-size: 1.1em;
+	font-size: 1.25em;
 	font-weight: 300;
 	padding-bottom: 10px;
 	color: #FFFFFF;
@@ -90,13 +90,13 @@ nav h2 a:hover  {
 	font-weight: 800;
 	padding-top: 10px;
 	margin-bottom: -30px;
-	color: #FFCC00;
+	color: #fa5e2e;
 }
 
 #listPosts h2 {
 	font-size: 1.4em;
 	font-weight: 700;
-	color: #FFCC00;
+	color: #fa5e2e;
 }
 
 #listPosts p, #listPosts li {
@@ -112,7 +112,7 @@ nav h2 a:hover  {
 
 #listPosts li a:hover {
 	color: inherit;
-	border-bottom: 2px solid #FFCC00;
+	border-bottom: 1px solid #fa5e2e;
 	text-decoration: none;
 }
 
@@ -133,7 +133,7 @@ nav h2 a:hover  {
 }
 
 #singlePost h2 {
-	font-size: 1.4em;
+	font-size: 1.5em;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
@@ -152,15 +152,25 @@ nav h2 a:hover  {
 
 
 #singlePost p, #singlePost li, #singlePost blockquote {
+	font-size: 1.25em !important;
 	font-weight: 300;
 	font-size: inherit;
 	color: #002D31;
+	padding-bottom: 10px;
+}
+
+#singlePost blockquote {
+	font-size: 1em !important;
+	font-weight: 300;
+	font-size: inherit;
+	color: #002D31;
+	padding-bottom: 10px;
 }
 
 #singlePost blockquote {
 	margin-top: 30px;
 	margin-bottom: 30px;
-	border-left: 10px solid #FFCC00;
+	border-left: 10px solid #fa5e2e;
 	-moz-box-shadow: 2px 2px 15px #ccc;
 	-webkit-box-shadow: 2px 2px 15px #ccc;
 	box-shadow: 2px 2px 15px #ccc;
@@ -169,7 +179,7 @@ nav h2 a:hover  {
 #singlePost a {
 	font-weight: 400;
 	color: #002D31;
-	border-bottom: 2px solid #FFCC00;
+	border-bottom: 1px solid #fa5e2e;
 	text-decoration: none;
 }
 
@@ -199,14 +209,16 @@ nav h2 a:hover  {
 
 #zendesk p, #king p, #thoughtworks p, #accenture p {
 	font-weight: 300;
-	font-size: 1.1em;
+	font-size: 1.25em;
 	color: #002D31;
+	padding-bottom: 10px;
 }
 
 #zendesk a, #king a, #thoughtworks a, #accenture a {
 	font-weight: 300;
+	font-size: 1.25em;
 	color: #002D31;
-	border-bottom: 2px solid #FFCC00;
+	border-bottom: 1px solid #fa5e2e;
 	text-decoration: none;
 }
 

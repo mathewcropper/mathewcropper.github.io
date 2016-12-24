@@ -29,6 +29,7 @@ title: Mathew Cropper
 					<p class="marker">LATEST</p>
 					{% for post in site.posts limit:1 %}
 					<h2><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+					<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
 					<p><a href="{{ post.url }}"">Read this &raquo;</a></p>
 					{% endfor %}
 				</div>
