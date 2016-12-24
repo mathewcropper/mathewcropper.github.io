@@ -2,7 +2,7 @@
 layout: post
 title: "Analysis foundations for process improvement"
 date: 2014-12-29
-category: product
+category: techniques
 ---
 
 Process improvement is all about getting from where we are now ([As Is](http://en.q-bpm.org/mediawiki/index.php/As-is)) to something better ([To Be](http://en.q-bpm.org/mediawiki/index.php/To-be)). It’s about finding out the things we can do better, and then actually doing them better.
