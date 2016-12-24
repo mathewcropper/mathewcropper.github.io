@@ -8,14 +8,16 @@
 /*
 	COLOUR PALETTE
 
-	Grey: 556270
-	Yellow: fa5e2e
+	Blue: 033649
+	Pink: FE4365
+	Dk grey: 002D31
 	
 */
 
 body {
 	font-family: 'Roboto', sans-serif;
-	background-color: #FFFCFC;
+	//background-color: #FFFCFC;
+	background-color: #FFFFFF;
 }
 
 img {
@@ -31,10 +33,18 @@ header h1 {
 	color: #002D31;
 }
 
+nav {
+	background: url(/images/bg/bg.jpg) no-repeat center center fixed;
+}
+
+.nav-margin {
+	margin-bottom: 15px;
+}
+
 nav h2 {
 	font-size: 1.3em;
 	font-weight: 300;
-	color: #002D31;
+	color: #FFFFFF;
 }
 
 nav h2 a  {
@@ -47,56 +57,55 @@ nav h2 a:hover  {
 	font-size: inherit;
 	color: inherit;
 	font-weight: 600;
-	border-bottom: 1px solid #fa5e2e;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
-#popularPost, #recentPost {
-	margin-top: 10px;
-	margin-bottom: 20px;
+.greyBg {
+	background-color: #f5f4f4;
 }
 
-.popularBackground, .recentBackground {
-	background-color: #1b3448;
+.greyContent {
+	margin-bottom: 5px;
 }
 
-#popularPost h2, #recentPost h2 {
-	font-size: 1.5em;
+.greyContent h2 {
+	font-size: 1.3em;
 	font-weight: 400;
-	color: #FFFFFF;
+	color: #002D31;
 }
 
-#popularPost h2 a, #recentPost h2 a {
+.greyContent h2 a {
 	font-size: inherit;
 	font-weight: 700;
-	color: #FFFFFF;
+	color: #002D31;
 }
 
-#popularPost p, #recentPost p {
-	font-size: 1.25em;
+.greyContent p {
+	font-size: 1.1em;
 	font-weight: 300;
 	padding-bottom: 10px;
-	color: #FFFFFF;
+	color: #002D31;
 }
 
-#popularPost p a, #recentPost p a {
+.greyContent p a {
 	font-size: inherit;
 	font-weight: 300;
-	color: #FFFFFF;
+	color: #002D31;
 }
 
-#popularPost p.marker, #recentPost p.marker {
+.greyContent p.marker {
 	font-size: 1em;
 	font-weight: 800;
 	padding-top: 10px;
 	margin-bottom: -30px;
-	color: #fa5e2e;
+	color: #FE4365;
 }
 
 #listPosts h2 {
-	font-size: 1.4em;
-	font-weight: 700;
-	color: #fa5e2e;
+	font-size: 1.1em;
+	font-weight: 800;
+	color: #FE4365;
+	text-transform: uppercase;
 }
 
 #listPosts p, #listPosts li {
@@ -112,7 +121,7 @@ nav h2 a:hover  {
 
 #listPosts li a:hover {
 	color: inherit;
-	border-bottom: 1px solid #fa5e2e;
+	border-bottom: 1px solid #FE4365;
 	text-decoration: none;
 }
 
@@ -170,7 +179,7 @@ nav h2 a:hover  {
 #singlePost blockquote {
 	margin-top: 30px;
 	margin-bottom: 30px;
-	border-left: 10px solid #fa5e2e;
+	border-left: 10px solid #FE4365;
 	-moz-box-shadow: 2px 2px 15px #ccc;
 	-webkit-box-shadow: 2px 2px 15px #ccc;
 	box-shadow: 2px 2px 15px #ccc;
@@ -179,7 +188,7 @@ nav h2 a:hover  {
 #singlePost a {
 	font-weight: 400;
 	color: #002D31;
-	border-bottom: 1px solid #fa5e2e;
+	border-bottom: 1px solid #FE4365;
 	text-decoration: none;
 }
 
@@ -218,7 +227,7 @@ nav h2 a:hover  {
 	font-weight: 300;
 	font-size: inherit;
 	color: #002D31;
-	border-bottom: 1px solid #fa5e2e;
+	border-bottom: 1px solid #FE4365;
 	text-decoration: none;
 }
 
