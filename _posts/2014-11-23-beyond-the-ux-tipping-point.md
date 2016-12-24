@@ -2,7 +2,7 @@
 layout: post
 title: "Beyond the UX Tipping Point"
 date: 2014-11-23
-category: "design & UX"
+category: "design and UX"
 ---
 
 > [Read: Beyond the UX Tipping Point here](http://www.uie.com/articles/beyond_ux_tipping_point/)
