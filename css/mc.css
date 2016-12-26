@@ -50,6 +50,9 @@ nav h2 a:hover  {
 	font-weight: 600;
 	text-decoration: underline;
 }
+#welcome p {
+	font-weight: 300;
+}
 #welcome p a {
 	text-decoration: underline;
 	color: #002D31;
