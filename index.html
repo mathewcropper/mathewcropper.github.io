@@ -16,7 +16,7 @@ title: Mathew Cropper
 						</div>
 						<div class="col-md-10 col-xs-9">
 							<p>
-								Hi. I'm Mat. The fun part of my job as a Product guy at <a href="">Zendesk</a> is that I get to think a lot about customer experience, building great products, and how we build them. I share what I learn or think about that here on my blog. Welcome!
+								Hi. I'm Mat. The fun part of my job as a Product guy at <a href="">Zendesk</a> is that I get to think a lot about customer experience, building great products, and how we work together to do that. I share what I learn or think about that here on my blog. Welcome!
 							</p>
 						</div>
 					</div>
@@ -67,11 +67,15 @@ title: Mathew Cropper
 
 <!-- List posts, by date -->
 <section id="listPosts">
-	<div class="container-fluid">
+	<div class="container-fluid yellowBg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6">
-				<hr>
+					<h2>Other posts</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
 					<div class="row">
 						{% for post in site.posts %}
 							{% assign title_length=post.title | size %}
@@ -90,28 +94,3 @@ title: Mathew Cropper
 	</div>
 </section>
 <!-- End list posts, by date -->
-
-<!-- List posts, grouped by category
-<section id="listPosts">
-	<div class="container-fluid">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-offset-3 col-md-6">
-				<hr>
-					{% for post in site.posts %}
-				<ul>
-					{% assign title_length=post.title | size %}
-					{% if title_length > 0 %}
-
-					<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-					<br><small>{{ post.date | date: '%B %Y' }} / {{ post.category }}</small></li>
-
-					{% endif %}
-				</ul>
-				{% endfor %}
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-End list posts, grouped by category -->

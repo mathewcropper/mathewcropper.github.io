@@ -110,6 +110,19 @@ nav h2 a:hover  {
 	}
 }
 
+.yellowBg {
+	background-color: #D9FB19 !important;
+	margin-top: 40px;
+	padding-top: 10px;
+}
+.yellowBg h2 {
+	font-size: 1.7em;
+	font-weight: 800;
+	color: #FE4365;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+}
+
 .listPostsArchive p {
 	font-size: 1em;
 	font-weight: 300;
@@ -117,11 +130,12 @@ nav h2 a:hover  {
 
 .listPostsArchive a {
 	font-size: 1em;
-	font-weight: 300;
+	font-weight: 600;
 	color: #002D31;
 }
 .listPostsArchive small {
-	color: #ccc;
+	font-weight: 300;
+	color: inherit;
 }
 
 #listPosts h1, .listPostsArchive h1, #singlePost h1, #singlePost h2, #singlePost h3, #singlePost h4 {
