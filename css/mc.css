@@ -50,7 +50,10 @@ nav h2 a:hover  {
 	font-weight: 600;
 	text-decoration: underline;
 }
-
+#welcome p a {
+	text-decoration: underline;
+	color: #002D31;
+}
 .greyBg {
 	background-color: #f5f4f4;
 	box-shadow: 2px 2px 15px #ccc;
@@ -92,8 +95,15 @@ nav h2 a:hover  {
 	color: #FE4365;
 }
 
-.listPostsArchive {
-	min-height: 150px;
+@media (max-width: 767px) {
+  .listPostsArchive {
+	min-height: 100px;
+	}
+}
+@media (min-width: 768px) {
+  .listPostsArchive {
+	min-height: 160px;
+	}
 }
 
 .listPostsArchive p {
