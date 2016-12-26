@@ -32,21 +32,10 @@ header h1 {
 	color: #002D31;
 }
 
-nav {
-	background-image: url(http://www.mathewcropper.co.uk/images/bg/bg.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-color: #FE4365;
-}
-
-.nav-margin {
-	margin-bottom: 15px;
-}
-
 nav h2 {
 	font-size: 1.3em;
 	font-weight: 300;
-	color: #FFFFFF;
+	color: #002D31;
 }
 
 nav h2 a  {
@@ -68,8 +57,7 @@ nav h2 a:hover  {
 }
 
 .greyContent {
-	margin-bottom: 5px;
-	margin-top: 20px;
+	margin-top: 15px;
 }
 
 .greyContent h2 {
@@ -125,8 +113,7 @@ nav h2 a:hover  {
 
 #listPosts li a:hover {
 	color: inherit;
-	border-bottom: 1px solid #FE4365;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 #listPosts li small {
@@ -192,8 +179,7 @@ nav h2 a:hover  {
 #singlePost a {
 	font-weight: 400;
 	color: #002D31;
-	border-bottom: 1px solid #FE4365;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 #singlePost small {
@@ -231,8 +217,7 @@ nav h2 a:hover  {
 	font-weight: 300;
 	font-size: inherit;
 	color: #002D31;
-	border-bottom: 1px solid #FE4365;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 .zendesk {
