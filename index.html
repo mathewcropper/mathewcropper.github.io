@@ -39,7 +39,32 @@ title: Mathew Cropper
 </section>
 <!-- End pinned popular post -->
 
-<!-- List posts, grouped by category -->
+<section id="listPosts">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
+				<hr>
+					<div class="row">
+						{% for post in site.posts %}
+							{% assign title_length=post.title | size %}
+							{% if title_length > 0 %}
+						<div class="col-md-4 listPostsArchive">
+							<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+							<br><small>{{ post.date | date: '%B %Y' }} / {{ post.category }}</small>
+						</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End list posts, grouped by category -->
+
+<!-- List posts, grouped by category
 <section id="listPosts">
 	<div class="container-fluid">
 		<div class="container">
@@ -62,4 +87,4 @@ title: Mathew Cropper
 		</div>
 	</div>
 </section>
-<!-- End list posts, grouped by category -->
+End list posts, grouped by category -->

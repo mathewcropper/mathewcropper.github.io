@@ -60,7 +60,7 @@ nav h2 a:hover  {
 }
 
 .greyContent h2 {
-	font-size: 1.3em;
+	font-size: 1.5em;
 	font-weight: 400;
 	color: #002D31;
 }
@@ -92,42 +92,25 @@ nav h2 a:hover  {
 	color: #FE4365;
 }
 
-#listPosts h2 {
-	font-size: 1.1em;
-	font-weight: 800;
-	color: #FE4365;
-	text-transform: uppercase;
+.listPostsArchive {
+	min-height: 150px;
 }
 
-#listPosts p, #listPosts li {
-	font-size: 1.1em;
+.listPostsArchive p {
+	font-size: 1em;
 	font-weight: 300;
 }
 
-#listPosts li a {
-	font-size: 1.1em;
+.listPostsArchive a {
+	font-size: 1em;
 	font-weight: 300;
 	color: #002D31;
 }
-
-#listPosts li a:hover {
-	color: inherit;
-	text-decoration: underline;
+.listPostsArchive small {
+	color: #ccc;
 }
 
-#listPosts li small {
-	color: #C0C0C0;
-}
-
-#listPosts ul {
-	padding-left: 0;
-}
-#listPosts ul li {
-	list-style-type: none;
-	padding-bottom: 10px;
-}
-
-#listPosts h1, #singlePost h1, #singlePost h2, #singlePost h3, #singlePost h4 {
+#listPosts h1, .listPostsArchive h1, #singlePost h1, #singlePost h2, #singlePost h3, #singlePost h4 {
 	font-weight: 700;
 }
 
