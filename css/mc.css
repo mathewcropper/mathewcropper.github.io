@@ -64,10 +64,12 @@ nav h2 a:hover  {
 
 .greyBg {
 	background-color: #f5f4f4;
+	box-shadow: 2px 2px 15px #ccc;
 }
 
 .greyContent {
 	margin-bottom: 5px;
+	margin-top: 20px;
 }
 
 .greyContent h2 {

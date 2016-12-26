@@ -5,10 +5,10 @@ title: Mathew Cropper
 
 <!-- Pinned recent post -->
 <section class="greyContent">
-	<div class="container-fluid greyBg">
+	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-offset-3 col-md-6 text-left">
+				<div class="col-md-offset-3 col-md-6 text-left greyBg">
 					<p class="marker">LATEST</p>
 					{% for post in site.posts limit:1 %}
 					<h2><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
@@ -24,10 +24,10 @@ title: Mathew Cropper
 
 <!-- Pinned popular post -->
 <section class="greyContent">
-	<div class="container-fluid greyBg">
+	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-offset-3 col-md-6 text-left">
+				<div class="col-md-offset-3 col-md-6 text-left greyBg">
 					<p class="marker">POPULAR</p>
 					<h2><a href="http://www.mathewcropper.co.uk/techniques/2014/12/29/analysis-foundations-for-process-improvement.html">Analysis foundations for process improvement</a></h2>
 					<p>Understand why using domain modelling techniques, tracing user journeys, and building useful process maps, will help you build kick-ass To Be models.</p>
@@ -45,6 +45,7 @@ title: Mathew Cropper
 		<div class="container">
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6">
+				<hr>
 					{% for category in site.categories %}
 				<h2>{{ category | first }}</h2>
 				<ul>
