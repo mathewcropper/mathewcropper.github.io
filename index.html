@@ -3,17 +3,43 @@ layout: default
 title: Mathew Cropper
 ---
 
-<!-- Pinned recent post -->
-<section class="greyContent">
-	<div class="container-fluid greyBg">
+<!-- Welcome -->
+<section id="welcome">
+	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-offset-3 col-md-6 text-left">
+				<div class="col-md-offset-3 col-md-6">
+					<!-- nested section -->
+					<div class="row">
+						<div class="col-md-2 col-xs-3">
+							<img src="/images/avatar.png" class="responsive-image img-circle" />
+						</div>
+						<div class="col-md-10 col-xs-9">
+							<p>
+								Hi. I'm Mat. The fun part of my job as a Product guy at <a href="">Zendesk</a> is that I get to think a lot about customer experience, building great products, and how we build them. I share what I learn or think about that here on my blog. Welcome!
+							</p>
+						</div>
+					</div>
+					<!-- End nested section -->
+					<hr>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End welcome -->
+
+<!-- Pinned recent post -->
+<section class="greyContent">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6 text-left greyBg">
 					<p class="marker">LATEST</p>
 					{% for post in site.posts limit:1 %}
 					<h2><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
 					<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
-					<p><a href="{{ post.url }}"">Read this &raquo;</a></p>
+					<p><a href="{{ post.url }}">Read this &raquo;</a></p>
 					{% endfor %}
 				</div>
 			</div>
@@ -24,14 +50,14 @@ title: Mathew Cropper
 
 <!-- Pinned popular post -->
 <section class="greyContent">
-	<div class="container-fluid greyBg">
+	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-offset-3 col-md-6 text-left">
+				<div class="col-md-offset-3 col-md-6 text-left greyBg">
 					<p class="marker">POPULAR</p>
 					<h2><a href="http://www.mathewcropper.co.uk/techniques/2014/12/29/analysis-foundations-for-process-improvement.html">Analysis foundations for process improvement</a></h2>
 					<p>Understand why using domain modelling techniques, tracing user journeys, and building useful process maps, will help you build kick-ass To Be models.</p>
-					<p><a href="{{ post.url }}"">Read this &raquo;</a></p>
+					<p><a href="{{ post.url }}">Read this &raquo;</a></p>
 				</div>
 			</div>
 		</div>
@@ -39,26 +65,48 @@ title: Mathew Cropper
 </section>
 <!-- End pinned popular post -->
 
-<!-- List posts, grouped by category -->
+<!-- List posts, by date -->
 <section id="listPosts">
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-offset-3 col-md-6">
-					{% for category in site.categories %}
-				<h2>{{ category | first }}</h2>
+				<hr>
+					<div class="row">
+						{% for post in site.posts %}
+							{% assign title_length=post.title | size %}
+							{% if title_length > 0 %}
+						<div class="col-md-4 listPostsArchive">
+							<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+							<br><small>{{ post.date | date: '%B %Y' }} / {{ post.category }}</small>
+						</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End list posts, by date -->
+
+<!-- List posts, grouped by category
+<section id="listPosts">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
+				<hr>
+					{% for post in site.posts %}
 				<ul>
-					{% for posts in category %}
-					{% for post in posts limit:5 %}
 					{% assign title_length=post.title | size %}
 					{% if title_length > 0 %}
 
 					<li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-					<br><small>{{ post.date | date: '%B %Y' }}</small></li>
+					<br><small>{{ post.date | date: '%B %Y' }} / {{ post.category }}</small></li>
 
 					{% endif %}
-					{% endfor %}
-					{% endfor %}
 				</ul>
 				{% endfor %}
 				</div>
@@ -66,4 +114,4 @@ title: Mathew Cropper
 		</div>
 	</div>
 </section>
-<!-- End list posts, grouped by category -->
+End list posts, grouped by category -->

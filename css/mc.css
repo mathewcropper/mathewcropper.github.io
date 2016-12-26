@@ -32,21 +32,10 @@ header h1 {
 	color: #002D31;
 }
 
-nav {
-	background-image: url(http://www.mathewcropper.co.uk/images/bg/bg.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-color: #FE4365;
-}
-
-.nav-margin {
-	margin-bottom: 15px;
-}
-
 nav h2 {
 	font-size: 1.3em;
 	font-weight: 300;
-	color: #FFFFFF;
+	color: #002D31;
 }
 
 nav h2 a  {
@@ -61,17 +50,20 @@ nav h2 a:hover  {
 	font-weight: 600;
 	text-decoration: underline;
 }
-
+#welcome p a {
+	text-decoration: underline;
+	color: #002D31;
+}
 .greyBg {
 	background-color: #f5f4f4;
+	box-shadow: 2px 2px 15px #ccc;
 }
-
 .greyContent {
-	margin-bottom: 5px;
+	margin-top: 15px;
 }
 
 .greyContent h2 {
-	font-size: 1.3em;
+	font-size: 1.5em;
 	font-weight: 400;
 	color: #002D31;
 }
@@ -103,43 +95,32 @@ nav h2 a:hover  {
 	color: #FE4365;
 }
 
-#listPosts h2 {
-	font-size: 1.1em;
-	font-weight: 800;
-	color: #FE4365;
-	text-transform: uppercase;
+@media (max-width: 767px) {
+  .listPostsArchive {
+	min-height: 100px;
+	}
+}
+@media (min-width: 768px) {
+  .listPostsArchive {
+	min-height: 160px;
+	}
 }
 
-#listPosts p, #listPosts li {
-	font-size: 1.1em;
+.listPostsArchive p {
+	font-size: 1em;
 	font-weight: 300;
 }
 
-#listPosts li a {
-	font-size: 1.1em;
+.listPostsArchive a {
+	font-size: 1em;
 	font-weight: 300;
 	color: #002D31;
 }
-
-#listPosts li a:hover {
-	color: inherit;
-	border-bottom: 1px solid #FE4365;
-	text-decoration: none;
+.listPostsArchive small {
+	color: #ccc;
 }
 
-#listPosts li small {
-	color: #C0C0C0;
-}
-
-#listPosts ul {
-	padding-left: 0;
-}
-#listPosts ul li {
-	list-style-type: none;
-	padding-bottom: 10px;
-}
-
-#listPosts h1, #singlePost h1, #singlePost h2, #singlePost h3, #singlePost h4 {
+#listPosts h1, .listPostsArchive h1, #singlePost h1, #singlePost h2, #singlePost h3, #singlePost h4 {
 	font-weight: 700;
 }
 
@@ -190,8 +171,7 @@ nav h2 a:hover  {
 #singlePost a {
 	font-weight: 400;
 	color: #002D31;
-	border-bottom: 1px solid #FE4365;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 #singlePost small {
@@ -229,8 +209,7 @@ nav h2 a:hover  {
 	font-weight: 300;
 	font-size: inherit;
 	color: #002D31;
-	border-bottom: 1px solid #FE4365;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 .zendesk {
