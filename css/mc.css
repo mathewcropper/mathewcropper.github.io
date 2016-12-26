@@ -240,3 +240,18 @@ nav h2 a:hover  {
 .accenture hr {
 	border: 1px dotted #a13;
 }
+.contactOptions {
+	text-decoration: none !important;
+}
+.icon-social-twitter {
+	font-size: 50px;
+	color: #1da1f3;
+}
+.icon-social-linkedin {
+	font-size: 50px;
+	color: #0077B5;
+}
+.icon-envelope-open {
+	font-size: 50px;
+	color: #033649;
+}
