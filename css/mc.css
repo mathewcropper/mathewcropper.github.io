@@ -203,60 +203,11 @@ nav h2 a:hover  {
 	margin-bottom: 20px;
 }
 
-#zendesk, #king, #thoughtworks, #accenture {
-	margin-top: 30px;
-	margin-bottom: 10px;
-}
-
-#zendesk img, #king img, #thoughtworks img, #accenture img {
-	height: 30px;
-	width: auto;
-}
-
 .fullSizeImage {
 	width: 100% !important;
 	height: auto !important;
 }
 
-#zendesk p, #king p, #thoughtworks p, #accenture p, #zendesk li, #king li, #thoughtworks li, #accenture li {
-	font-weight: 300;
-	font-size: 1.25em;
-	color: #002D31;
-	padding-bottom: 10px;
-}
-
-#zendesk a, #king a, #thoughtworks a, #accenture a, #zendesk li a, #king li a, #thoughtworks li a, #accenture li a {
-	font-weight: 300;
-	font-size: inherit;
-	color: #002D31;
-	text-decoration: underline;
-}
-
-.zendesk {
-	border-left: 10px solid #03363D;
-}
-.king {
-	border-left: 10px solid #f39000;
-}
-.thoughtworks {
-	border-left: 10px solid #000000;
-}
-.accenture {
-	border-left: 10px solid #a13;
-}
-
-.zendesk hr {
-	border: 1px dotted #03363D;
-}
-.king hr {
-	border: 1px dotted #f39000;
-}
-.thoughtworks hr {
-	border: 1px dotted #000000;
-}
-.accenture hr {
-	border: 1px dotted #a13;
-}
 .contactOptions {
 	text-decoration: none !important;
 }
