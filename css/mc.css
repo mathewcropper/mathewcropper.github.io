@@ -93,6 +93,32 @@ nav h2 a:hover  {
 	background-color: #f5f4f4;
 	box-shadow: 2px 2px 15px #ccc;
 }
+.mailSignup {
+	margin-top: 30px;
+}
+.mailSignupBg {
+	background-color: #033649;
+	box-shadow: 2px 2px 15px #ccc;
+}
+#mc-embedded-subscribe-form {
+	background-color: #033649;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+#mc_embed_signup label {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.5em !important;
+	font-weight: 600 !important;
+	color: #FFFFFF !important;
+}
+#mc_embed_signup .button {
+	background-color: #FE4365 !important;
+	color: #FFFFFF;
+	font-size: 1.5em;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+}
 .greyContent {
 	margin-top: 15px;
 }
