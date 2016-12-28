@@ -93,7 +93,8 @@ nav h2 a:hover  {
 	font-weight: 400;
 }
 .greyBg {
-	background-color: #f5f4f4;
+	//background-color: #f5f4f4;
+	background-color: #FFFFFF;
 	box-shadow: 2px 2px 15px #ccc;
 }
 .mailSignup {
@@ -172,7 +173,8 @@ nav h2 a:hover  {
 }
 
 .yellowBg {
-	background-color: #D9FB19 !important;
+	//background-color: #D9FB19 !important;
+	background-color: #F4DD51 !important;
 	margin-top: 40px;
 	padding-top: 10px;
 }
