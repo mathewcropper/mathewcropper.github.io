@@ -39,6 +39,9 @@ img {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+.action {
+	color: #FE4365 !important;
+}
 header {
 	padding-top: 20px;
 }
@@ -94,7 +97,8 @@ nav h2 a:hover  {
 	box-shadow: 2px 2px 15px #ccc;
 }
 .mailSignup {
-	margin-top: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 .mailSignupBg {
 	background-color: #033649;
@@ -277,4 +281,7 @@ nav h2 a:hover  {
 .icon-envelope-open, .icon-envelope-letter, .icon-question, .icon-info {
 	font-size: 40px;
 	color: #033649;
+}
+#commentsSection {
+	margin-top: 20px;
 }
