@@ -13,6 +13,7 @@
 	Lt grey: f5f4f4
 	Dk grey: 002D31
 	Yellow: D9FB19
+	Off white: FDFDFD
 	
 */
 
@@ -71,7 +72,7 @@ nav h2 a:hover  {
 }
 #welcome p {
 	font-weight: 300;
-	font-size: 1.25em !important;
+	font-size: 1.1em !important;
 }
 #welcome p a {
 	text-decoration: underline;
@@ -93,8 +94,7 @@ nav h2 a:hover  {
 	font-weight: 400;
 }
 .greyBg {
-	//background-color: #f5f4f4;
-	background-color: #FFFFFF;
+	background-color: #FDFDFD;
 	box-shadow: 2px 2px 15px #ccc;
 }
 .mailSignup {
