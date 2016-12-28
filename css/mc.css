@@ -274,11 +274,7 @@ nav h2 a:hover  {
 	font-size: 40px;
 	color: #0077B5;
 }
-.icon-envelope-open {
-	font-size: 40px;
-	color: #033649;
-}
-.icon-envelope-letter {
+.icon-envelope-open, .icon-envelope-letter, .icon-question {
 	font-size: 40px;
 	color: #033649;
 }
