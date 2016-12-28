@@ -24,7 +24,21 @@ body {
 img {
 	max-width: 100%;
 }
-
+.linkButton, .linkButton:hover {
+	display: block;
+	background-color: #FE4365;
+	color: #FFFFFF;
+	font-size: 1.5em;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
 header {
 	padding-top: 20px;
 }
@@ -54,8 +68,23 @@ nav h2 a:hover  {
 }
 #welcome p {
 	font-weight: 300;
+	font-size: 1.25em !important;
 }
 #welcome p a {
+	text-decoration: underline;
+	color: #002D31;
+	font-weight: 400;
+}
+#thanks h1, #thanks h2 {
+	font-weight: 800;
+	color: #002D31;
+	margin-bottom: 20px;
+}
+#thanks p {
+	font-size: 1.25em !important;
+	font-weight: 300;
+}
+#thanks p a {
 	text-decoration: underline;
 	color: #002D31;
 	font-weight: 400;
@@ -81,7 +110,7 @@ nav h2 a:hover  {
 }
 
 .greyContent p {
-	font-size: 1.1em;
+	font-size: 1.25em !important;
 	font-weight: 300;
 	padding-bottom: 10px;
 	color: #002D31;
@@ -220,6 +249,10 @@ nav h2 a:hover  {
 	color: #0077B5;
 }
 .icon-envelope-open {
+	font-size: 40px;
+	color: #033649;
+}
+.icon-envelope-letter {
 	font-size: 40px;
 	color: #033649;
 }
