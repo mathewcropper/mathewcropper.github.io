@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /thanks.html
+Disallow: /confirmed.html
