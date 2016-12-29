@@ -25,6 +25,9 @@ body {
 img {
 	max-width: 100%;
 }
+a:hover {
+	cursor:pointer;
+}
 .linkButton, .linkButton:hover {
 	display: block;
 	background-color: #FE4365;
@@ -93,17 +96,20 @@ nav h2 a:hover  {
 	color: #002D31;
 	font-weight: 400;
 }
-.greyBg {
-	background-color: #FDFDFD;
-	box-shadow: 2px 2px 15px #ccc;
-}
 .mailSignup {
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .mailSignupBg {
 	background-color: #033649;
-	box-shadow: 2px 2px 15px #ccc;
+	box-shadow: 2px 2px 15px #002D31;
+}
+.startHidden {
+	display: none;
+}
+.subscribe {
+	margin-top: 10px;
+	margin-bottom: 20px;
 }
 #mc-embedded-subscribe-form {
 	background-color: #033649;
@@ -124,36 +130,33 @@ nav h2 a:hover  {
 	text-align: center;
 	text-decoration: none;
 }
-.greyContent {
-	margin-top: 15px;
-}
 
-.greyContent h2 {
+.mainContent h2 {
 	font-size: 1.5em;
 	font-weight: 400;
 	color: #002D31;
 }
 
-.greyContent h2 a {
+.mainContent h2 a {
 	font-size: inherit;
 	font-weight: 700;
 	color: #002D31;
 }
 
-.greyContent p {
+.mainContent p {
 	font-size: 1.25em !important;
 	font-weight: 300;
 	padding-bottom: 10px;
 	color: #002D31;
 }
 
-.greyContent p a {
+.mainContent p a {
 	font-size: inherit;
 	font-weight: 300;
 	color: #002D31;
 }
 
-.greyContent p.marker {
+.mainContent p.marker {
 	font-size: 1em;
 	font-weight: 800;
 	padding-top: 10px;
@@ -257,6 +260,10 @@ nav h2 a:hover  {
 
 #singlePost small {
 	color: #C0C0C0;
+}
+#singlePost small a {
+	color: #FE4365;
+	text-decoration: none;
 }
 
 #singlePost img, #singlePost iframe {
