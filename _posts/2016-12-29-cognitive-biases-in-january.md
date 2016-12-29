@@ -23,7 +23,7 @@ In the example below, Holland and Barrett play on your desire for a fresh start 
 
 [The optimism bias](http://coglode.com/gems/optimism-bias), often used hand in hand with the fresh start effect, is our natural tendency to big-up the good and downplay the bad when we look towards the future.
 
-Knowing this, it makes sense to make negatives easy to digest.. unless you're a gym that uses a subscription model. Paying members with low attendance make gyms profitable. Your local gyms will use this bias to maximum effect this month. They want you to think about the buff future you, not the future you that is skipping the gym in favour of a comforting winter meal.
+Knowing this, it makes sense to make negatives easy to digest.. unless you're a gym that uses a subscription model. Paid-up members with low attendance make gyms profitable. Your local gyms will use this bias to maximum effect this month. They want you to think about the buff future you, not the future you that is skipping the gym in favour of a comforting winter meal.
 
 Expect to see lots of references to your future self, and how you will feel.
 
