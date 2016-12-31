@@ -17,7 +17,7 @@ Expect to hear lots of "this new year", "in 2017", "in January", and "turn over 
 
 In the example below, Holland and Barrett play on your desire for a fresh start with this tantilising offer and marketing copy.
 
-![Holland and Barrett: A time for change](/images/posts/20170103-fresh-start.jpg)
+![Holland and Barrett: A time for change](/images/posts/20161229-fresh-start.jpg)
 
 ## The optimism bias
 
@@ -31,7 +31,7 @@ Bonus bias: If the gym is particularly keen on making your fitness goals a succe
 
 Take a look at how Virgin Active use this bias to encourage you to imagine how your future self will feel after going to the gym.
 
-![Virgin Active: Go there](/images/posts/20170103-optimism.png)
+![Virgin Active: Go there](/images/posts/20161229-optimism.png)
 
 ## The centre-stage effect
 
@@ -41,7 +41,7 @@ In January, keep your eyes peeled for this being bundled with the previous biase
 
 Pure Gym (yes, another fitness example) knows which option they want you to take.
 
-![Pure Gym: Pricing options](/images/posts/20170103-centre-stage.png)
+![Pure Gym: Pricing options](/images/posts/20161229-centre-stage.png)
 
 ## The price-value bias
 
@@ -51,7 +51,7 @@ Look out for "same price, more features" and "lower price, same features" compar
 
 It's no coincidence that Best Buy placed these two laptop models side by side. This is a classic "same price, more features" play.
 
-![Best Buy: Same price, more features](/images/posts/20170103-price-value.png)
+![Best Buy: Same price, more features](/images/posts/20161229-price-value.png)
 
 ## The completeness effect
 
@@ -59,7 +59,7 @@ It's no coincidence that Best Buy placed these two laptop models side by side. T
 
 That's why at this time of year we see so many magazines where you build a model, piece by piece, over several issues. De Agostini have this bias nailed.
 
-![De Agostini: Build your own R2D2 model](/images/posts/20170103-completeness.png)
+![De Agostini: Build your own R2D2 model](/images/posts/20161229-completeness.png)
 
 
 ## Resources
