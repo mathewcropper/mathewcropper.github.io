@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Two months with the Bose QuietComfort 30 wireless headphones"
+date: 2017-02-20
+category: review
+---
+In December I bought the [Bose QC30 earphones](https://www.bose.ie/en_ie/products/headphones/earphones/quietcontrol-30.html#v=qc30_black), and have been using them solidly ever since. I bought them instead of Apple's Airpod's because (1) I thought they looked less silly, and (2) I don't think I could live without noise cancellation after having had the QC20, the wired equivalent, before.
+
+Here's how I found them..
+
+![Bose QC30 earphones](/images/posts/20170220-bose.jpeg)
+
+## The good
+
+The battery life and charging on these are amazing. On a full charge, they lasted for a 9.5 hr flight in constant use, and I was able to get them fully charged again for the next 11 hour flight during my short layover. Seriously, the batter life on these rocks.
+
+The sound is excellent as well. As you'd expect from Bose, the quality of music through these is excellent. The app allows you to control all sorts of settings as well.
+
+The necklace part of the headphones didn't take much time to get used to. It's not heavy at all, and doesn't rub or anything.
+
+## The bad
+
+The microphone is terrible, in two respects. Firstly, the wire on which it sits is way too short, meaning that it sits behind your cheek. Nobody can hear a word you say, and so I find myself often removing that side from my ear and holding the mic to my mouth.
+
+Secondly, the mic picks up absolutely every sound. If you're taking a call from an open plan office or a street, you may as well not bother. You will not be heard.
+
+The necklace wasn't heavy, but it was noticeable at times. It had a nasty habit of slipping around, meaning that one headphone wire became tight and pulled.
+
+Bluetooth pairing is also somewhat flakey and had a few quirks. It would often fail to connect, so I'd use the app to pair again. Sometimes the headphones tells me "mobile device not found" immediately as a connection attempt failed, which is frustrating.
+
+Additionally, as the headphones support simultaneous connections, that brings its own annoyances. Being on a call connected to my phone, I'd often be interrupted with a message "Mat's laptop has disconnected", followed by "Mat's laptop has connected", followed by me saying "Sorry. I missed the last ten seconds. What did you say?"
+
+## Verdict
+
+I wouldn't buy these again if given the choice. At €300, they're definitely not worth it. I'll be using these to listen to music, but will be investing in a different pair for use in the office.
