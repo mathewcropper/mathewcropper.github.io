@@ -26,9 +26,9 @@ Secondly, the mic picks up absolutely every sound. If you're taking a call from 
 
 The necklace wasn't heavy, but it was noticeable at times. It had a nasty habit of slipping around, meaning that one headphone wire became tight and pulled.
 
-Bluetooth pairing is also somewhat flakey and had a few quirks. It would often fail to connect, so I'd use the app to pair again. Sometimes the headphones tells me "mobile device not found" immediately as a connection attempt failed, which is frustrating.
+Bluetooth pairing is also somewhat flakey and had a few quirks. It would often fail to connect, so I'd use the app to pair again. Sometimes the earphones tell me "mobile device not found" immediately as a connection attempt failed, which is frustrating.
 
-Additionally, as the headphones support simultaneous connections, that brings its own annoyances. Being on a call connected to my phone, I'd often be interrupted with a message "Mat's laptop has disconnected", followed by "Mat's laptop has connected", followed by me saying "Sorry. I missed the last ten seconds. What did you say?"
+Additionally, as the earphones support simultaneous connections, that brings its own annoyances. Being on a call connected to my phone, I'd often be interrupted with a message "Mat's laptop has disconnected", followed by "Mat's laptop has connected", followed by me saying "Sorry. I missed the last ten seconds. What did you say?"
 
 ## Verdict
 
