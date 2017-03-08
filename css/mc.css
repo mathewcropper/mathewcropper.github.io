@@ -227,7 +227,7 @@ nav h2 a:hover  {
 }
 
 
-#singlePost p, #singlePost li, #singlePost blockquote {
+#singlePost p, #singlePost li {
 	font-size: 1.25em !important;
 	font-weight: 300;
 	font-size: inherit;
@@ -244,7 +244,7 @@ nav h2 a:hover  {
 }
 
 #singlePost blockquote {
-	font-size: 1em !important;
+	font-size: 0.8em !important;
 	font-weight: 300;
 	font-size: inherit;
 	color: #002D31;
@@ -301,4 +301,27 @@ nav h2 a:hover  {
 }
 #commentsSection {
 	margin-top: 20px;
+}
+table {
+	max-width: 100%;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+thead tr th {
+	background-color: #f5f4f4;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-right: 3px solid #FFFFFF;
+}
+tbody tr td {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-right: 3px solid #FFFFFF;
+}
+tbody tr {
+	border-bottom: 2px solid #f5f4f4;
 }
