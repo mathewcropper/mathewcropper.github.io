@@ -819,7 +819,7 @@ footer .footer-left {
 .back-link {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 1.5rem 2rem;
+  padding: 0 0 2rem;
   font-family: var(--playful);
   font-size: 0.9375rem;
   font-weight: 700;
