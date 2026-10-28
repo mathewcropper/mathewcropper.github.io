@@ -95,7 +95,7 @@ img{max-width:100%;}
 .hero{border-top:4px solid var(--ink); overflow:hidden; padding:12px 0 24px;}
 .hero-name{
   font-family:var(--display); font-weight:900;
-  font-size:clamp(96px, 28vw, 340px); line-height:0.78;
+  font-size:clamp(96px, 28vw, 340px); line-height:0.88;
   letter-spacing:-0.02em; text-transform:uppercase;
 }
 .hero-name.is-long{font-size:clamp(72px, 22vw, 270px);}
@@ -107,10 +107,10 @@ img{max-width:100%;}
 }
 .banner h1{
   margin:0; font-weight:900; font-stretch:125%; text-transform:uppercase;
-  font-size:clamp(24px, 4.6vw, 60px); line-height:1; letter-spacing:-0.01em;
+  font-size:clamp(22px, 3.8vw, 50px); line-height:1; letter-spacing:-0.01em;
   text-align:center;
 }
-.banner h1.is-long{font-size:clamp(22px, 4.2vw, 54px);}
+.banner h1.is-long{font-size:clamp(20px, 3.5vw, 46px);}
 
 /* ---------- Intro ---------- */
 .intro{display:flex; flex-wrap:wrap; gap:40px 56px; padding:56px 0 72px; align-items:flex-start;}
