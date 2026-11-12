@@ -7,111 +7,407 @@
 <meta name="description" content="Mathew Cropper builds and scales impactful product teams. Head of Product at &amp;Open.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Inter:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
 </head>
 <body>
-<div class="wrap">
 
-<header class="top">
-  <a href="index.html" class="logo">Mathew Cropper</a>
-  <nav aria-label="Primary">
-    <a href="cv.html">CV</a>
-    <a href="https://www.linkedin.com/in/mathewcropper/" target="_blank" rel="noopener">LinkedIn</a>
-  </nav>
+<div id="alert-layers" class="alert-layers" hidden>
+<div class="redlight" aria-hidden="true"></div>
+<div class="edge edge-left alert" aria-hidden="true"></div>
+<div class="edge edge-right alert" aria-hidden="true"></div>
+<div class="banner" role="alert">
+<span class="banner-title">RED ALERT</span>
+<div class="banner-ticker" aria-hidden="true">
+<div class="ticker"><span>ALL HANDS TO BATTLE STATIONS · SOMEBODY PRESSED THE BUTTON · THIS IS NOT A DRILL · OK, IT'S A BIT OF A DRILL · SHIELDS UP · </span><span>ALL HANDS TO BATTLE STATIONS · SOMEBODY PRESSED THE BUTTON · THIS IS NOT A DRILL · OK, IT'S A BIT OF A DRILL · SHIELDS UP · </span></div>
+</div>
+<button type="button" id="stand-down" class="standdown">Stand down</button>
+</div>
+<div class="alertcard" aria-hidden="true">RED ALERT</div>
+</div>
+
+<div id="wrap" class="wrap">
+
+<header class="site-header">
+<a href="#top" class="logo">Mat Cropper</a>
+<nav class="site-nav" aria-label="Primary">
+<a href="#log">Mission log</a>
+<a href="#away">Away missions</a>
+<a href="https://www.linkedin.com/in/mathewcropper/" target="_blank" rel="noopener">LinkedIn</a>
+</nav>
 </header>
 
-<section class="hero">
-  <div class="hero-name" aria-hidden="true">Hey,<br>I'm Mat</div>
-  <div class="banner">
-    <h1 class="ink-text drift">I build &amp; scale impactful product teams</h1>
-  </div>
+<main>
+
+<section id="top" class="hero">
+<div class="hero-text">
+<p class="eyebrow">Year 19 of a continuing mission · Cumbria, Earth</p>
+<h1>Hey, I'm Mat. I build product teams that go places.</h1>
+<p class="lede">Head of Product at &amp;Open. 19 years of getting teams past roadblocks and through ambiguity, with everyone still talking to each other at the end.</p>
+</div>
+
+<div class="card-wrap">
+<button type="button" id="card" class="card" aria-pressed="false">
+<span class="card-slot"></span>
+<span class="card-front arrive">
+<span class="card-top"><span class="card-top-k">CREW ID</span><span class="card-top-v">MC-19</span></span>
+<img class="card-photo" src="images/crew-id.jpg" width="104" height="104" alt="Portrait of Mat">
+<span class="card-name">Mat Cropper</span>
+<span>Head of Product, &amp;Open</span>
+<span class="card-port">Home port: Cumbria, UK</span>
+</span>
+<span class="card-back arrive" hidden>
+<span class="card-stripe"></span>
+<span class="card-marks"><span class="card-marks-k">IDENTIFYING MARKS</span><span>Tattoos. A growing collection. One is filed under the stars.</span></span>
+<span class="card-code">
+<svg viewBox="0 0 122 36" width="122" height="36" aria-hidden="true"><path d="M0 0h2v36h-2zM4 0h1v36h-1zM7 0h3v36h-3zM12 0h1v36h-1zM15 0h1v36h-1zM18 0h2v36h-2zM22 0h4v36h-4zM28 0h1v36h-1zM31 0h2v36h-2zM35 0h1v36h-1zM38 0h3v36h-3zM43 0h1v36h-1zM46 0h2v36h-2zM50 0h1v36h-1zM53 0h4v36h-4zM59 0h1v36h-1zM62 0h1v36h-1zM65 0h3v36h-3zM70 0h2v36h-2zM74 0h1v36h-1zM77 0h1v36h-1zM80 0h3v36h-3zM85 0h1v36h-1zM88 0h2v36h-2zM92 0h4v36h-4zM98 0h1v36h-1zM101 0h2v36h-2zM105 0h1v36h-1zM108 0h3v36h-3zM113 0h2v36h-2zM117 0h1v36h-1zM120 0h2v36h-2z" fill="#E8ECF8"></path></svg>
+<span class="card-code-text"><span>MC-19</span><span>EST. 2007</span></span>
+</span>
+<span class="card-small">If found, return to Cumbria, Earth. Valid in all four quadrants. Holder may ask “why?” more than once.</span>
+<span class="card-turn">Turn back over</span>
+</span>
+</button>
+</div>
 </section>
 
-<section class="intro">
-  <div class="intro-text">
-    <p class="now">Now: Head of Product at &amp;Open</p>
-    <p class="lede">I help companies get over roadblocks and ambiguity to build healthy, high-performing teams. 19 years in companies with real product and design craft in their DNA.</p>
-  </div>
-  <figure class="photo photo-intro">
-    <div class="tinted m1"><img src="images/image0.jpeg" alt="Mat smiling at his desk"></div>
-    <figcaption class="strip tilt-l">Cumbria, UK</figcaption>
-  </figure>
+<section id="log" class="log">
+<div class="log-head">
+<h2>Mission log</h2>
+<p class="log-hint">Pick a star or a patch to open its entry.</p>
+</div>
+
+<div class="mapbox">
+<div class="map-scroll">
+<div class="map">
+<svg class="map-sky" viewBox="0 0 1000 460" aria-hidden="true">
+<g fill="#E8ECF8">
+<circle class="tw1" cx="34" cy="64" r="1.6"></circle><circle class="tw2" cx="210" cy="44" r="1.2"></circle><circle class="tw3" cx="150" cy="150" r="1"></circle><circle class="tw1" cx="300" cy="96" r="1.4"></circle><circle class="tw2" cx="330" cy="352" r="1"></circle><circle class="tw3" cx="420" cy="60" r="1.6"></circle><circle class="tw1" cx="455" cy="350" r="1.2"></circle><circle class="tw2" cx="520" cy="110" r="1"></circle><circle class="tw3" cx="560" cy="340" r="1.4"></circle><circle class="tw1" cx="650" cy="52" r="1"></circle><circle class="tw2" cx="640" cy="300" r="1.2"></circle><circle class="tw3" cx="740" cy="320" r="1.6"></circle><circle class="tw1" cx="760" cy="40" r="1.2"></circle><circle class="tw2" cx="850" cy="290" r="1"></circle><circle class="tw3" cx="880" cy="200" r="1.4"></circle><circle class="tw1" cx="960" cy="330" r="1.2"></circle><circle class="tw2" cx="975" cy="170" r="1"></circle><circle class="tw3" cx="60" cy="190" r="1.2"></circle><circle class="tw1" cx="200" cy="360" r="1.4"></circle><circle class="tw2" cx="90" cy="372" r="1"></circle>
+</g>
+<path d="M60 360L165 295L260 360L365 260L475 320L585 210L695 260L805 170L925 140" fill="none" stroke="#6C7AA8" stroke-width="1.5" stroke-dasharray="4 6"></path>
+</svg>
+<div class="shoot" aria-hidden="true"></div>
+
+<button type="button" id="tenth" class="tenth" aria-label="A faint, unnamed star">
+<span class="tenth-dot tw2"></span>
+</button>
+<button type="button" id="con" class="con" aria-pressed="false" aria-label="Hidden constellation: Fingers of Creation. A nebula where stars are born. There's one on my arm, too.">
+<span class="txt">
+<span class="con-name">Fingers of Creation</span>
+<span class="con-note">A nebula where stars are born. There's one on my arm, too.</span>
+</span>
+<svg class="con-fig" viewBox="0 0 200 220" aria-hidden="true">
+<g class="wash">
+<circle cx="56" cy="90" r="40" fill="#2FBF9F" opacity="0.3"></circle>
+<circle cx="118" cy="150" r="36" fill="#FF9A4A" opacity="0.28"></circle>
+<circle cx="168" cy="178" r="26" fill="#E5484D" opacity="0.26"></circle>
+</g>
+<g class="fig" fill="none" stroke="#E8ECF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+<path d="M28 214C32 186 24 160 32 132C36 116 28 102 34 86C38 74 30 64 34 52C30 46 24 40 28 32C32 26 40 32 42 24C44 14 52 18 56 12C62 4 76 6 80 18C82 26 92 28 90 40C88 50 78 52 80 62C82 74 90 78 86 96C82 116 92 134 88 158C86 178 92 196 90 214"></path>
+<path d="M106 214C108 192 102 172 108 150C112 134 104 122 110 108C106 102 102 96 106 90C110 84 116 90 120 84C126 76 138 82 136 94C134 106 142 116 138 132C134 150 140 168 140 184C140 194 148 196 152 188C154 180 152 172 158 164C154 158 156 150 162 148C168 142 180 146 178 158C176 168 184 178 180 192C178 200 182 208 180 214"></path>
+</g>
+<g class="cstars" fill="#F4F1E8"><circle cx="32" cy="132" r="2.6"></circle><circle cx="80" cy="18" r="2"></circle><circle cx="86" cy="96" r="2.6"></circle><circle cx="88" cy="158" r="2"></circle><circle cx="108" cy="150" r="2"></circle><circle cx="120" cy="84" r="2.8"></circle><circle cx="138" cy="132" r="2"></circle><circle cx="162" cy="148" r="2.6"></circle><circle cx="180" cy="192" r="2"></circle></g>
+<circle class="glow" cx="56" cy="12" r="3.6" fill="#6FE3D2"></circle>
+</svg>
+</button>
+
+<a class="star star-01" href="#entry-01" data-entry="01" aria-label="Open log entry 01, Accenture">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">Accenture</span><span class="star-year">2007</span></span>
+</a>
+<a class="star star-02 above" href="#entry-02" data-entry="02" aria-label="Open log entry 02, ThoughtWorks">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">ThoughtWorks</span><span class="star-year">2013</span></span>
+</a>
+<a class="star star-03" href="#entry-03" data-entry="03" aria-label="Open log entry 03, King">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">King</span><span class="star-year">2014</span></span>
+</a>
+<a class="star star-04 above" href="#entry-04" data-entry="04" aria-label="Open log entry 04, Zendesk">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">Zendesk</span><span class="star-year">2015</span></span>
+</a>
+<a class="star star-05" href="#entry-05" data-entry="05" aria-label="Open log entry 05, NewsWhip">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">NewsWhip</span><span class="star-year">2017</span></span>
+</a>
+<a class="star star-06 above" href="#entry-06" data-entry="06" aria-label="Open log entry 06, Intercom">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">Intercom</span><span class="star-year">2019</span></span>
+</a>
+<a class="star star-07" href="#entry-07" data-entry="07" aria-label="Open log entry 07, SoSafe">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">SoSafe</span><span class="star-year">2023</span></span>
+</a>
+<a class="star star-08 above" href="#entry-08" data-entry="08" aria-label="Open log entry 08, Markt-Pilot">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">Markt-Pilot</span><span class="star-year">2024</span></span>
+</a>
+<a class="star star-09" href="#entry-09" data-entry="09" aria-label="Open log entry 09, &amp;Open">
+<span class="star-hit"><span class="dot"></span></span>
+<span class="star-label"><span class="star-name">&amp;Open</span><span class="star-year">2026</span></span>
+</a>
+</div>
+</div>
+
+<div class="caption">
+<span>Fig. 1: Career Major, 2007 to now.</span>
+<span id="found" class="found arrive" hidden>You found the tenth star. Unnamed, uncharted. Could be the next mission.</span>
+</div>
+
+<div class="patches">
+<a class="patch" href="#entry-01" data-entry="01" aria-label="Open log entry 01, Accenture">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#3A56D4" stroke="#F4F1E8" stroke-width="4"></circle><circle cx="50" cy="50" r="38" fill="none" stroke="#F4F1E8" stroke-width="1.5" stroke-dasharray="3 3"></circle><path d="M28 45L50 30l22 15z" fill="#F4F1E8"></path><path d="M32 49h6v17h-6zM47 49h6v17h-6zM62 49h6v17h-6z" fill="#F4F1E8"></path><path d="M27 69h46v5H27z" fill="#FFB547"></path></svg>
+</a>
+<a class="patch" href="#entry-02" data-entry="02" aria-label="Open log entry 02, ThoughtWorks">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><path d="M50 4l40 23v46L50 96 10 73V27z" fill="#6FE3D2" stroke="#F4F1E8" stroke-width="4" stroke-linejoin="round"></path><path d="M50 14l31 18v36L50 86 19 68V32z" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></path><path d="M32 70V32M32 70h38M32 54a16 16 0 0 1 16 16M32 42a28 28 0 0 1 28 28" fill="none" stroke="#141B3A" stroke-width="3" stroke-linecap="round"></path><circle cx="45" cy="52" r="4" fill="#FF8A7A" stroke="#141B3A" stroke-width="1.5"></circle><circle cx="57" cy="46" r="3" fill="#141B3A"></circle></svg>
+</a>
+<a class="patch" href="#entry-03" data-entry="03" aria-label="Open log entry 03, King">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><rect x="5" y="5" width="90" height="90" rx="20" fill="#FF8A7A" stroke="#F4F1E8" stroke-width="4"></rect><rect x="14" y="14" width="72" height="72" rx="13" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></rect><path d="M37 50L23 39v22zM63 50l14-11v22z" fill="#FFB547" stroke="#141B3A" stroke-width="3" stroke-linejoin="round"></path><circle cx="50" cy="50" r="14" fill="#F4F1E8" stroke="#141B3A" stroke-width="3"></circle><path d="M43 44l11 13M49 40l9 11" fill="none" stroke="#141B3A" stroke-width="3" stroke-linecap="round"></path></svg>
+</a>
+<a class="patch" href="#entry-04" data-entry="04" aria-label="Open log entry 04, Zendesk">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#FFB547" stroke="#F4F1E8" stroke-width="4"></circle><circle cx="50" cy="50" r="38" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></circle><rect x="37" y="24" width="26" height="52" rx="6" fill="#141B3A"></rect><rect x="41" y="30" width="18" height="34" rx="2" fill="#F4F1E8"></rect><path d="M44 38h12v10h-6l-4 4v-4h-2z" fill="#3A56D4"></path><circle cx="50" cy="70" r="2.5" fill="#FFB547"></circle></svg>
+</a>
+<a class="patch" href="#entry-05" data-entry="05" aria-label="Open log entry 05, NewsWhip">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><path d="M50 4l46 46-46 46L4 50z" fill="#1C2550" stroke="#6FE3D2" stroke-width="4" stroke-linejoin="round"></path><path d="M50 15l35 35-35 35-35-35z" fill="none" stroke="#6FE3D2" stroke-width="1.5" stroke-dasharray="3 3"></path><path d="M24 52h11l6-14 8 26 7-18 4 6h16" fill="none" stroke="#FFB547" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+<a class="patch" href="#entry-06" data-entry="06" aria-label="Open log entry 06, Intercom">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#F4F1E8" stroke="#3A56D4" stroke-width="4"></circle><circle cx="50" cy="50" r="38" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></circle><path d="M30 32h40a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6H52L40 74V64H30a6 6 0 0 1-6-6V38a6 6 0 0 1 6-6z" fill="#3A56D4"></path><circle cx="40" cy="48" r="3" fill="#F4F1E8"></circle><circle cx="50" cy="48" r="3" fill="#F4F1E8"></circle><circle cx="60" cy="48" r="3" fill="#F4F1E8"></circle></svg>
+</a>
+<a class="patch" href="#entry-07" data-entry="07" aria-label="Open log entry 07, SoSafe">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><path d="M50 4l40 14v32c0 24-20 40-40 46-20-6-40-22-40-46V18z" fill="#1C2550" stroke="#FFB547" stroke-width="4" stroke-linejoin="round"></path><path d="M50 14l31 11v25c0 18-15 31-31 36-16-5-31-18-31-36V25z" fill="none" stroke="#FFB547" stroke-width="1.5" stroke-dasharray="3 3"></path><path d="M44 72l3-30h6l3 30z" fill="#F4F1E8"></path><path d="M45 34h10v8H45z" fill="#FFB547"></path><path d="M43 34l7-8 7 8z" fill="#FF8A7A"></path><path d="M42 37l-14-5M42 40l-14 3M58 37l14-5M58 40l14 3" fill="none" stroke="#FFB547" stroke-width="2.5" stroke-linecap="round"></path><path d="M38 73h24" fill="none" stroke="#F4F1E8" stroke-width="3" stroke-linecap="round"></path></svg>
+</a>
+<a class="patch" href="#entry-08" data-entry="08" aria-label="Open log entry 08, Markt-Pilot">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><path d="M12 96V48a38 38 0 0 1 76 0v48z" fill="#2F8F83" stroke="#F4F1E8" stroke-width="4" stroke-linejoin="round"></path><path d="M21 87V48a29 29 0 0 1 58 0v39z" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></path><circle cx="50" cy="64" r="13" fill="none" stroke="#F4F1E8" stroke-width="7" stroke-dasharray="5 5.2"></circle><circle cx="50" cy="64" r="9" fill="#F4F1E8"></circle><circle cx="50" cy="64" r="4" fill="#2F8F83"></circle><path d="M50 44V22M40 31l10-10 10 10" fill="none" stroke="#FFB547" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+<a class="patch" href="#entry-09" data-entry="09" aria-label="Open log entry 09, &amp;Open">
+<svg viewBox="0 0 100 100" width="60" height="60" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#1C2550" stroke="#FFB547" stroke-width="4"></circle><circle cx="50" cy="50" r="38" fill="none" stroke="#FFB547" stroke-width="1.5" stroke-dasharray="3 3"></circle><rect x="33" y="50" width="34" height="24" rx="2" fill="#FF8A7A"></rect><rect x="30" y="42" width="40" height="10" rx="2" fill="#F4F1E8"></rect><rect x="47" y="42" width="6" height="32" fill="#FFB547"></rect><path d="M50 42c-5-12-18-9-12 0zM50 42c5-12 18-9 12 0z" fill="#FFB547"></path><path d="M72 18l2.2 5.8L80 26l-5.8 2.2L72 34l-2.2-5.8L64 26l5.8-2.2z" fill="#F4F1E8"></path></svg>
+</a>
+</div>
+</div>
+
+<article id="entry-09" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a wrapped gift under a star"><circle cx="50" cy="50" r="46" fill="#1C2550" stroke="#FFB547" stroke-width="4"></circle><circle cx="50" cy="50" r="38" fill="none" stroke="#FFB547" stroke-width="1.5" stroke-dasharray="3 3"></circle><rect x="33" y="50" width="34" height="24" rx="2" fill="#FF8A7A"></rect><rect x="30" y="42" width="40" height="10" rx="2" fill="#F4F1E8"></rect><rect x="47" y="42" width="6" height="32" fill="#FFB547"></rect><path d="M50 42c-5-12-18-9-12 0zM50 42c5-12 18-9 12 0z" fill="#FFB547"></path><path d="M72 18l2.2 5.8L80 26l-5.8 2.2L72 34l-2.2-5.8L64 26l5.8-2.2z" fill="#F4F1E8"></path></svg>
+<span class="entry-label">Log entry 09 · Jan 2026 to now</span>
+<h3><a href="https://andopen.co/" target="_blank" rel="noopener">&amp;Open</a></h3>
+<span class="entry-role">Head of Product</span>
+</div>
+<div class="entry-body">
+<p class="about">&amp;Open is the global gifting platform for companies that care. On brand, on point, on time.</p>
+<p>I lead Product and Design at &amp;Open, scaling the business and building towards our vision for thoughtful, impactful gifting. Our <a href="https://andopen.co/product/platform" target="_blank" rel="noopener">platform</a> sends gifts globally at scale, while our team guides the process with taste, thought and attention to detail.</p>
+<p>As a <a href="https://andopen.co/resources/blog/hello-b-corp" target="_blank" rel="noopener">B Corp-certified company</a>, we're all about <a href="https://andopen.co/company/sustainable-gifting" target="_blank" rel="noopener">less waste</a>, more impact. At the end of the day, it's not how much you send, it's how you make people feel that matters.</p>
+<ul>
+<li>Contributed to 2X revenue growth through product strategy, product development, and internal and customer enablement.</li>
+<li>Grew monthly active users by more than a third, and the number sending gifts each month by 30%, in 8 months.</li>
+<li>Conversion-optimised sender homepage, halving the average time it takes to send a gift.</li>
+<li>Defined product strategy and roadmap.</li>
+<li>Hired and built up the Product and Design team, including defining career paths and performance management.</li>
+<li>Merch stores: <a href="https://shop.hubspot.com" target="_blank" rel="noopener">HubSpot</a>, <a href="https://objects.legora.com/" target="_blank" rel="noopener">Legora Objects</a>.</li>
+<li>Gifting alcohol: legal compliance, vendor onboarding, product updates.</li>
+<li>Native integrations: <a href="https://help.andopen.co/en/collections/10708665-hubspot" target="_blank" rel="noopener">HubSpot</a>, <a href="https://help.andopen.co/en/collections/19717476-slack" target="_blank" rel="noopener">Slack</a>.</li>
+<li><a href="https://help.andopen.co/en/collections/19703169-open-mcp" target="_blank" rel="noopener">&amp;Open MCP</a> for gifting via LLMs and agents.</li>
+</ul>
+</div>
+</article>
+
+<article id="entry-08" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a gear with an arrow pointing up"><path d="M12 96V48a38 38 0 0 1 76 0v48z" fill="#2F8F83" stroke="#F4F1E8" stroke-width="4" stroke-linejoin="round"></path><path d="M21 87V48a29 29 0 0 1 58 0v39z" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></path><circle cx="50" cy="64" r="13" fill="none" stroke="#F4F1E8" stroke-width="7" stroke-dasharray="5 5.2"></circle><circle cx="50" cy="64" r="9" fill="#F4F1E8"></circle><circle cx="50" cy="64" r="4" fill="#2F8F83"></circle><path d="M50 44V22M40 31l10-10 10 10" fill="none" stroke="#FFB547" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="entry-label">Log entry 08 · Oct 2024 to Dec 2025</span>
+<h3><a href="https://www.markt-pilot.com/en/" target="_blank" rel="noopener">Markt-Pilot</a></h3>
+<span class="entry-role">Director, Product</span>
+</div>
+<div class="entry-body">
+<p>Built the Product and Design team from scratch, and drove the transformation of a struggling R&amp;D organisation. Set our product direction and strategy, development methodology, customer co-creation programme, integration with GTM org etc.</p>
+<ul>
+<li>Created and hired Product and Design team (8 direct reports).</li>
+<li>Defined product strategy and roadmap.</li>
+<li>Defined product development methodology.</li>
+<li>Customer co-creation programme.</li>
+<li>R&amp;D&lt;&gt;GTM collaboration and rituals.</li>
+<li>Product career paths and performance management.</li>
+<li>MP ONE, a new and differentiated approach to pricing intelligence and execution (in beta, launching Jan 2026).</li>
+</ul>
+</div>
+</article>
+
+<article id="entry-07" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a lighthouse on a shield"><path d="M50 4l40 14v32c0 24-20 40-40 46-20-6-40-22-40-46V18z" fill="#1C2550" stroke="#FFB547" stroke-width="4" stroke-linejoin="round"></path><path d="M50 14l31 11v25c0 18-15 31-31 36-16-5-31-18-31-36V25z" fill="none" stroke="#FFB547" stroke-width="1.5" stroke-dasharray="3 3"></path><path d="M44 72l3-30h6l3 30z" fill="#F4F1E8"></path><path d="M45 34h10v8H45z" fill="#FFB547"></path><path d="M43 34l7-8 7 8z" fill="#FF8A7A"></path><path d="M42 37l-14-5M42 40l-14 3M58 37l14-5M58 40l14 3" fill="none" stroke="#FFB547" stroke-width="2.5" stroke-linecap="round"></path><path d="M38 73h24" fill="none" stroke="#F4F1E8" stroke-width="3" stroke-linecap="round"></path></svg>
+<span class="entry-label">Log entry 07 · Feb 2023 to Dec 2024</span>
+<h3><a href="https://sosafe-awareness.com" target="_blank" rel="noopener">SoSafe</a></h3>
+<span class="entry-role">Director, Product Management</span>
+</div>
+<div class="entry-body">
+<p>Transformed R&amp;D department into a high impact team: defined product strategy and methodology, process simplification and improvement, performance management and hiring, and cultural change. Responsible for Product Management and Content teams (11 direct reports), and recognised with SoSafe's 'Lighthouse Leader Award'.</p>
+<ul>
+<li>R&amp;D transformation.</li>
+<li>Product vision and strategy.</li>
+<li>Product career paths and performance management.</li>
+<li>Conceived of and launched <a href="https://sosafe-awareness.com/solutions/human-risk-management/" target="_blank" rel="noopener">Human Risk OS</a>.</li>
+<li><a href="https://sosafe-awareness.com/product-detail/teach-intelligence-micro-learning" target="_blank" rel="noopener">Personalised Learning</a>.</li>
+<li>Contributed to 4X ARR growth in 2 years.</li>
+<li><a href="https://sosafe-awareness.com/blog/sosafe-strong-performer-forrester-human-risk-management-solutions-q3-2024/" target="_blank" rel="noopener">Partnered with Forrester to define the 'human risk management' category and Q3 2024 Wave.</a></li>
+</ul>
+</div>
+</article>
+
+<article id="entry-06" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a speech bubble"><circle cx="50" cy="50" r="46" fill="#F4F1E8" stroke="#3A56D4" stroke-width="4"></circle><circle cx="50" cy="50" r="38" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></circle><path d="M30 32h40a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6H52L40 74V64H30a6 6 0 0 1-6-6V38a6 6 0 0 1 6-6z" fill="#3A56D4"></path><circle cx="40" cy="48" r="3" fill="#F4F1E8"></circle><circle cx="50" cy="48" r="3" fill="#F4F1E8"></circle><circle cx="60" cy="48" r="3" fill="#F4F1E8"></circle></svg>
+<span class="entry-label">Log entry 06 · May 2019 to Dec 2022</span>
+<h3><a href="https://www.intercom.com" target="_blank" rel="noopener">Intercom</a></h3>
+<span class="entry-role">Group Product Manager, Messenger</span>
+</div>
+<div class="entry-body">
+<p>Responsible for Intercom's flagship product, the Messenger, with over 4 billion consumer interactions and conversations globally each year. Grew the team to ~50 people across 4 teams, making the Messenger a renewed strategic priority for the company.</p>
+<p>Defined the vision and strategy for <a href="https://www.prnewswire.com/news-releases/intercom-announces-major-updates-to-its-most-used-product-the-intercom-messenger-301646686.html" target="_blank" rel="noopener">Intercom's Next Gen Messenger</a>, the biggest, most ambitious update to Intercom's Messenger in over 5 years, aimed at increasing customer acquisition and retention. Also kickstarted the expansion of outbound messaging features by launching <a href="https://www.intercom.com/help/en/articles/4164164-onboard-and-nurture-your-app-users-with-mobile-carousels" target="_blank" rel="noopener">Mobile Carousels</a> and other <a href="https://www.intercom.com/help/en/articles/6362251-news-explained" target="_blank" rel="noopener">in-product</a> <a href="https://www.intercom.com/help/en/articles/4557393-how-to-create-a-banner-message" target="_blank" rel="noopener">messaging</a> tools to build a differentiated position in the market.</p>
+<ul>
+<li>3X increase in mobile business.</li>
+<li>5X increase in self-serve support rates.</li>
+<li>3X increase in engagement rates.</li>
+<li>68% reduction in first response times.</li>
+<li>Hired Messenger Product team and led the group.</li>
+<li>Defined product strategy and roadmap for my group.</li>
+<li>R&amp;D&lt;&gt;GTM collaboration and rituals.</li>
+</ul>
+</div>
+</article>
+
+<article id="entry-05" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a signal pulse"><path d="M50 4l46 46-46 46L4 50z" fill="#1C2550" stroke="#6FE3D2" stroke-width="4" stroke-linejoin="round"></path><path d="M50 15l35 35-35 35-35-35z" fill="none" stroke="#6FE3D2" stroke-width="1.5" stroke-dasharray="3 3"></path><path d="M24 52h11l6-14 8 26 7-18 4 6h16" fill="none" stroke="#FFB547" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="entry-label">Log entry 05 · Oct 2017 to May 2019</span>
+<h3><a href="https://www.newswhip.com" target="_blank" rel="noopener">NewsWhip</a></h3>
+<span class="entry-role">Product Manager</span>
+</div>
+<div class="entry-body">
+<p class="about">NewsWhip is the only real-time media monitoring platform that predicts the stories and topics that will matter in the hours ahead, giving communications professionals the clarity they need for quick and confident decisions.</p>
+<p>Responsible for strategy, roadmapping, research, problem exploration, solution definition, and execution for net new innovation and products. Transformed company ways of working, building greater transparency and alignment across the business.</p>
+<ul>
+<li>Generated $1M ARR in one year with the <a href="https://developer.newswhip.com/reference/about-the-syndication-api" target="_blank" rel="noopener">Syndication API</a>.</li>
+<li>Decreased churn rates with key workflow integrations.</li>
+<li><a href="https://www.newswhip.com/2018/02/newswhip-chrome-extension/" target="_blank" rel="noopener">NewsWhip Chrome extension</a>.</li>
+<li><a href="https://www.newswhip.com/2018/10/newswhip-sheets/" target="_blank" rel="noopener">NewsWhip Sheets</a> for instant social data.</li>
+</ul>
+</div>
+</article>
+
+<article id="entry-04" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a phone with a chat bubble"><circle cx="50" cy="50" r="46" fill="#FFB547" stroke="#F4F1E8" stroke-width="4"></circle><circle cx="50" cy="50" r="38" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></circle><rect x="37" y="24" width="26" height="52" rx="6" fill="#141B3A"></rect><rect x="41" y="30" width="18" height="34" rx="2" fill="#F4F1E8"></rect><path d="M44 38h12v10h-6l-4 4v-4h-2z" fill="#3A56D4"></path><circle cx="50" cy="70" r="2.5" fill="#FFB547"></circle></svg>
+<span class="entry-label">Log entry 04 · Oct 2015 to Sep 2017</span>
+<h3><a href="https://www.zendesk.com" target="_blank" rel="noopener">Zendesk</a></h3>
+<span class="entry-role">Product Manager, Mobile</span>
+</div>
+<div class="entry-body">
+<p class="about">Zendesk is a service-first CRM company that builds software designed to improve customer relationships.</p>
+<p>Mobile products had been without leadership for six months, and lacked customer focus, direction, and structure. Responsible for remediating this unhealthy setup. Responsible for mobile strategy, roadmapping, research, problem exploration, solution definition, and execution.</p>
+<ul>
+<li>7X growth of Chat SDK.</li>
+<li>2X growth of Support SDK.</li>
+<li>PM for 3 teams simultaneously.</li>
+<li><a href="https://www.zendesk.com/newsroom/press-releases/zendesk-fabric-bring-customer-service-mobile-app-development-experience/" target="_blank" rel="noopener">Partnership with Fabric</a> to increase distribution.</li>
+</ul>
+</div>
+</article>
+
+<article id="entry-03" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a wrapped sweet"><rect x="5" y="5" width="90" height="90" rx="20" fill="#FF8A7A" stroke="#F4F1E8" stroke-width="4"></rect><rect x="14" y="14" width="72" height="72" rx="13" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></rect><path d="M37 50L23 39v22zM63 50l14-11v22z" fill="#FFB547" stroke="#141B3A" stroke-width="3" stroke-linejoin="round"></path><circle cx="50" cy="50" r="14" fill="#F4F1E8" stroke="#141B3A" stroke-width="3"></circle><path d="M43 44l11 13M49 40l9 11" fill="none" stroke="#141B3A" stroke-width="3" stroke-linecap="round"></path></svg>
+<span class="entry-label">Log entry 03 · Jun 2014 to Oct 2015</span>
+<h3><a href="https://www.king.com" target="_blank" rel="noopener">King</a></h3>
+<span class="entry-role">Director, Service Improvement</span>
+</div>
+<div class="entry-body">
+<p>Owner of Player Operations team, responsible for processes and technology used to support and engage King's players (eg. Candy Crush Saga). Managed Data Scientists, Product Managers, Business Analysts, and Software Engineers.</p>
+<p>Defined new support strategies that are now ubiquitous in casual gaming; in-game support, <a href="https://community.king.com/en/" target="_blank" rel="noopener">community forums</a>, behaviour-based profiling and segmentation (instead of just pay), churn detection, responsible gaming support processes etc.</p>
+<ul>
+<li>Scaled support services to handle &gt;100k interactions per month with a team of just 50 agents.</li>
+<li>VIP programme.</li>
+<li>Responsible gaming programme.</li>
+<li>Voice of the player initiative.</li>
+</ul>
+</div>
+</article>
+
+<article id="entry-02" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a radar with two blips"><path d="M50 4l40 23v46L50 96 10 73V27z" fill="#6FE3D2" stroke="#F4F1E8" stroke-width="4" stroke-linejoin="round"></path><path d="M50 14l31 18v36L50 86 19 68V32z" fill="none" stroke="#141B3A" stroke-width="1.5" stroke-dasharray="3 3"></path><path d="M32 70V32M32 70h38M32 54a16 16 0 0 1 16 16M32 42a28 28 0 0 1 28 28" fill="none" stroke="#141B3A" stroke-width="3" stroke-linecap="round"></path><circle cx="45" cy="52" r="4" fill="#FF8A7A" stroke="#141B3A" stroke-width="1.5"></circle><circle cx="57" cy="46" r="3" fill="#141B3A"></circle></svg>
+<span class="entry-label">Log entry 02 · Nov 2013 to May 2014</span>
+<h3><a href="https://www.thoughtworks.com" target="_blank" rel="noopener">ThoughtWorks</a></h3>
+<span class="entry-role">Business Analyst</span>
+</div>
+<div class="entry-body">
+<p>The ThoughtWorks Technology Radar is ThoughtWork's opinion on what's hot (and not) in tech each quarter, and was previously delivered as a PDF download. In this project I worked with an Engineer and Designer to build a digital experience. It was a hit, and in the years since it was launched it has remained largely unchanged.</p>
+<p>I also worked with the UK Government's Redundancy Payments Service (RPS) to bring their claims process to the web, replacing the expensive and time consuming paper and OCR process that existed previously. This was also the first time that the RPS had used an agile approach to software delivery, and a large part of my role was pairing with the Product Owner and Business Analysts to help them gain the skills to continue the work when ThoughtWorks' engagement came to an end.</p>
+</div>
+</article>
+
+<article id="entry-01" class="entry arrive">
+<div class="warp" aria-hidden="true"></div>
+<div class="entry-meta">
+<svg viewBox="0 0 100 100" width="132" height="132" role="img" aria-label="Mission patch: a bank building"><circle cx="50" cy="50" r="46" fill="#3A56D4" stroke="#F4F1E8" stroke-width="4"></circle><circle cx="50" cy="50" r="38" fill="none" stroke="#F4F1E8" stroke-width="1.5" stroke-dasharray="3 3"></circle><path d="M28 45L50 30l22 15z" fill="#F4F1E8"></path><path d="M32 49h6v17h-6zM47 49h6v17h-6zM62 49h6v17h-6z" fill="#F4F1E8"></path><path d="M27 69h46v5H27z" fill="#FFB547"></path></svg>
+<span class="entry-label">Log entry 01 · Oct 2007 to Nov 2013</span>
+<h3><a href="https://www.accenture.com/" target="_blank" rel="noopener">Accenture</a></h3>
+<span class="entry-role">Manager</span>
+</div>
+<div class="entry-body">
+<p>During 6+ years at Accenture I worked on and led a plethora of challenging financial services business, software, and infrastructure programmes. That meant working for some of the world's largest retail and commercial banks, in the UK and abroad.</p>
+<ul>
+<li>Barclays Bank Faster Payments scheme.</li>
+<li>Lloyds Banking Group credit card re-platforming.</li>
+<li>Lloyds Banking Group business intelligence data warehouse.</li>
+<li>Lloyds Banking Group new operating model for international payments and CHAPS.</li>
+<li>Lloyds Banking Group merger: sanctions operating model and implementation.</li>
+<li>Royal Bank of Scotland global infrastructure renewal programme.</li>
+<li>Lloyds Banking Group AML programme management.</li>
+</ul>
+</div>
+</article>
+
+<div class="stepper">
+<div><button type="button" id="prev" class="step" hidden>← Earlier entry</button></div>
+<div><button type="button" id="next" class="step" hidden>Later entry →</button></div>
+</div>
+<p id="live" class="sr-only" aria-live="polite"></p>
 </section>
 
-<section class="stats" aria-label="By the numbers">
-  <div class="stat">
-    <div class="stat-num">19</div>
-    <div class="strip tilt-l">Years of product leadership</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">4×</div>
-    <div class="strip tilt-r">ARR growth in 2 years</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">3×</div>
-    <div class="strip tilt-s">Increase in product adoption</div>
-  </div>
+<section id="away" class="away">
+<h2>Away missions</h2>
+<div class="away-row">
+<svg viewBox="0 0 100 100" width="112" height="112" role="img" aria-label="An empty mission patch"><circle cx="50" cy="50" r="46" fill="none" stroke="#6C7AA8" stroke-width="2" stroke-dasharray="6 6"></circle><circle cx="50" cy="50" r="2.5" fill="#6C7AA8"></circle></svg>
+<div class="away-text">
+<p class="away-lead">Side projects, built off duty. None logged yet.</p>
+<p class="away-note">Patch pending. The first one gets sewn on here.</p>
+</div>
+</div>
 </section>
 
-<section class="section">
-  <h2 class="strip section-label">Where I've worked</h2>
+</main>
 
-  <div class="role">
-    <h3 class="role-name w900">&amp;Open</h3>
-    <div class="role-detail">
-      <div class="role-head"><strong>Head of Product</strong><span>2026 — now</span></div>
-      <p>Leading Product and Design, scaling the business towards a vision for thoughtful, impactful gifting at scale.</p>
-    </div>
-  </div>
-
-  <div class="role">
-    <h3 class="role-name w700">Markt-Pilot</h3>
-    <div class="role-detail">
-      <div class="role-head"><strong>Director, Product</strong><span>2024 — 2025</span></div>
-      <p>Built the Product and Design team from scratch and drove the transformation of a struggling R&amp;D org.</p>
-    </div>
-  </div>
-
-  <div class="role">
-    <h3 class="role-name w500">SoSafe</h3>
-    <div class="role-detail">
-      <div class="role-head"><strong>Director, Product Management</strong><span>2023 — 2024</span></div>
-      <p>Transformed R&amp;D into a high-impact team. Conceived and launched Human Risk OS. Contributed to 4× ARR growth.</p>
-    </div>
-  </div>
-
-  <div class="role">
-    <h3 class="role-name w300">Intercom</h3>
-    <div class="role-detail">
-      <div class="role-head"><strong>Group Product Manager, Messenger</strong><span>2019 — 2022</span></div>
-      <p>Responsible for Intercom's flagship product with over 4 billion consumer interactions. Led the Next Gen Messenger.</p>
-    </div>
-  </div>
-</section>
-
-<section class="moments" aria-label="Moments">
-  <div class="moments-grid">
-    <figure class="photo">
-      <div class="tinted m2"><img src="images/image10.jpeg" alt="Mat speaking to a room" loading="lazy"></div>
-      <figcaption class="caption">On stage, talking product.</figcaption>
-    </figure>
-    <figure class="photo">
-      <div class="tinted m3"><img src="images/image3.jpeg" alt="The MARKT-PILOT team celebrating" loading="lazy"></div>
-      <figcaption class="caption">The MARKT-PILOT team.</figcaption>
-    </figure>
-    <figure class="photo">
-      <div class="tinted m4"><img src="images/image9.jpeg" alt="Mat being filmed in a studio" loading="lazy"></div>
-      <figcaption class="caption">Lights, camera.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="big-links">
-    <a href="cv.html">Full CV →</a>
-    <a href="https://www.linkedin.com/in/mathewcropper/" target="_blank" rel="noopener">LinkedIn →</a>
-  </div>
-  <p>© 2026 Mathew Cropper · Cumbria, UK</p>
+<footer>
+<div class="foot-row">
+<span>© 2026 Mathew Cropper · Cumbria, Earth</span>
+<a href="https://www.linkedin.com/in/mathewcropper/" target="_blank" rel="noopener">Open a channel on LinkedIn</a>
+<span>End of transmission.</span>
+</div>
+<div class="red-row">
+<button type="button" id="red" class="red" aria-pressed="false">
+<span class="red-dot"></span>
+<span id="red-calm">Do not press</span>
+<span id="red-done" hidden>Well, now you've done it</span>
+</button>
+</div>
 </footer>
 
 </div>
