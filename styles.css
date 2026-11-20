@@ -130,7 +130,8 @@ a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 @keyframes ufoblink{to{opacity:.25}}
 .phaser-glow{stroke:#FFB547;stroke-width:5;stroke-linecap:round;stroke-opacity:.28}
 .phaser-core{stroke:#FFE3B0;stroke-width:1.4;stroke-linecap:round}
-.ufo-flash{fill:#FFE3B0}
+.ufo-core{animation:ufocore 1.4s ease-in-out infinite}
+@keyframes ufocore{50%{opacity:.45}}
 .star.is-firing img{opacity:1;transform:scale(1.9);filter:drop-shadow(0 0 4px rgba(255,181,71,.95)) drop-shadow(0 0 10px rgba(255,181,71,.5));animation:none}
 
 @media (prefers-reduced-motion:reduce){.star img,.dot,.tip{animation:none !important}}
