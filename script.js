@@ -180,33 +180,253 @@
     });
   }
 
-  var pending = false;
-  function relayout() {
-    if (pending) return;
-    pending = true;
-    requestAnimationFrame(function () {
-      pending = false;
-      avoidCard();
-      if (openStar) place(openStar);
+  // ---------- Desktop: stars stay put, nudged clear of the card ----------
+  function initDesktop() {
+    var pending = false;
+    function relayout() {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () {
+        pending = false;
+        avoidCard();
+        if (openStar) place(openStar);
+      });
+    }
+
+    avoidCard();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+    window.addEventListener('load', relayout);
+    window.addEventListener('resize', relayout);
+    window.addEventListener('scroll', relayout, { passive: true });
+    // Phones report the new size late after rotating, so check again once it settles.
+    window.addEventListener('orientationchange', function () {
+      relayout();
+      setTimeout(relayout, 250);
+      setTimeout(relayout, 700);
     });
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', relayout);
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(relayout);
+      ro.observe(card);
+      ro.observe(document.documentElement);
+    }
   }
 
-  avoidCard();
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
-  window.addEventListener('load', relayout);
-  window.addEventListener('resize', relayout);
-  window.addEventListener('scroll', relayout, { passive: true });
-  // Phones report the new size late after rotating, so check again once it settles.
-  window.addEventListener('orientationchange', function () {
-    relayout();
-    setTimeout(relayout, 250);
-    setTimeout(relayout, 700);
-  });
-  if (window.visualViewport) window.visualViewport.addEventListener('resize', relayout);
-  if (window.ResizeObserver) {
-    var ro = new ResizeObserver(relayout);
-    ro.observe(card);
-    ro.observe(document.documentElement);
+  // ---------- Phones: draggable card, drifting stars ----------
+  function initTouch() {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var PAD = 14, SEP = 38, CLEAR_T = 16;
+    var dx = 0, dy = 0;       // card offset from its centred spot
+    var z, bodies = [];
+    var dragging = false, suppressClick = false;
+
+    function zoneRect() { z = zone.getBoundingClientRect(); }
+
+    function cardBox() {
+      var c = card.getBoundingClientRect();
+      return { left: c.left - z.left - CLEAR_T, right: c.right - z.left + CLEAR_T,
+               top: c.top - z.top - CLEAR_T, bottom: c.bottom - z.top + CLEAR_T };
+    }
+
+    function bounds() {
+      return { minX: PAD, maxX: z.width - PAD, minY: PAD, maxY: z.height - PAD };
+    }
+
+    function inBox(x, y, b) { return x > b.left && x < b.right && y > b.top && y < b.bottom; }
+
+    // Somewhere free: outside the card and as far as possible from other stars.
+    function freeSpot(skip) {
+      var b = bounds(), box = cardBox(), best = null, bestScore = -1;
+      for (var k = 0; k < 60; k++) {
+        var x = b.minX + Math.random() * (b.maxX - b.minX);
+        var y = b.minY + Math.random() * (b.maxY - b.minY);
+        if (inBox(x, y, box)) continue;
+        var near = Infinity;
+        bodies.forEach(function (o) {
+          if (o === skip) return;
+          var d = Math.hypot(o.x - x, o.y - y);
+          if (d < near) near = d;
+        });
+        if (near > bestScore) { bestScore = near; best = { x: x, y: y }; }
+      }
+      return best;
+    }
+
+    zoneRect();
+    stars.forEach(function (s) {
+      var r = s.getBoundingClientRect();
+      var a = Math.random() * Math.PI * 2;
+      var speed = reduce ? 0 : 5 + Math.random() * 6; // px per second
+      bodies.push({ el: s, x: r.left + r.width / 2 - z.left, y: r.top + r.height / 2 - z.top,
+                    vx: Math.cos(a) * speed, vy: Math.sin(a) * speed, speed: speed });
+      s.style.left = '0px';
+      s.style.top = '0px';
+    });
+
+    // Scatter any star that starts behind the card or crowded by another.
+    function scatter() {
+      var b = bounds(), box = cardBox();
+      bodies.forEach(function (o, i) {
+        var crowded = bodies.some(function (p, j) { return j < i && Math.hypot(p.x - o.x, p.y - o.y) < SEP; });
+        var out = o.x < b.minX || o.x > b.maxX || o.y < b.minY || o.y > b.maxY;
+        if (inBox(o.x, o.y, box) || crowded || out) {
+          var spot = freeSpot(o);
+          if (spot) { o.x = spot.x; o.y = spot.y; }
+        }
+      });
+    }
+    scatter();
+
+    function step(dt) {
+      var b = bounds(), box = cardBox();
+      bodies.forEach(function (o) {
+        if (o.el === openStar) return; // hold still while its card is showing
+        if (o.speed) {
+          // Wander a little so paths don't look mechanical.
+          var a = Math.atan2(o.vy, o.vx) + (Math.random() - 0.5) * 0.6 * dt;
+          o.vx = Math.cos(a) * o.speed;
+          o.vy = Math.sin(a) * o.speed;
+        }
+        o.x += o.vx * dt;
+        o.y += o.vy * dt;
+      });
+
+      // Keep a little space between stars.
+      for (var i = 0; i < bodies.length; i++) {
+        for (var j = i + 1; j < bodies.length; j++) {
+          var p = bodies[i], q = bodies[j];
+          var ddx = q.x - p.x, ddy = q.y - p.y, d = Math.hypot(ddx, ddy) || 0.01;
+          if (d >= SEP) continue;
+          var push = (SEP - d) / 2, ux = ddx / d, uy = ddy / d;
+          var pFixed = p.el === openStar, qFixed = q.el === openStar;
+          if (!pFixed) { p.x -= ux * push * (qFixed ? 2 : 1); p.y -= uy * push * (qFixed ? 2 : 1); }
+          if (!qFixed) { q.x += ux * push * (pFixed ? 2 : 1); q.y += uy * push * (pFixed ? 2 : 1); }
+          if (p.speed) { p.vx -= ux * 2; p.vy -= uy * 2; }
+          if (q.speed) { q.vx += ux * 2; q.vy += uy * 2; }
+        }
+      }
+
+      bodies.forEach(function (o) {
+        // Bounce off the edges of the tappable zone.
+        if (o.x < b.minX) { o.x = b.minX; o.vx = Math.abs(o.vx); }
+        if (o.x > b.maxX) { o.x = b.maxX; o.vx = -Math.abs(o.vx); }
+        if (o.y < b.minY) { o.y = b.minY; o.vy = Math.abs(o.vy); }
+        if (o.y > b.maxY) { o.y = b.maxY; o.vy = -Math.abs(o.vy); }
+
+        // Get out of the card's way, out through the nearest edge that's on screen.
+        if (inBox(o.x, o.y, box)) {
+          var exits = [
+            { d: o.x - box.left, x: box.left, y: o.y, vx: -1, vy: 0 },
+            { d: box.right - o.x, x: box.right, y: o.y, vx: 1, vy: 0 },
+            { d: o.y - box.top, x: o.x, y: box.top, vx: 0, vy: -1 },
+            { d: box.bottom - o.y, x: o.x, y: box.bottom, vx: 0, vy: 1 }
+          ].filter(function (e) {
+            return e.x >= b.minX && e.x <= b.maxX && e.y >= b.minY && e.y <= b.maxY;
+          }).sort(function (m, n) { return m.d - n.d; });
+          if (exits.length) {
+            var e = exits[0];
+            o.x = e.x; o.y = e.y;
+            if (e.vx) o.vx = e.vx * Math.abs(o.vx || o.speed);
+            if (e.vy) o.vy = e.vy * Math.abs(o.vy || o.speed);
+          } else {
+            var spot = freeSpot(o);
+            if (spot) { o.x = spot.x; o.y = spot.y; }
+          }
+          if (o.el === openStar) close();
+        }
+        o.el.style.transform = 'translate3d(' + o.x.toFixed(1) + 'px,' + o.y.toFixed(1) + 'px,0)';
+      });
+    }
+
+    var last = 0;
+    function frame(t) {
+      var dt = last ? Math.min((t - last) / 1000, 0.05) : 0;
+      last = t;
+      step(dt);
+      requestAnimationFrame(frame);
+    }
+    step(0);
+    requestAnimationFrame(frame);
+
+    // ----- Dragging the card -----
+    var startX, startY, startDx, startDy, base, pid = null;
+
+    function setOffset(x, y) {
+      var vw = window.innerWidth, vh = window.innerHeight, m = 8;
+      // base = where the card sits with no offset
+      x = Math.max(m - base.left, Math.min(x, vw - m - base.right));
+      y = Math.max(m - base.top, Math.min(y, vh - m - base.bottom));
+      dx = x; dy = y;
+      card.style.setProperty('--dx', dx + 'px');
+      card.style.setProperty('--dy', dy + 'px');
+    }
+
+    function measureBase() {
+      var r = card.getBoundingClientRect();
+      base = { left: r.left - dx, right: r.right - dx, top: r.top - dy, bottom: r.bottom - dy };
+    }
+
+    card.addEventListener('pointerdown', function (e) {
+      if (pid !== null) return;
+      pid = e.pointerId;
+      startX = e.clientX; startY = e.clientY; startDx = dx; startDy = dy;
+      measureBase();
+      dragging = false;
+    });
+    card.addEventListener('pointermove', function (e) {
+      if (e.pointerId !== pid) return;
+      var mx = e.clientX - startX, my = e.clientY - startY;
+      if (!dragging && Math.hypot(mx, my) > 6) {
+        dragging = true;
+        try { card.setPointerCapture(pid); } catch (err) {}
+        card.classList.add('is-dragging');
+        close();
+      }
+      if (dragging) setOffset(startDx + mx, startDy + my);
+    });
+    function endDrag(e) {
+      if (e.pointerId !== pid) return;
+      pid = null;
+      if (dragging) {
+        dragging = false;
+        suppressClick = true;
+        setTimeout(function () { suppressClick = false; }, 0);
+        card.classList.remove('is-dragging');
+      }
+    }
+    card.addEventListener('pointerup', endDrag);
+    card.addEventListener('pointercancel', endDrag);
+    // A drag that ends over the LinkedIn link shouldn't open it.
+    card.addEventListener('click', function (e) {
+      if (suppressClick) { e.preventDefault(); e.stopPropagation(); suppressClick = false; }
+    }, true);
+
+    // ----- Screen size changes -----
+    var pending = false;
+    function relayout(recentre) {
+      if (recentre) { dx = 0; dy = 0; card.style.setProperty('--dx', '0px'); card.style.setProperty('--dy', '0px'); }
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () {
+        pending = false;
+        zoneRect();
+        measureBase();
+        setOffset(dx, dy);
+        scatter();
+        if (openStar) place(openStar);
+      });
+    }
+    window.addEventListener('resize', function () { relayout(false); });
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', function () { relayout(false); });
+    // Rotating: put the card back in the middle and let the stars resettle.
+    window.addEventListener('orientationchange', function () {
+      relayout(true);
+      setTimeout(function () { relayout(false); }, 250);
+      setTimeout(function () { relayout(false); }, 700);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { relayout(false); });
   }
+
+  if (window.matchMedia('(pointer: coarse)').matches) initTouch(); else initDesktop();
   document.addEventListener('click', close);
 })();
