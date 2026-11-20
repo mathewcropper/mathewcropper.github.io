@@ -95,6 +95,82 @@
     });
   });
 
+  // ---------- Keep company stars clear of the crew card ----------
+  var card = document.querySelector('.card');
+  var CLEAR = 18;   // gap between a star's centre and the card edge
+  var SPACING = 34; // minimum distance between two company stars
+
+  function overlaps(x, y, box) {
+    return x > box.left && x < box.right && y > box.top && y < box.bottom;
+  }
+
+  function tooClose(x, y, placed) {
+    for (var i = 0; i < placed.length; i++) {
+      var dx = placed[i].x - x, dy = placed[i].y - y;
+      if (dx * dx + dy * dy < SPACING * SPACING) return true;
+    }
+    return false;
+  }
+
+  function avoidCard() {
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var c = card.getBoundingClientRect();
+    var box = { left: c.left - CLEAR, right: c.right + CLEAR, top: c.top - CLEAR, bottom: c.bottom + CLEAR };
+    var min = 22; // keep the whole 44px tap target on screen
+    var placed = [];
+
+    // Reset any earlier nudges so stars start from their designed spots.
+    stars.forEach(function (s) { s.style.left = ''; s.style.top = ''; });
+
+    stars.forEach(function (s) {
+      var r = s.getBoundingClientRect();
+      var x = r.left + r.width / 2, y = r.top + r.height / 2;
+      if (!overlaps(x, y, box)) { placed.push({ x: x, y: y }); return; }
+
+      // Candidate spots just outside each edge, nearest edge first.
+      var options = [
+        { d: x - box.left, x: box.left, y: y, axis: 'y' },
+        { d: box.right - x, x: box.right, y: y, axis: 'y' },
+        { d: y - box.top, x: x, y: box.top, axis: 'x' },
+        { d: box.bottom - y, x: x, y: box.bottom, axis: 'x' }
+      ].filter(function (o) {
+        return o.x >= min && o.x <= vw - min && o.y >= min && o.y <= vh - min;
+      }).sort(function (a, b) { return a.d - b.d; });
+
+      for (var i = 0; i < options.length; i++) {
+        var o = options[i];
+        // Slide along the edge until the spot isn't crowding another star.
+        for (var step = 0; step < 8; step++) {
+          var shift = (step % 2 ? 1 : -1) * Math.ceil(step / 2) * SPACING;
+          var nx = o.axis === 'x' ? o.x + shift : o.x;
+          var ny = o.axis === 'y' ? o.y + shift : o.y;
+          if (nx < min || nx > vw - min || ny < min || ny > vh - min) continue;
+          if (overlaps(nx, ny, box) || tooClose(nx, ny, placed)) continue;
+          s.style.left = nx + 'px';
+          s.style.top = ny + 'px';
+          placed.push({ x: nx, y: ny });
+          return;
+        }
+      }
+      placed.push({ x: x, y: y }); // nowhere free (tiny screen): leave it
+    });
+  }
+
+  var pending = false;
+  function relayout() {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(function () {
+      pending = false;
+      avoidCard();
+      if (openStar) place(openStar);
+    });
+  }
+
+  avoidCard();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
+  window.addEventListener('load', relayout);
+  window.addEventListener('resize', relayout);
+  window.addEventListener('scroll', relayout, { passive: true });
   document.addEventListener('click', close);
-  window.addEventListener('resize', function () { if (openStar) place(openStar); });
 })();
