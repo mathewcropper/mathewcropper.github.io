@@ -55,6 +55,12 @@ a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 /* ---------- Career constellation ---------- */
 .sky{position:fixed;inset:0;overflow:hidden;z-index:0}
 .dots{position:absolute;inset:0;pointer-events:none}
+/* Company stars live inside the part of the screen that can be tapped:
+   clear of notches, status bars and the browser's own floating toolbars. */
+.zone{position:absolute;top:calc(env(safe-area-inset-top, 0px) + 8px);right:calc(env(safe-area-inset-right, 0px) + 8px);bottom:calc(env(safe-area-inset-bottom, 0px) + 8px);left:calc(env(safe-area-inset-left, 0px) + 8px)}
+@media (pointer:coarse){
+  .zone{top:max(calc(env(safe-area-inset-top, 0px) + 12px), 28px);bottom:calc(env(safe-area-inset-bottom, 0px) + 72px)}
+}
 .dot{position:absolute;border-radius:50%;background:var(--ink)}
 .dot.tw{animation:dotfade 5s ease-in-out infinite}
 @keyframes dotfade{0%,100%{opacity:var(--o)}50%{opacity:calc(var(--o) * .35)}}
@@ -77,6 +83,16 @@ a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 
 @media (max-width:600px){
   .star{left:var(--mx);top:var(--my)}
+}
+
+/* ---------- Short portrait screens (small phones) ---------- */
+@media (max-height:700px) and (orientation:portrait){
+  body{padding:24px 16px}
+  .card{gap:12px;padding:14px 22px 20px}
+  .card-front{gap:10px}
+  .card-photo{width:84px;height:84px}
+  .card-name{font-size:26px}
+  .card-link{margin-top:4px;padding-top:12px}
 }
 
 /* ---------- Short screens (phones in landscape) ---------- */
