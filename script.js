@@ -172,5 +172,17 @@
   window.addEventListener('load', relayout);
   window.addEventListener('resize', relayout);
   window.addEventListener('scroll', relayout, { passive: true });
+  // Phones report the new size late after rotating, so check again once it settles.
+  window.addEventListener('orientationchange', function () {
+    relayout();
+    setTimeout(relayout, 250);
+    setTimeout(relayout, 700);
+  });
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', relayout);
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(relayout);
+    ro.observe(card);
+    ro.observe(document.documentElement);
+  }
   document.addEventListener('click', close);
 })();
