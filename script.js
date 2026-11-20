@@ -49,8 +49,9 @@
       x = cx < vw / 2 ? cx + GAP : cx - GAP - w;
       y = cy < vh / 2 ? cy - 14 : cy + 14 - h;
     }
-    x = Math.max(EDGE, Math.min(x, vw - w - EDGE));
-    y = Math.max(EDGE, Math.min(y, vh - h - EDGE));
+    var z = zone.getBoundingClientRect();
+    x = Math.max(z.left + EDGE / 2, Math.min(x, z.right - w - EDGE / 2));
+    y = Math.max(z.top, Math.min(y, z.bottom - h));
     tip.style.transform = 'translate(' + Math.round(x) + 'px,' + Math.round(y) + 'px)';
   }
 
@@ -97,6 +98,7 @@
 
   // ---------- Keep company stars clear of the crew card ----------
   var card = document.querySelector('.card');
+  var zone = document.getElementById('zone');
   var CLEAR = 18;   // gap between a star's centre and the card edge
   var SPACING = 34; // minimum distance between two company stars
 
@@ -104,19 +106,21 @@
     return x > box.left && x < box.right && y > box.top && y < box.bottom;
   }
 
-  function tooClose(x, y, placed) {
+  function tooClose(x, y, placed, space) {
+    space = space || SPACING;
     for (var i = 0; i < placed.length; i++) {
       var dx = placed[i].x - x, dy = placed[i].y - y;
-      if (dx * dx + dy * dy < SPACING * SPACING) return true;
+      if (dx * dx + dy * dy < space * space) return true;
     }
     return false;
   }
 
   function avoidCard() {
-    var vw = window.innerWidth, vh = window.innerHeight;
+    var z = zone.getBoundingClientRect();
     var c = card.getBoundingClientRect();
     var box = { left: c.left - CLEAR, right: c.right + CLEAR, top: c.top - CLEAR, bottom: c.bottom + CLEAR };
-    var min = 22; // keep the whole 44px tap target on screen
+    var pad = 14; // keep the tap target inside the tappable zone
+    var minX = z.left + pad, maxX = z.right - pad, minY = z.top + pad, maxY = z.bottom - pad;
     var placed = [];
 
     // Reset any earlier nudges so stars start from their designed spots.
@@ -134,7 +138,7 @@
         { d: y - box.top, x: x, y: box.top, axis: 'x' },
         { d: box.bottom - y, x: x, y: box.bottom, axis: 'x' }
       ].filter(function (o) {
-        return o.x >= min && o.x <= vw - min && o.y >= min && o.y <= vh - min;
+        return o.x >= minX && o.x <= maxX && o.y >= minY && o.y <= maxY;
       }).sort(function (a, b) { return a.d - b.d; });
 
       for (var i = 0; i < options.length; i++) {
@@ -144,15 +148,35 @@
           var shift = (step % 2 ? 1 : -1) * Math.ceil(step / 2) * SPACING;
           var nx = o.axis === 'x' ? o.x + shift : o.x;
           var ny = o.axis === 'y' ? o.y + shift : o.y;
-          if (nx < min || nx > vw - min || ny < min || ny > vh - min) continue;
+          if (nx < minX || nx > maxX || ny < minY || ny > maxY) continue;
           if (overlaps(nx, ny, box) || tooClose(nx, ny, placed)) continue;
-          s.style.left = nx + 'px';
-          s.style.top = ny + 'px';
+          s.style.left = (nx - z.left) + 'px';
+          s.style.top = (ny - z.top) + 'px';
           placed.push({ x: nx, y: ny });
           return;
         }
       }
-      placed.push({ x: x, y: y }); // nowhere free (tiny screen): leave it
+      // No room along the card's edges (small screens): take the nearest free spot anywhere.
+      // If it's very cramped, let stars sit a little closer together.
+      var best = null;
+      [SPACING, 24].forEach(function (space) {
+        if (best) return;
+        var bestD = Infinity;
+        for (var gy = minY; gy <= maxY; gy += 6) {
+          for (var gx = minX; gx <= maxX; gx += 6) {
+            if (overlaps(gx, gy, box) || tooClose(gx, gy, placed, space)) continue;
+            var dd = (gx - x) * (gx - x) + (gy - y) * (gy - y);
+            if (dd < bestD) { bestD = dd; best = { x: gx, y: gy }; }
+          }
+        }
+      });
+      if (best) {
+        s.style.left = (best.x - z.left) + 'px';
+        s.style.top = (best.y - z.top) + 'px';
+        placed.push(best);
+      } else {
+        placed.push({ x: x, y: y }); // truly no space: leave it
+      }
     });
   }
 
