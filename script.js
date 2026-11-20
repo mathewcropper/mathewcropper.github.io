@@ -430,16 +430,17 @@
   if (window.matchMedia('(pointer: coarse)').matches) initTouch(); else initDesktop();
   document.addEventListener('click', close);
 
-  // ---------- Every now and then, a UFO ----------
-  // Flies through the background. If it strays too close to a company star,
-  // that star fires a phaser and the UFO goes up in sparks.
-  (function ufos() {
+  // ---------- Every now and then, a visitor from deep space ----------
+  // One of a small fleet of (original) villain ships drifts through the background.
+  // Any company star it strays too close to locks on with a phaser and takes it down.
+  (function invaders() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var NS = 'http://www.w3.org/2000/svg';
     var touch = window.matchMedia('(pointer: coarse)').matches;
-    var demo = location.hash === '#ufo'; // mathewcropper.com/#ufo: one every few seconds
-    var RANGE = touch ? 80 : 110;        // how close it can get before a star fires
+    var demo = /^#(ufo|saucer|crystal|bioship|ring|swarm)$/.exec(location.hash); // e.g. /#crystal
+    var RANGE = touch ? 80 : 110;
     var SCALE = touch ? 0.85 : 1;
+    var COOLDOWN = 1.2; // seconds before the same star can fire again
 
     var svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('class', 'ufo-layer');
@@ -452,133 +453,259 @@
       (parent || svg).appendChild(n);
       return n;
     }
+    function rand(a, b) { return a + Math.random() * (b - a); }
 
-    function buildUfo() {
-      var g = el('g', { 'class': 'ufo' });
-      el('ellipse', { cx: 0, cy: -3, rx: 5, ry: 4.5, fill: '#9FD8FF', 'fill-opacity': '.85' }, g); // glass dome
-      el('ellipse', { cx: 0, cy: 0.5, rx: 11.5, ry: 3.6, fill: '#B9C2DC' }, g);                     // saucer
-      el('ellipse', { cx: 0, cy: 1.6, rx: 8, ry: 2, fill: '#6B7699' }, g);                           // underside
-      [-6.5, 0, 6.5].forEach(function (x, i) {
-        el('circle', { cx: x, cy: 0.6, r: 1.1, fill: '#FFB547', 'class': 'ufo-light', style: 'animation-delay:' + (i * 0.2) + 's' }, g);
-      });
-      return g;
+    // ----- The fleet -----
+    // Each type builds its bodies (the parts a star can shoot), animates them, and has its own explosion.
+    var TYPES = {
+      saucer: {
+        speed: [60, 90], amp: [10, 32],
+        build: function (ship) {
+          var g = el('g', {}, ship.g);
+          el('ellipse', { cx: 0, cy: -3, rx: 5, ry: 4.5, fill: '#9FD8FF', 'fill-opacity': '.85' }, g);
+          el('ellipse', { cx: 0, cy: 0.5, rx: 11.5, ry: 3.6, fill: '#B9C2DC' }, g);
+          el('ellipse', { cx: 0, cy: 1.6, rx: 8, ry: 2, fill: '#6B7699' }, g);
+          [-6.5, 0, 6.5].forEach(function (x, i) {
+            el('circle', { cx: x, cy: 0.6, r: 1.1, fill: '#FFB547', 'class': 'ufo-light', style: 'animation-delay:' + (i * 0.2) + 's' }, g);
+          });
+          return [{ g: g, ox: 0, oy: 0 }];
+        },
+        animate: function (ship, b) {
+          b.g.setAttribute('transform', 'rotate(' + (Math.cos(ship.t * ship.freq * 2) * 8 * ship.dir).toFixed(1) + ')');
+        },
+        boom: 'sparks'
+      },
+
+      // A faceted shard of violet crystal, turning slowly as it goes.
+      crystal: {
+        speed: [45, 70], amp: [6, 18],
+        build: function (ship) {
+          var g = el('g', {}, ship.g);
+          el('polygon', { points: '0,-11 6,-3 3.5,10 -3.5,10 -6,-3', fill: '#B69CFF', 'fill-opacity': '.35', stroke: '#D9CCFF', 'stroke-width': '.9', 'stroke-linejoin': 'round' }, g);
+          el('path', { d: 'M-6,-3 L0,0 L6,-3 M0,0 L0,10 M0,-11 L0,0', fill: 'none', stroke: '#EFE9FF', 'stroke-width': '.5', 'stroke-opacity': '.7' }, g);
+          el('circle', { cx: 0, cy: 0, r: 1.6, fill: '#FF4D7A', 'class': 'ufo-core' }, g);
+          return [{ g: g, ox: 0, oy: 0 }];
+        },
+        animate: function (ship, b) {
+          var sx = Math.cos(ship.t * 1.6); // a slow turn, faked by squashing
+          b.g.setAttribute('transform', 'rotate(' + (ship.t * 14 * ship.dir).toFixed(1) + ') scale(' + (0.35 + 0.65 * Math.abs(sx)).toFixed(2) + ' 1)');
+        },
+        boom: 'shards'
+      },
+
+      // A soft, pulsing bell trailing tendrils: half creature, half ship.
+      bioship: {
+        speed: [35, 55], amp: [14, 30],
+        build: function (ship) {
+          var g = el('g', {}, ship.g);
+          var tendrils = [];
+          for (var i = 0; i < 4; i++) {
+            tendrils.push(el('path', { fill: 'none', stroke: '#5BE3A0', 'stroke-width': '1', 'stroke-opacity': '.6', 'stroke-linecap': 'round' }, g));
+          }
+          el('path', { d: 'M-9,0 C-9,-11 9,-11 9,0 C6,2 3,1 0,2 C-3,1 -6,2 -9,0 Z', fill: '#2FBF85', 'fill-opacity': '.55', stroke: '#8CF5C8', 'stroke-width': '.8' }, g);
+          el('circle', { cx: -3, cy: -4, r: 1.2, fill: '#C6FFE6', 'fill-opacity': '.8' }, g);
+          el('circle', { cx: 2.5, cy: -5.5, r: 0.9, fill: '#C6FFE6', 'fill-opacity': '.7' }, g);
+          el('circle', { cx: 0.5, cy: -2, r: 1.5, fill: '#FF4D7A', 'class': 'ufo-core' }, g);
+          return [{ g: g, ox: 0, oy: 0, tendrils: tendrils }];
+        },
+        animate: function (ship, b) {
+          var pulse = 1 + Math.sin(ship.t * 3) * 0.08;
+          b.g.setAttribute('transform', 'scale(' + pulse.toFixed(3) + ' ' + (2 - pulse).toFixed(3) + ')');
+          b.tendrils.forEach(function (p, i) {
+            var x = -6 + i * 4, ph = ship.t * 4 + i;
+            var d = 'M' + x + ',1 q' + (Math.sin(ph) * 3).toFixed(1) + ',4 0,7 t' + (Math.sin(ph + 1) * 3).toFixed(1) + ',6';
+            p.setAttribute('d', d);
+          });
+        },
+        boom: 'goo'
+      },
+
+      // A spinning ring with a hot red core.
+      ring: {
+        speed: [50, 75], amp: [8, 22],
+        build: function (ship) {
+          var g = el('g', {}, ship.g);
+          el('circle', { cx: 0, cy: 0, r: 8, fill: 'none', stroke: '#8E97B5', 'stroke-width': '3' }, g);
+          el('circle', { cx: 0, cy: 0, r: 8, fill: 'none', stroke: '#D5DBEE', 'stroke-width': '1', 'stroke-dasharray': '3 3.3' }, g);
+          [0, 90, 180, 270].forEach(function (a) {
+            el('line', { x1: 0, y1: -2.6, x2: 0, y2: -6.5, stroke: '#8E97B5', 'stroke-width': '1', transform: 'rotate(' + a + ')' }, g);
+          });
+          el('circle', { cx: 0, cy: 0, r: 2.6, fill: '#FF5A4D', 'class': 'ufo-core' }, g);
+          return [{ g: g, ox: 0, oy: 0 }];
+        },
+        animate: function (ship, b) {
+          b.g.setAttribute('transform', 'rotate(' + (ship.t * 90 * ship.dir).toFixed(1) + ')');
+        },
+        boom: 'shockwave'
+      },
+
+      // Three little drones in formation. Stars can pick them off one at a time.
+      swarm: {
+        speed: [70, 100], amp: [6, 16],
+        build: function (ship) {
+          return [[0, 0], [-14, -9], [-14, 9]].map(function (o, i) {
+            var g = el('g', {}, ship.g);
+            el('path', { d: 'M5,0 L-4,-4 L-2,0 L-4,4 Z', fill: '#59627F', stroke: '#9AA3C2', 'stroke-width': '.6', 'stroke-linejoin': 'round' }, g);
+            el('circle', { cx: 1.2, cy: 0, r: 1, fill: '#FF4D4D', 'class': 'ufo-light', style: 'animation-delay:' + (i * 0.15) + 's' }, g);
+            return { g: g, ox: o[0], oy: o[1], phase: i * 1.3 };
+          });
+        },
+        animate: function (ship, b) {
+          var bob = Math.sin(ship.t * 5 + b.phase) * 1.5;
+          b.g.setAttribute('transform', 'translate(' + b.ox + ' ' + (b.oy + bob).toFixed(1) + ')');
+        },
+        boom: 'puff'
+      }
+    };
+    var NAMES = Object.keys(TYPES);
+
+    // ----- Explosions -----
+    function particles(x, y, opts) {
+      var parts = [], flash = null, wave = null;
+      if (opts.flash) flash = el('circle', { cx: x, cy: y, r: 2, fill: opts.flash });
+      if (opts.wave) wave = el('circle', { cx: x, cy: y, r: 3, fill: 'none', stroke: opts.wave, 'stroke-width': '2' });
+      for (var i = 0; i < opts.count; i++) {
+        var a = Math.random() * Math.PI * 2, v = rand(opts.speed[0], opts.speed[1]);
+        var colour = opts.colours[i % opts.colours.length], n;
+        if (opts.shape === 'shard') {
+          var s = rand(1.5, 3.2);
+          n = el('polygon', { points: '0,' + (-s) + ' ' + (s * 0.5) + ',' + s + ' ' + (-s * 0.5) + ',' + s, fill: colour });
+        } else {
+          n = el('circle', { r: rand(opts.size[0], opts.size[1]).toFixed(1), fill: colour });
+        }
+        parts.push({ n: n, vx: Math.cos(a) * v, vy: Math.sin(a) * v, spin: rand(-400, 400) });
+      }
+      var start = performance.now(), life = opts.life;
+      (function tick(now) {
+        var t = (now - start) / 1000, k = Math.min(t / 0.35, 1);
+        if (flash) { flash.setAttribute('r', (2 + k * opts.flashR).toFixed(1)); flash.setAttribute('opacity', (1 - k).toFixed(2)); }
+        if (wave) {
+          var w = Math.min(t / 0.6, 1);
+          wave.setAttribute('r', (3 + w * 34).toFixed(1));
+          wave.setAttribute('opacity', (1 - w).toFixed(2));
+          wave.setAttribute('stroke-width', (2.5 * (1 - w) + 0.3).toFixed(2));
+        }
+        parts.forEach(function (p) {
+          var drag = Math.exp(-opts.drag * t), d = (1 - drag) / opts.drag;
+          var px = x + p.vx * d, py = y + p.vy * d + (opts.gravity || 0) * t * t;
+          if (opts.shape === 'shard') p.n.setAttribute('transform', 'translate(' + px.toFixed(1) + ' ' + py.toFixed(1) + ') rotate(' + (p.spin * t).toFixed(0) + ')');
+          else { p.n.setAttribute('cx', px.toFixed(1)); p.n.setAttribute('cy', py.toFixed(1)); }
+          p.n.setAttribute('opacity', Math.max(0, 1 - t / life).toFixed(2));
+        });
+        if (t < Math.max(life, 0.6)) requestAnimationFrame(tick);
+        else { if (flash) flash.remove(); if (wave) wave.remove(); parts.forEach(function (p) { p.n.remove(); }); }
+      })(start);
     }
 
-    var ufo = null, last = 0, running = false;
+    var BOOMS = {
+      sparks: { count: 16, speed: [40, 150], size: [0.8, 2.2], drag: 2.5, life: 0.8, colours: ['#FFB547', '#FFD89A', '#E8ECF8', '#9FD8FF'], flash: '#FFE3B0', flashR: 16 },
+      shards: { count: 14, speed: [50, 140], drag: 2, life: 1, shape: 'shard', colours: ['#D9CCFF', '#B69CFF', '#EFE9FF', '#FF4D7A'], flash: '#EFE9FF', flashR: 12 },
+      goo:    { count: 18, speed: [20, 80], size: [1, 3], drag: 2, life: 1.1, gravity: 18, colours: ['#5BE3A0', '#2FBF85', '#C6FFE6', '#8CF5C8'], flash: '#8CF5C8', flashR: 20 },
+      shockwave: { count: 12, speed: [60, 160], size: [0.8, 1.8], drag: 3, life: 0.7, colours: ['#FF5A4D', '#FFB547', '#D5DBEE'], flash: '#FFD2C9', flashR: 10, wave: '#FF8A6B' },
+      puff:   { count: 8, speed: [30, 90], size: [0.7, 1.6], drag: 3, life: 0.6, colours: ['#FF4D4D', '#FFB547', '#9AA3C2'], flash: '#FFD2C9', flashR: 7 }
+    };
+
+    // ----- Flying -----
+    var ship = null, last = 0, running = false, cooldown = new Map(), turn = 0;
 
     function spawn() {
-      if (ufo || document.hidden) return schedule();
+      if (ship || document.hidden) return schedule();
       var vw = window.innerWidth, vh = window.innerHeight;
-      var fromLeft = Math.random() < 0.5;
-      ufo = {
-        g: buildUfo(),
-        x: fromLeft ? -30 : vw + 30,
-        dir: fromLeft ? 1 : -1,
-        baseY: vh * (0.12 + Math.random() * 0.76),
-        amp: 10 + Math.random() * 22,
-        freq: 0.6 + Math.random() * 0.8,
-        speed: (touch ? 45 : 60) + Math.random() * 30,
-        t: 0, state: 'flying'
+      var name = demo && demo[1] !== 'ufo' ? demo[1]
+               : demo ? NAMES[turn++ % NAMES.length]          // #ufo: cycle through the fleet
+               : NAMES[Math.floor(Math.random() * NAMES.length)];
+      var type = TYPES[name], fromLeft = Math.random() < 0.5;
+      ship = {
+        type: type, name: name,
+        g: el('g', { 'class': 'ufo ufo-' + name }),
+        x: fromLeft ? -40 : vw + 40, dir: fromLeft ? 1 : -1,
+        baseY: vh * rand(0.12, 0.88), amp: rand(type.amp[0], type.amp[1]),
+        freq: rand(0.6, 1.4), speed: rand(type.speed[0], type.speed[1]) * (touch ? 0.8 : 1),
+        t: 0, shot: null
       };
+      ship.bodies = type.build(ship);
+      ship.bodies.forEach(function (b) { b.alive = true; });
       if (!running) { running = true; last = 0; requestAnimationFrame(frame); }
     }
 
     function schedule(first) {
-      var wait = demo ? 2500 : first ? 6000 + Math.random() * 6000 : 18000 + Math.random() * 22000;
+      var wait = demo ? 2500 : first ? rand(6000, 12000) : rand(18000, 40000);
       setTimeout(spawn, wait);
     }
 
-    function starCentre(s) {
-      var r = s.getBoundingClientRect();
+    function centre(node) {
+      var r = node.getBoundingClientRect();
       return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
     }
 
-    function fire(star, from) {
-      ufo.state = 'hit';
-      ufo.hitAt = ufo.t;
-      star.classList.add('is-firing');
-      setTimeout(function () { star.classList.remove('is-firing'); }, 700);
-      ufo.beam = {
-        star: star,
-        glow: el('line', { 'class': 'phaser-glow' }),
-        core: el('line', { 'class': 'phaser-core' })
-      };
+    function bodyPos(b) {
+      return { x: ship.x + b.ox * ship.dir * SCALE, y: ship.y + b.oy * SCALE };
     }
 
-    function explode(x, y) {
-      var flash = el('circle', { cx: x, cy: y, r: 2, 'class': 'ufo-flash' });
-      var parts = [];
-      var colours = ['#FFB547', '#FFD89A', '#E8ECF8', '#9FD8FF'];
-      for (var i = 0; i < 16; i++) {
-        var a = Math.random() * Math.PI * 2, v = 40 + Math.random() * 110;
-        parts.push({
-          n: el('circle', { r: (0.8 + Math.random() * 1.4).toFixed(1), fill: colours[i % colours.length] }),
-          x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v
-        });
-      }
-      var start = performance.now();
-      (function burst(now) {
-        var t = (now - start) / 1000, life = 0.8;
-        var k = Math.min(t / 0.35, 1);
-        flash.setAttribute('r', (2 + k * 16).toFixed(1));
-        flash.setAttribute('opacity', (1 - k).toFixed(2));
-        parts.forEach(function (p) {
-          var drag = Math.exp(-2.5 * t);
-          var px = p.x + p.vx * (1 - drag) / 2.5, py = p.y + p.vy * (1 - drag) / 2.5;
-          p.n.setAttribute('cx', px.toFixed(1));
-          p.n.setAttribute('cy', py.toFixed(1));
-          p.n.setAttribute('opacity', Math.max(0, 1 - t / life).toFixed(2));
-        });
-        if (t < life) requestAnimationFrame(burst);
-        else { flash.remove(); parts.forEach(function (p) { p.n.remove(); }); }
-      })(start);
-    }
-
-    function done() {
-      if (ufo.beam) { ufo.beam.glow.remove(); ufo.beam.core.remove(); }
-      ufo.g.remove();
-      ufo = null;
+    function finish() {
+      if (ship.shot) { ship.shot.glow.remove(); ship.shot.core.remove(); }
+      ship.g.remove();
+      ship = null;
       schedule();
     }
 
     function frame(now) {
-      if (!ufo) { running = false; return; }
+      if (!ship) { running = false; return; }
       var dt = last ? Math.min((now - last) / 1000, 0.05) : 0;
       last = now;
-      ufo.t += dt;
+      ship.t += dt;
       var vw = window.innerWidth;
+      var shot = ship.shot;
 
-      if (ufo.state === 'flying') {
-        ufo.x += ufo.dir * ufo.speed * dt;
-        var y = ufo.baseY + Math.sin(ufo.t * ufo.freq * 2) * ufo.amp;
-        ufo.y = y;
-        // Any company star close enough? Only once the UFO is properly on screen.
-        if (ufo.x > 10 && ufo.x < vw - 10) {
-          for (var i = 0; i < stars.length; i++) {
-            var c = starCentre(stars[i]);
-            if (Math.hypot(c.x - ufo.x, c.y - ufo.y) < RANGE) { fire(stars[i], c); break; }
-          }
-        }
-        if ((ufo.dir > 0 && ufo.x > vw + 40) || (ufo.dir < 0 && ufo.x < -40)) { done(); requestAnimationFrame(frame); return; }
-      } else if (ufo.state === 'hit') {
-        // Caught in the beam: shudder, then boom.
-        var since = ufo.t - ufo.hitAt;
-        var c2 = starCentre(ufo.beam.star);
-        var jx = ufo.x + (Math.random() - 0.5) * 2, jy = ufo.y + (Math.random() - 0.5) * 2;
-        var on = Math.floor(since * 22) % 3 !== 2; // a little flicker
-        [ufo.beam.glow, ufo.beam.core].forEach(function (line) {
-          line.setAttribute('x1', c2.x.toFixed(1)); line.setAttribute('y1', c2.y.toFixed(1));
+      if (!shot) {
+        ship.x += ship.dir * ship.speed * dt;
+        ship.y = ship.baseY + Math.sin(ship.t * ship.freq * 2) * ship.amp;
+      }
+      ship.g.setAttribute('transform', 'translate(' + ship.x.toFixed(1) + ' ' + ship.y.toFixed(1) + ') scale(' + (SCALE * ship.dir) + ' ' + SCALE + ')');
+      ship.bodies.forEach(function (b) { if (b.alive) ship.type.animate(ship, b); });
+
+      if (shot) {
+        // Caught in a beam: shudder, then boom.
+        var since = ship.t - shot.at, from = centre(shot.star), to = bodyPos(shot.body);
+        var jx = to.x + rand(-1, 1), jy = to.y + rand(-1, 1);
+        var on = Math.floor(since * 22) % 3 !== 2;
+        [shot.glow, shot.core].forEach(function (line) {
+          line.setAttribute('x1', from.x.toFixed(1)); line.setAttribute('y1', from.y.toFixed(1));
           line.setAttribute('x2', jx.toFixed(1)); line.setAttribute('y2', jy.toFixed(1));
           line.style.opacity = on ? 1 : 0.35;
         });
-        ufo.g.setAttribute('transform', 'translate(' + jx.toFixed(1) + ' ' + jy.toFixed(1) + ') scale(' + SCALE + ')');
-        if (since > 0.45) { explode(ufo.x, ufo.y); done(); }
-        requestAnimationFrame(frame);
-        return;
+        if (since > 0.45) {
+          particles(to.x, to.y, BOOMS[ship.type.boom]);
+          shot.body.alive = false;
+          shot.body.g.remove();
+          shot.glow.remove(); shot.core.remove();
+          ship.shot = null;
+          if (!ship.bodies.some(function (b) { return b.alive; })) { finish(); }
+        }
+      } else if (ship.x > 10 && ship.x < vw - 10) {
+        // Any company star in range of any part of the ship?
+        outer:
+        for (var i = 0; i < ship.bodies.length; i++) {
+          var b = ship.bodies[i];
+          if (!b.alive) continue;
+          var p = bodyPos(b);
+          for (var j = 0; j < stars.length; j++) {
+            var s = stars[j];
+            if ((cooldown.get(s) || 0) > now) continue;
+            var c = centre(s);
+            if (Math.hypot(c.x - p.x, c.y - p.y) < RANGE) {
+              cooldown.set(s, now + COOLDOWN * 1000);
+              s.classList.add('is-firing');
+              setTimeout(function (st) { st.classList.remove('is-firing'); }.bind(null, s), 700);
+              ship.shot = { star: s, body: b, at: ship.t,
+                            glow: el('line', { 'class': 'phaser-glow' }), core: el('line', { 'class': 'phaser-core' }) };
+              break outer;
+            }
+          }
+        }
       }
 
-      var tilt = Math.cos(ufo.t * ufo.freq * 2) * 8 * ufo.dir;
-      ufo.g.setAttribute('transform', 'translate(' + ufo.x.toFixed(1) + ' ' + ufo.y.toFixed(1) + ') rotate(' + tilt.toFixed(1) + ') scale(' + SCALE + ')');
+      if (ship && !ship.shot && ((ship.dir > 0 && ship.x > vw + 50) || (ship.dir < 0 && ship.x < -50))) finish();
       requestAnimationFrame(frame);
     }
 
