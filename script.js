@@ -429,4 +429,159 @@
 
   if (window.matchMedia('(pointer: coarse)').matches) initTouch(); else initDesktop();
   document.addEventListener('click', close);
+
+  // ---------- Every now and then, a UFO ----------
+  // Flies through the background. If it strays too close to a company star,
+  // that star fires a phaser and the UFO goes up in sparks.
+  (function ufos() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var touch = window.matchMedia('(pointer: coarse)').matches;
+    var demo = location.hash === '#ufo'; // mathewcropper.com/#ufo: one every few seconds
+    var RANGE = touch ? 80 : 110;        // how close it can get before a star fires
+    var SCALE = touch ? 0.85 : 1;
+
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'ufo-layer');
+    svg.setAttribute('aria-hidden', 'true');
+    document.getElementById('sky').insertBefore(svg, zone);
+
+    function el(name, attrs, parent) {
+      var n = document.createElementNS(NS, name);
+      for (var k in attrs) n.setAttribute(k, attrs[k]);
+      (parent || svg).appendChild(n);
+      return n;
+    }
+
+    function buildUfo() {
+      var g = el('g', { 'class': 'ufo' });
+      el('ellipse', { cx: 0, cy: -3, rx: 5, ry: 4.5, fill: '#9FD8FF', 'fill-opacity': '.85' }, g); // glass dome
+      el('ellipse', { cx: 0, cy: 0.5, rx: 11.5, ry: 3.6, fill: '#B9C2DC' }, g);                     // saucer
+      el('ellipse', { cx: 0, cy: 1.6, rx: 8, ry: 2, fill: '#6B7699' }, g);                           // underside
+      [-6.5, 0, 6.5].forEach(function (x, i) {
+        el('circle', { cx: x, cy: 0.6, r: 1.1, fill: '#FFB547', 'class': 'ufo-light', style: 'animation-delay:' + (i * 0.2) + 's' }, g);
+      });
+      return g;
+    }
+
+    var ufo = null, last = 0, running = false;
+
+    function spawn() {
+      if (ufo || document.hidden) return schedule();
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var fromLeft = Math.random() < 0.5;
+      ufo = {
+        g: buildUfo(),
+        x: fromLeft ? -30 : vw + 30,
+        dir: fromLeft ? 1 : -1,
+        baseY: vh * (0.12 + Math.random() * 0.76),
+        amp: 10 + Math.random() * 22,
+        freq: 0.6 + Math.random() * 0.8,
+        speed: (touch ? 45 : 60) + Math.random() * 30,
+        t: 0, state: 'flying'
+      };
+      if (!running) { running = true; last = 0; requestAnimationFrame(frame); }
+    }
+
+    function schedule(first) {
+      var wait = demo ? 2500 : first ? 6000 + Math.random() * 6000 : 18000 + Math.random() * 22000;
+      setTimeout(spawn, wait);
+    }
+
+    function starCentre(s) {
+      var r = s.getBoundingClientRect();
+      return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+    }
+
+    function fire(star, from) {
+      ufo.state = 'hit';
+      ufo.hitAt = ufo.t;
+      star.classList.add('is-firing');
+      setTimeout(function () { star.classList.remove('is-firing'); }, 700);
+      ufo.beam = {
+        star: star,
+        glow: el('line', { 'class': 'phaser-glow' }),
+        core: el('line', { 'class': 'phaser-core' })
+      };
+    }
+
+    function explode(x, y) {
+      var flash = el('circle', { cx: x, cy: y, r: 2, 'class': 'ufo-flash' });
+      var parts = [];
+      var colours = ['#FFB547', '#FFD89A', '#E8ECF8', '#9FD8FF'];
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2, v = 40 + Math.random() * 110;
+        parts.push({
+          n: el('circle', { r: (0.8 + Math.random() * 1.4).toFixed(1), fill: colours[i % colours.length] }),
+          x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v
+        });
+      }
+      var start = performance.now();
+      (function burst(now) {
+        var t = (now - start) / 1000, life = 0.8;
+        var k = Math.min(t / 0.35, 1);
+        flash.setAttribute('r', (2 + k * 16).toFixed(1));
+        flash.setAttribute('opacity', (1 - k).toFixed(2));
+        parts.forEach(function (p) {
+          var drag = Math.exp(-2.5 * t);
+          var px = p.x + p.vx * (1 - drag) / 2.5, py = p.y + p.vy * (1 - drag) / 2.5;
+          p.n.setAttribute('cx', px.toFixed(1));
+          p.n.setAttribute('cy', py.toFixed(1));
+          p.n.setAttribute('opacity', Math.max(0, 1 - t / life).toFixed(2));
+        });
+        if (t < life) requestAnimationFrame(burst);
+        else { flash.remove(); parts.forEach(function (p) { p.n.remove(); }); }
+      })(start);
+    }
+
+    function done() {
+      if (ufo.beam) { ufo.beam.glow.remove(); ufo.beam.core.remove(); }
+      ufo.g.remove();
+      ufo = null;
+      schedule();
+    }
+
+    function frame(now) {
+      if (!ufo) { running = false; return; }
+      var dt = last ? Math.min((now - last) / 1000, 0.05) : 0;
+      last = now;
+      ufo.t += dt;
+      var vw = window.innerWidth;
+
+      if (ufo.state === 'flying') {
+        ufo.x += ufo.dir * ufo.speed * dt;
+        var y = ufo.baseY + Math.sin(ufo.t * ufo.freq * 2) * ufo.amp;
+        ufo.y = y;
+        // Any company star close enough? Only once the UFO is properly on screen.
+        if (ufo.x > 10 && ufo.x < vw - 10) {
+          for (var i = 0; i < stars.length; i++) {
+            var c = starCentre(stars[i]);
+            if (Math.hypot(c.x - ufo.x, c.y - ufo.y) < RANGE) { fire(stars[i], c); break; }
+          }
+        }
+        if ((ufo.dir > 0 && ufo.x > vw + 40) || (ufo.dir < 0 && ufo.x < -40)) { done(); requestAnimationFrame(frame); return; }
+      } else if (ufo.state === 'hit') {
+        // Caught in the beam: shudder, then boom.
+        var since = ufo.t - ufo.hitAt;
+        var c2 = starCentre(ufo.beam.star);
+        var jx = ufo.x + (Math.random() - 0.5) * 2, jy = ufo.y + (Math.random() - 0.5) * 2;
+        var on = Math.floor(since * 22) % 3 !== 2; // a little flicker
+        [ufo.beam.glow, ufo.beam.core].forEach(function (line) {
+          line.setAttribute('x1', c2.x.toFixed(1)); line.setAttribute('y1', c2.y.toFixed(1));
+          line.setAttribute('x2', jx.toFixed(1)); line.setAttribute('y2', jy.toFixed(1));
+          line.style.opacity = on ? 1 : 0.35;
+        });
+        ufo.g.setAttribute('transform', 'translate(' + jx.toFixed(1) + ' ' + jy.toFixed(1) + ') scale(' + SCALE + ')');
+        if (since > 0.45) { explode(ufo.x, ufo.y); done(); }
+        requestAnimationFrame(frame);
+        return;
+      }
+
+      var tilt = Math.cos(ufo.t * ufo.freq * 2) * 8 * ufo.dir;
+      ufo.g.setAttribute('transform', 'translate(' + ufo.x.toFixed(1) + ' ' + ufo.y.toFixed(1) + ') rotate(' + tilt.toFixed(1) + ') scale(' + SCALE + ')');
+      requestAnimationFrame(frame);
+    }
+
+    schedule(true);
+  })();
 })();
