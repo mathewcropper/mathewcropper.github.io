@@ -53,7 +53,7 @@ a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 .card{position:relative;z-index:2;transform:translate(var(--dx,0px),var(--dy,0px)) rotate(2deg)}
 
 /* ---------- Career constellation ---------- */
-.sky{position:fixed;inset:0;overflow:hidden;z-index:0}
+.sky{position:fixed;inset:0;overflow:hidden;z-index:0;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 .dots{position:absolute;inset:0;pointer-events:none}
 /* Company stars live inside the part of the screen that can be tapped:
    clear of notches, status bars and the browser's own floating toolbars. */
