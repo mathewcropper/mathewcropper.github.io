@@ -434,7 +434,7 @@
   // One of a small fleet of (original) villain ships drifts through the background.
   // Any company star it strays too close to locks on with a phaser and takes it down.
   (function invaders() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var NS = 'http://www.w3.org/2000/svg';
     var touch = window.matchMedia('(pointer: coarse)').matches;
     var demo = /^#(ufo|saucer|crystal|bioship|ring|swarm)$/.exec(location.hash); // e.g. /#crystal
@@ -476,19 +476,54 @@
         boom: 'sparks'
       },
 
-      // A faceted shard of violet crystal, turning slowly as it goes.
+      // A long crystalline stem, bristling with snowflake-like ice spikes along its length.
+      // It rolls slowly around its long axis as it travels.
       crystal: {
-        speed: [45, 70], amp: [6, 18],
+        speed: [40, 62], amp: [6, 16],
         build: function (ship) {
           var g = el('g', {}, ship.g);
-          el('polygon', { points: '0,-11 6,-3 3.5,10 -3.5,10 -6,-3', fill: '#B69CFF', 'fill-opacity': '.35', stroke: '#D9CCFF', 'stroke-width': '.9', 'stroke-linejoin': 'round' }, g);
-          el('path', { d: 'M-6,-3 L0,0 L6,-3 M0,0 L0,10 M0,-11 L0,0', fill: 'none', stroke: '#EFE9FF', 'stroke-width': '.5', 'stroke-opacity': '.7' }, g);
-          el('circle', { cx: 0, cy: 0, r: 1.6, fill: '#FF4D7A', 'class': 'ufo-core' }, g);
+          // Snowflake-like spikes along the stem: each a main ray with side branches at 60°,
+          // shortening towards the tip. [position along stem, length up, length down, sweep]
+          var spikes = [[-14, 6, 5, -0.25], [-8.5, 10, 8, -0.2], [-3, 12.5, 11, -0.15],
+                        [2.5, 9, 12, -0.1], [8, 11, 8.5, -0.05], [13, 6.5, 6, 0]];
+          var d = '', glints = [];
+          function ray(x0, y0, angle, len) {
+            var ux = Math.cos(angle), uy = Math.sin(angle);
+            var tx = x0 + ux * len, ty = y0 + uy * len;
+            d += 'M' + x0.toFixed(2) + ',' + y0.toFixed(2) + 'L' + tx.toFixed(2) + ',' + ty.toFixed(2);
+            [[0.32, 0.36], [0.58, 0.27], [0.8, 0.16]].forEach(function (b) {
+              var bx = x0 + ux * len * b[0], by = y0 + uy * len * b[0], bl = len * b[1];
+              [-1, 1].forEach(function (sgn) {
+                var a = angle + sgn * Math.PI / 3;
+                d += 'M' + bx.toFixed(2) + ',' + by.toFixed(2) + 'l' + (Math.cos(a) * bl).toFixed(2) + ',' + (Math.sin(a) * bl).toFixed(2);
+              });
+            });
+            glints.push([tx, ty]);
+          }
+          spikes.forEach(function (sp) {
+            var x = sp[0], sweep = sp[3];
+            ray(x, -1.2, -Math.PI / 2 + sweep, sp[1]);
+            ray(x, 1.2, Math.PI / 2 - sweep, sp[2]);
+          });
+          el('path', { d: d, fill: 'none', stroke: '#9FD8FF', 'stroke-width': '1.8', 'stroke-opacity': '.25', 'stroke-linecap': 'round' }, g); // icy glow
+          el('path', { d: d, fill: 'none', stroke: '#EAF6FF', 'stroke-width': '.7', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, g);
+          glints.forEach(function (p, i) {
+            if (i % 2) return;
+            el('circle', { cx: p[0].toFixed(2), cy: p[1].toFixed(2), r: '.8', fill: '#FFFFFF', 'class': 'ufo-light', style: 'animation-delay:' + (i * 0.1).toFixed(1) + 's' }, g);
+          });
+          // The stem itself: a long, tapering hexagonal rod with a pointed nose.
+          el('polygon', { points: '19,0 15,-1.6 -15,-1.3 -18,0 -15,1.3 15,1.6', fill: '#6F86C9',
+                          stroke: '#CFE9FF', 'stroke-width': '.6', 'stroke-linejoin': 'round' }, g);
+          el('line', { x1: -15, y1: 0, x2: 16, y2: 0, stroke: '#EFE9FF', 'stroke-width': '.4', 'stroke-opacity': '.7' }, g);
+          el('circle', { cx: 2, cy: 0, r: 1.5, fill: '#FF4D7A', 'class': 'ufo-core' }, g);
           return [{ g: g, ox: 0, oy: 0 }];
         },
         animate: function (ship, b) {
-          var sx = Math.cos(ship.t * 1.6); // a slow turn, faked by squashing
-          b.g.setAttribute('transform', 'rotate(' + (ship.t * 14 * ship.dir).toFixed(1) + ') scale(' + (0.35 + 0.65 * Math.abs(sx)).toFixed(2) + ' 1)');
+          // Roll around the long axis (faked by squashing vertically), with a gentle bob of the nose.
+          var roll = Math.cos(ship.t * 1.3);
+          var sy = (Math.abs(roll) < 0.12 ? 0.12 : Math.abs(roll)) * (roll < 0 ? -1 : 1);
+          var pitch = Math.sin(ship.t * ship.freq * 2) * -4;
+          b.g.setAttribute('transform', 'rotate(' + pitch.toFixed(1) + ') scale(1 ' + sy.toFixed(2) + ')');
         },
         boom: 'shards'
       },
@@ -599,35 +634,48 @@
 
     var BOOMS = {
       sparks: { count: 16, speed: [40, 150], size: [0.8, 2.2], drag: 2.5, life: 0.8, colours: ['#FFB547', '#FFD89A', '#E8ECF8', '#9FD8FF'], flash: '#FFE3B0', flashR: 16 },
-      shards: { count: 14, speed: [50, 140], drag: 2, life: 1, shape: 'shard', colours: ['#D9CCFF', '#B69CFF', '#EFE9FF', '#FF4D7A'], flash: '#EFE9FF', flashR: 12 },
+      shards: { count: 14, speed: [50, 140], drag: 2, life: 1, shape: 'shard', colours: ['#EAF6FF', '#9FD8FF', '#CFE9FF', '#FF4D7A'], flash: '#EAF6FF', flashR: 12 },
       goo:    { count: 18, speed: [20, 80], size: [1, 3], drag: 2, life: 1.1, gravity: 18, colours: ['#5BE3A0', '#2FBF85', '#C6FFE6', '#8CF5C8'], flash: '#8CF5C8', flashR: 20 },
       shockwave: { count: 12, speed: [60, 160], size: [0.8, 1.8], drag: 3, life: 0.7, colours: ['#FF5A4D', '#FFB547', '#D5DBEE'], flash: '#FFD2C9', flashR: 10, wave: '#FF8A6B' },
       puff:   { count: 8, speed: [30, 90], size: [0.7, 1.6], drag: 3, life: 0.6, colours: ['#FF4D4D', '#FFB547', '#9AA3C2'], flash: '#FFD2C9', flashR: 7 }
     };
 
     // ----- Flying -----
-    var ship = null, last = 0, running = false, cooldown = new Map(), turn = 0;
+    // Several ships can be on screen at once (the hotkey can send extras).
+    var ships = [], last = 0, running = false, cooldown = new Map(), turn = 0;
+    var MAX_SHIPS = 4;
 
-    function spawn() {
-      if (ship || document.hidden) return schedule();
+    function pickName() {
+      if (demo && demo[1] !== 'ufo') return demo[1];
+      if (demo) return NAMES[turn++ % NAMES.length];   // #ufo: cycle through the fleet
+      return NAMES[Math.floor(Math.random() * NAMES.length)];
+    }
+
+    function launch(auto) {
+      if (ships.length >= MAX_SHIPS) return false;
       var vw = window.innerWidth, vh = window.innerHeight;
-      var name = demo && demo[1] !== 'ufo' ? demo[1]
-               : demo ? NAMES[turn++ % NAMES.length]          // #ufo: cycle through the fleet
-               : NAMES[Math.floor(Math.random() * NAMES.length)];
-      var type = TYPES[name], fromLeft = Math.random() < 0.5;
-      ship = {
-        type: type, name: name,
+      var name = pickName(), type = TYPES[name], fromLeft = Math.random() < 0.5;
+      var ship = {
+        type: type, name: name, auto: auto,
         g: el('g', { 'class': 'ufo ufo-' + name }),
-        x: fromLeft ? -40 : vw + 40, dir: fromLeft ? 1 : -1,
+        x: fromLeft ? -50 : vw + 50, dir: fromLeft ? 1 : -1,
         baseY: vh * rand(0.12, 0.88), amp: rand(type.amp[0], type.amp[1]),
         freq: rand(0.6, 1.4), speed: rand(type.speed[0], type.speed[1]) * (touch ? 0.8 : 1),
         t: 0, shot: null
       };
       ship.bodies = type.build(ship);
       ship.bodies.forEach(function (b) { b.alive = true; });
+      ships.push(ship);
       if (!running) { running = true; last = 0; requestAnimationFrame(frame); }
+      return true;
     }
 
+    // Automatic visits: one at a time, every now and then.
+    var autoActive = false;
+    function spawn() {
+      if (autoActive || document.hidden || !launch(true)) return schedule();
+      autoActive = true;
+    }
     function schedule(first) {
       var wait = demo ? 2500 : first ? rand(6000, 12000) : rand(18000, 40000);
       setTimeout(spawn, wait);
@@ -638,23 +686,19 @@
       return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
     }
 
-    function bodyPos(b) {
+    function bodyPos(ship, b) {
       return { x: ship.x + b.ox * ship.dir * SCALE, y: ship.y + b.oy * SCALE };
     }
 
-    function finish() {
+    function finish(ship) {
       if (ship.shot) { ship.shot.glow.remove(); ship.shot.core.remove(); }
       ship.g.remove();
-      ship = null;
-      schedule();
+      ships.splice(ships.indexOf(ship), 1);
+      if (ship.auto) { autoActive = false; schedule(); }
     }
 
-    function frame(now) {
-      if (!ship) { running = false; return; }
-      var dt = last ? Math.min((now - last) / 1000, 0.05) : 0;
-      last = now;
+    function step(ship, now, dt, vw) {
       ship.t += dt;
-      var vw = window.innerWidth;
       var shot = ship.shot;
 
       if (!shot) {
@@ -666,7 +710,7 @@
 
       if (shot) {
         // Caught in a beam: shudder, then boom.
-        var since = ship.t - shot.at, from = centre(shot.star), to = bodyPos(shot.body);
+        var since = ship.t - shot.at, from = centre(shot.star), to = bodyPos(ship, shot.body);
         var jx = to.x + rand(-1, 1), jy = to.y + rand(-1, 1);
         var on = Math.floor(since * 22) % 3 !== 2;
         [shot.glow, shot.core].forEach(function (line) {
@@ -680,15 +724,15 @@
           shot.body.g.remove();
           shot.glow.remove(); shot.core.remove();
           ship.shot = null;
-          if (!ship.bodies.some(function (b) { return b.alive; })) { finish(); }
+          if (!ship.bodies.some(function (b) { return b.alive; })) { finish(ship); return; }
         }
       } else if (ship.x > 10 && ship.x < vw - 10) {
-        // Any company star in range of any part of the ship?
+        // Any company star in range of any part of this ship?
         outer:
         for (var i = 0; i < ship.bodies.length; i++) {
           var b = ship.bodies[i];
           if (!b.alive) continue;
-          var p = bodyPos(b);
+          var p = bodyPos(ship, b);
           for (var j = 0; j < stars.length; j++) {
             var s = stars[j];
             if ((cooldown.get(s) || 0) > now) continue;
@@ -705,10 +749,27 @@
         }
       }
 
-      if (ship && !ship.shot && ((ship.dir > 0 && ship.x > vw + 50) || (ship.dir < 0 && ship.x < -50))) finish();
+      if (!ship.shot && ((ship.dir > 0 && ship.x > vw + 60) || (ship.dir < 0 && ship.x < -60))) finish(ship);
+    }
+
+    function frame(now) {
+      if (!ships.length) { running = false; return; }
+      var dt = last ? Math.min((now - last) / 1000, 0.05) : 0;
+      last = now;
+      var vw = window.innerWidth;
+      ships.slice().forEach(function (ship) { step(ship, now, dt, vw); });
       requestAnimationFrame(frame);
     }
 
-    schedule(true);
+    // Hotkey: press U to send one through (up to four at a time).
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'u' && e.key !== 'U') return;
+      if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+      var t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      launch(false);
+    });
+
+    if (!reduced) schedule(true);
   })();
 })();
