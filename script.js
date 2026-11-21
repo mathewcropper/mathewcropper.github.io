@@ -761,7 +761,7 @@
       requestAnimationFrame(frame);
     }
 
-    // Hotkey: press U to send one through (up to four at a time).
+    // Hotkey: press U to send one through (up to four at a time). On phones, long press the sky.
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'u' && e.key !== 'U') return;
       if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
@@ -769,6 +769,46 @@
       if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
       launch(false);
     });
+
+    // Long press on an empty patch of sky (phones): send one through.
+    var sky = document.getElementById('sky');
+    var press = null, HOLD = 500, WOBBLE = 10;
+
+    function ripple(x, y) {
+      var c = el('circle', { cx: x, cy: y, r: 4, fill: 'none', stroke: '#FFB547', 'stroke-width': '1.5' });
+      var start = performance.now();
+      (function grow(now) {
+        var k = Math.min((now - start) / 450, 1);
+        c.setAttribute('r', (4 + k * 22).toFixed(1));
+        c.setAttribute('opacity', (1 - k).toFixed(2));
+        if (k < 1) requestAnimationFrame(grow); else c.remove();
+      })(start);
+    }
+
+    function cancelPress() {
+      if (press) { clearTimeout(press.timer); press = null; }
+    }
+
+    sky.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' || e.target.closest('.star')) return;
+      cancelPress();
+      var x = e.clientX, y = e.clientY;
+      press = { id: e.pointerId, x: x, y: y, timer: setTimeout(function () {
+        press = null;
+        if (launch(false)) {
+          ripple(x, y);
+          if (navigator.vibrate) navigator.vibrate(12);
+        }
+      }, HOLD) };
+    });
+    sky.addEventListener('pointermove', function (e) {
+      if (press && e.pointerId === press.id && Math.hypot(e.clientX - press.x, e.clientY - press.y) > WOBBLE) cancelPress();
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (type) {
+      sky.addEventListener(type, function (e) { if (press && e.pointerId === press.id) cancelPress(); });
+    });
+    // No "copy / look up" menu when holding on the sky.
+    sky.addEventListener('contextmenu', function (e) { if (!e.target.closest('.star')) e.preventDefault(); });
 
     if (!reduced) schedule(true);
   })();
