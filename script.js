@@ -55,11 +55,42 @@
     tip.style.transform = 'translate(' + Math.round(x) + 'px,' + Math.round(y) + 'px)';
   }
 
+  // Fetch every company logo in the background once the page has loaded, so a card
+  // never has to wait on the network when it opens.
+  var logos = {};
+  function preloadLogos() {
+    stars.forEach(function (s) {
+      var src = s.dataset.logo;
+      if (logos[src]) return;
+      var img = new Image();
+      img.decoding = 'async';
+      img.src = src;
+      if (img.decode) img.decode().catch(function () {});
+      logos[src] = img;
+    });
+  }
+  if (document.readyState === 'complete') preloadLogos();
+  else window.addEventListener('load', preloadLogos);
+  // In case someone reaches for a star before the page has finished loading.
+  stars.forEach(function (s) {
+    s.addEventListener('pointerenter', preloadLogos, { once: true });
+    s.addEventListener('focus', preloadLogos, { once: true });
+  });
+
+  function showLogo(src) {
+    var ready = logos[src] && logos[src].complete && logos[src].naturalWidth;
+    // Never show the previous company's logo while the next one is still arriving.
+    tipLogo.style.visibility = ready ? '' : 'hidden';
+    if (!ready) tipLogo.onload = function () { tipLogo.style.visibility = ''; tipLogo.onload = null; };
+    tipLogo.src = src;
+  }
+
   function open(star) {
     if (openStar === star) return;
     if (openStar) close();
     openStar = star;
-    tipLogo.src = star.dataset.logo;
+    preloadLogos();
+    showLogo(star.dataset.logo);
     tipName.textContent = star.dataset.name;
     tipTitle.textContent = star.dataset.title;
     tipDates.textContent = star.dataset.dates;
