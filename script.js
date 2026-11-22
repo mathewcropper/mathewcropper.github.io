@@ -479,7 +479,7 @@
       // A long crystalline stem, bristling with snowflake-like ice spikes along its length.
       // It rolls slowly around its long axis as it travels.
       crystal: {
-        speed: [40, 62], amp: [6, 16],
+        speed: [40, 62], amp: [6, 16], heading: true,
         build: function (ship) {
           var g = el('g', {}, ship.g);
           // Snowflake-like spikes along the stem: each a main ray with side branches at 60°,
@@ -576,7 +576,7 @@
 
       // Three little drones in formation. Stars can pick them off one at a time.
       swarm: {
-        speed: [70, 100], amp: [6, 16],
+        speed: [70, 100], amp: [6, 16], heading: true,
         build: function (ship) {
           return [[0, 0], [-14, -9], [-14, 9]].map(function (o, i) {
             var g = el('g', {}, ship.g);
@@ -651,17 +651,71 @@
       return NAMES[Math.floor(Math.random() * NAMES.length)];
     }
 
+    // ----- Routes -----
+    // Each ship enters from a random point on any edge, winds through a few random
+    // waypoints, and leaves by a different edge.
+    var OFF = 60; // how far off screen ships start and finish
+
+    function edgePoint(edge, vw, vh) {
+      var u = rand(0.1, 0.9);
+      if (edge === 0) return { x: -OFF, y: vh * u };       // left
+      if (edge === 1) return { x: vw + OFF, y: vh * u };   // right
+      if (edge === 2) return { x: vw * u, y: -OFF };       // top
+      return { x: vw * u, y: vh + OFF };                   // bottom
+    }
+
+    function makeRoute(vw, vh) {
+      var from = Math.floor(Math.random() * 4);
+      var to = (from + 1 + Math.floor(Math.random() * 3)) % 4; // any other edge
+      var pts = [edgePoint(from, vw, vh)];
+      var n = 1 + Math.floor(Math.random() * 3);              // 1–3 waypoints
+      for (var i = 0; i < n; i++) pts.push({ x: vw * rand(0.12, 0.88), y: vh * rand(0.12, 0.88) });
+      pts.push(edgePoint(to, vw, vh));
+
+      // Smooth curve through the points (Catmull-Rom), sampled into short straight steps
+      // so ships can move along it at a steady speed.
+      var ext = [{ x: 2 * pts[0].x - pts[1].x, y: 2 * pts[0].y - pts[1].y }].concat(pts,
+                [{ x: 2 * pts[pts.length - 1].x - pts[pts.length - 2].x, y: 2 * pts[pts.length - 1].y - pts[pts.length - 2].y }]);
+      var samples = [], len = [0];
+      for (var k = 1; k < ext.length - 2; k++) {
+        var p0 = ext[k - 1], p1 = ext[k], p2 = ext[k + 1], p3 = ext[k + 2];
+        for (var j = 0; j < 40; j++) {
+          var t = j / 40, t2 = t * t, t3 = t2 * t;
+          samples.push({
+            x: 0.5 * (2 * p1.x + (-p0.x + p2.x) * t + (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * t2 + (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * t3),
+            y: 0.5 * (2 * p1.y + (-p0.y + p2.y) * t + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t2 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3)
+          });
+        }
+      }
+      samples.push(pts[pts.length - 1]);
+      for (var m = 1; m < samples.length; m++) {
+        len.push(len[m - 1] + Math.hypot(samples[m].x - samples[m - 1].x, samples[m].y - samples[m - 1].y));
+      }
+      return { pts: samples, len: len, total: len[len.length - 1], i: 0 };
+    }
+
+    // Position and direction of travel at a distance along the route.
+    function along(route, d) {
+      var L = route.len;
+      while (route.i < L.length - 2 && L[route.i + 1] < d) route.i++;
+      var a = route.pts[route.i], b = route.pts[route.i + 1], seg = (L[route.i + 1] - L[route.i]) || 1;
+      var f = Math.min(Math.max((d - L[route.i]) / seg, 0), 1);
+      return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f, dx: (b.x - a.x) / seg, dy: (b.y - a.y) / seg };
+    }
+
     function launch(auto) {
       if (ships.length >= MAX_SHIPS) return false;
       var vw = window.innerWidth, vh = window.innerHeight;
-      var name = pickName(), type = TYPES[name], fromLeft = Math.random() < 0.5;
+      var name = pickName(), type = TYPES[name];
+      var route = makeRoute(vw, vh), start = along(route, 0);
       var ship = {
         type: type, name: name, auto: auto,
         g: el('g', { 'class': 'ufo ufo-' + name }),
-        x: fromLeft ? -50 : vw + 50, dir: fromLeft ? 1 : -1,
-        baseY: vh * rand(0.12, 0.88), amp: rand(type.amp[0], type.amp[1]),
+        route: route, dist: 0, x: start.x, y: start.y,
+        dir: start.dx >= 0 ? 1 : -1, angle: Math.atan2(start.dy, start.dx),
+        amp: rand(type.amp[0], type.amp[1]) * 0.45,          // sideways wobble along the route
         freq: rand(0.6, 1.4), speed: rand(type.speed[0], type.speed[1]) * (touch ? 0.8 : 1),
-        t: 0, shot: null
+        pace: rand(0, 10), t: 0, shot: null
       };
       ship.bodies = type.build(ship);
       ship.bodies.forEach(function (b) { b.alive = true; });
@@ -686,8 +740,14 @@
       return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
     }
 
+    // Where a part of the ship is on screen, allowing for which way the ship is facing.
     function bodyPos(ship, b) {
-      return { x: ship.x + b.ox * ship.dir * SCALE, y: ship.y + b.oy * SCALE };
+      var ox = b.ox * SCALE, oy = b.oy * SCALE;
+      if (ship.type.heading) {
+        var c = Math.cos(ship.angle), s = Math.sin(ship.angle);
+        return { x: ship.x + ox * c - oy * s, y: ship.y + ox * s + oy * c };
+      }
+      return { x: ship.x + ox * ship.dir, y: ship.y + oy };
     }
 
     function finish(ship) {
@@ -702,10 +762,23 @@
       var shot = ship.shot;
 
       if (!shot) {
-        ship.x += ship.dir * ship.speed * dt;
-        ship.y = ship.baseY + Math.sin(ship.t * ship.freq * 2) * ship.amp;
+        // Speed drifts up and down a little, so ships dawdle and dart.
+        var pace = 1 + 0.3 * Math.sin(ship.t * 0.9 + ship.pace) + 0.15 * Math.sin(ship.t * 2.3 + ship.pace * 2);
+        ship.dist += ship.speed * pace * dt;
+        var at = along(ship.route, ship.dist);
+        var wob = Math.sin(ship.t * ship.freq * 2) * ship.amp;
+        ship.x = at.x - at.dy * wob;
+        ship.y = at.y + at.dx * wob;
+        if (Math.abs(at.dx) > 0.15) ship.dir = at.dx > 0 ? 1 : -1;   // keep facing the same way on near-vertical stretches
+        // Turn smoothly towards the direction of travel.
+        var want = Math.atan2(at.dy, at.dx), diff = Math.atan2(Math.sin(want - ship.angle), Math.cos(want - ship.angle));
+        ship.angle += diff * Math.min(1, dt * 4);
       }
-      ship.g.setAttribute('transform', 'translate(' + ship.x.toFixed(1) + ' ' + ship.y.toFixed(1) + ') scale(' + (SCALE * ship.dir) + ' ' + SCALE + ')');
+      if (ship.type.heading) {
+        ship.g.setAttribute('transform', 'translate(' + ship.x.toFixed(1) + ' ' + ship.y.toFixed(1) + ') rotate(' + (ship.angle * 180 / Math.PI).toFixed(1) + ') scale(' + SCALE + ')');
+      } else {
+        ship.g.setAttribute('transform', 'translate(' + ship.x.toFixed(1) + ' ' + ship.y.toFixed(1) + ') scale(' + (SCALE * ship.dir) + ' ' + SCALE + ')');
+      }
       ship.bodies.forEach(function (b) { if (b.alive) ship.type.animate(ship, b); });
 
       if (shot) {
@@ -726,7 +799,7 @@
           ship.shot = null;
           if (!ship.bodies.some(function (b) { return b.alive; })) { finish(ship); return; }
         }
-      } else if (ship.x > 10 && ship.x < vw - 10) {
+      } else if (ship.x > 10 && ship.x < vw - 10 && ship.y > 10 && ship.y < window.innerHeight - 10) {
         // Any company star in range of any part of this ship?
         outer:
         for (var i = 0; i < ship.bodies.length; i++) {
@@ -749,7 +822,7 @@
         }
       }
 
-      if (!ship.shot && ((ship.dir > 0 && ship.x > vw + 60) || (ship.dir < 0 && ship.x < -60))) finish(ship);
+      if (!ship.shot && ship.dist >= ship.route.total) finish(ship);
     }
 
     function frame(now) {
